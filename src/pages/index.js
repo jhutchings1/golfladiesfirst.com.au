@@ -6,9 +6,7 @@ import ProductGrid from '../components/product-grid';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Shop powered by Gatsby and Shopify.</p>
+    <SEO title="Home" />
     <ProductGrid />
   </Layout>
 );

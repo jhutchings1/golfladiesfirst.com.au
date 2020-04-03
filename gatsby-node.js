@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   `);
   // Iterate over all product handles and create a new page using a template
   const products = result.data.allShopifyProduct.nodes;
-  products.forEach(product => {
+  products.forEach((product) => {
     createPage({
       path: `/product/${product.handle}/`,
       component: path.resolve(`./src/templates/ProductPage/index.js`),

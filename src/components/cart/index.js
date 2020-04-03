@@ -12,7 +12,7 @@ const Cart = () => {
     window.open(checkout.webUrl);
   };
 
-  const lineItems = checkout.lineItems.map(lineItem => {
+  const lineItems = checkout.lineItems.map((lineItem) => {
     return <LineItem key={lineItem.id.toString()} lineItem={lineItem} />;
   });
 

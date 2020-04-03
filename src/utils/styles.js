@@ -10,7 +10,7 @@ export const breakpoints = {
   xl: 1200,
 };
 
-export const GlobalStyle = props => (
+export const GlobalStyle = (props) => (
   <Global
     // eslint-disable-next-line react/jsx-props-no-spreading
     {...props}

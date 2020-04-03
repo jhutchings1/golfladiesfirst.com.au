@@ -40,7 +40,7 @@ const ProductGrid = () => {
     `
   );
 
-  const getPrice = price =>
+  const getPrice = (price) =>
     Intl.NumberFormat(undefined, {
       currency: checkout.currencyCode ? checkout.currencyCode : 'EUR',
       minimumFractionDigits: 2,

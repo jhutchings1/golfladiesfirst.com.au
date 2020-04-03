@@ -24,11 +24,11 @@ const ProductForm = ({ product }) => {
   const [available, setAvailable] = useState(productVariant.availableForSale);
 
   const checkAvailability = useCallback(
-    productId => {
-      client.product.fetch(productId).then(fetchedProduct => {
+    (productId) => {
+      client.product.fetch(productId).then((fetchedProduct) => {
         // this checks the currently selected variant for availability
         const result = fetchedProduct.variants.filter(
-          resultVariant => resultVariant.id === productVariant.shopifyId
+          (resultVariant) => resultVariant.id === productVariant.shopifyId
         );
         if (result.length > 0) {
           setAvailable(result[0].available);
@@ -104,10 +104,10 @@ const ProductForm = ({ product }) => {
           <select
             name={name}
             key={id}
-            onBlur={event => handleOptionChange(index, event)}
+            onBlur={(event) => handleOptionChange(index, event)}
             className="form-select"
           >
-            {values.map(value => (
+            {values.map((value) => (
               <option
                 value={value}
                 key={`${name}-${value}`}
