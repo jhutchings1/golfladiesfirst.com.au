@@ -19,6 +19,15 @@ module.exports = {
     description: '',
     author: '',
     siteUrl: 'https://www.golfladiesfirst.com.au',
+    address: 'Shop 2 Royal Bayside, 2 Horton Street, Port Macquarie NSW',
+    hours: 'Monday to Friday 9am – 5pm',
+    phone: [
+      { name: 'Chantale', number: '0431 248 847' },
+      { name: 'Gordon', number: '0401 726 598' },
+    ],
+    email: 'info@golfladiesfirst.com.au',
+    facebook: 'https://www.facebook.com/golfladiesfirst.com.au',
+    instagram: 'https://www.instagram.com/golfladiesfirst',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
