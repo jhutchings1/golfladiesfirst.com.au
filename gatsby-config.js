@@ -30,14 +30,16 @@ module.exports = {
     instagram: 'https://www.instagram.com/golfladiesfirst',
   },
   plugins: [
+    'gatsby-plugin-netlify',
     'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
+    'gatsby-plugin-robots-txt',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-transformer-sharp',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        name: 'images',
-        path: 'src/images',
+        siteUrl: 'https://www.golfladiesfirst.com.au',
       },
     },
     {
@@ -52,8 +54,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Shopify Starter',
-        short_name: 'Shopify Starter',
+        name: 'Golf Ladies First',
+        short_name: 'GLF',
         start_url: '/',
         background_color: fullConfig.theme.colors.indigo['600'],
         theme_color: fullConfig.theme.colors.indigo['600'],
@@ -77,6 +79,13 @@ module.exports = {
       options: {
         tailwind: true,
         purgeOnly: ['src/css/tailwind.css'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: 'src/images',
       },
     },
     {
