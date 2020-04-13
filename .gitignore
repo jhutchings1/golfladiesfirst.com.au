@@ -52,7 +52,6 @@ typings/
 *.tgz
 
 # dotenv environment variables file
-.env
 .env*
 
 # gatsby files
@@ -66,6 +65,7 @@ public
 yarn-error.log
 .pnp/
 .pnp.js
+
 # Yarn Integrity file
 .yarn-integrity
 

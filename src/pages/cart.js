@@ -1,16 +1,19 @@
 import React from 'react';
 
-import Layout from '../components/layout';
-import Cart from '../components/cart';
-import { Container } from '../utils/styles';
+import { Layout, SEO } from '../components';
+import { EmptyCart, Cart } from '../components/cart';
 
-const CartPage = () => (
-  <Layout>
-    <Container>
-      <h1>Cart</h1>
-      <Cart />
-    </Container>
-  </Layout>
-);
+import { useCartItems } from '../hooks';
+
+const CartPage = () => {
+  const lineItems = useCartItems();
+
+  return (
+    <Layout>
+      <SEO title="Cart" />
+      {lineItems.length < 1 ? <EmptyCart /> : <Cart />}
+    </Layout>
+  );
+};
 
 export default CartPage;
