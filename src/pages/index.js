@@ -5,6 +5,7 @@ import {
   SEO,
   CollectionLatest,
   CollectionPromo,
+  BrandsWeLove,
 } from '../components';
 
 import { useGraphQL } from '../hooks';
@@ -19,6 +20,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <CollectionLatest />
       <CollectionPromo />
+      <BrandsWeLove />
     </Layout>
   );
 };
