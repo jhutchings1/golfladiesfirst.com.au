@@ -10,13 +10,7 @@ import {
   Contact,
 } from '../components';
 
-import { useGraphQL } from '../hooks';
-
 const IndexPage = () => {
-  const {
-    allShopifyProduct: { nodes: products },
-  } = useGraphQL();
-
   return (
     <Layout hasHero>
       <SEO title="Home" />
