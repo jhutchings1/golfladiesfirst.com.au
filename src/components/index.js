@@ -5,6 +5,7 @@ export * from './collection-promo';
 export * from './layout';
 export * from './link';
 export * from './option-picker';
+export * from './our-story';
 export * from './seo';
 export * from './thumbnail';
 export * from './tile';
