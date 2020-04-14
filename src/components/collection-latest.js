@@ -1,23 +1,16 @@
 import React from 'react';
 
-import {
-  Layout,
-  SEO,
-  CollectionLatest,
-} from '../components';
-
 import { useGraphQL } from '../hooks';
+import { Tile } from './tile';
 
-const IndexPage = () => {
+export function CollectionLatest() {
   const {
     allShopifyProduct: { nodes: products },
   } = useGraphQL();
-
   return (
-    <Layout hasHero>
-      <SEO title="Home" />
-      <CollectionLatest />
-      <div className="relative grid max-w-lg gap-5 pt-16 pb-20 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none lg:pt-24 lg:pb-28">
+    <article className="relative w-full max-w-lg pt-16 pb-20 mx-auto sm:max-w-none lg:pt-24 lg:pb-28">
+      <h2 className="h2">Latest ladies and mens shirts</h2>
+      <div className="grid w-full grid-cols-2 gap-5 mt-12 sm:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <Tile
             key={product.handle}
@@ -28,8 +21,6 @@ const IndexPage = () => {
           />
         ))}
       </div>
-    </Layout>
+    </article>
   );
-};
-
-export default IndexPage;
+}
