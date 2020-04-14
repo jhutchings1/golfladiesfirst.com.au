@@ -28,34 +28,32 @@ export function OurStory() {
             </div>
             <div className="grid gap-2 mt-5">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Expedita, dolore distinctio saepe at, accusantium, tempora
-                quibusdam ducimus iusto eum molestiae officia ex. Culpa quidem
-                molestias tenetur ducimus placeat. Recusandae, harum!
+                Golf Ladies First — A one-stop ladies’ golf shop where you can
+                be covered in golf from head to toe by a friendly, welcoming,
+                family-based team.
               </p>
               <p>
-                Natus inventore rerum expedita laborum animi omnis molestiae
-                doloremque magnam necessitatibus dolorem, aspernatur repellat
-                officia illo molestias veritatis sapiente, sint architecto
-                praesentium unde id minima tempore neque nulla. Cumque, saepe?
+                Based in Port Macquarie, N.S.W., Golf Ladies First is the
+                brainchild of P.G.A. Professionals Gordon and Chantale McCallum.
+                With over 30 years’ experience in Scotland, Germany and
+                Australia they felt the need to give women in a male-dominated
+                environment a friendly, comfortable atmosphere in which to
+                involve themselves in Golf and the Pro Shop.
               </p>
               <p>
-                Eaque sit placeat earum soluta, cupiditate vero iste dolores
-                optio dolore quod esse saepe sapiente nam quibusdam ullam
-                minima, id quidem architecto, explicabo perferendis ducimus
-                suscipit. Excepturi aut magni unde.
+                To give Women Golfers the opportunity to ask questions, discuss
+                their thoughts and experiences from the golf course with a team
+                willing to be involved and understanding their needs.
               </p>
               <p>
-                Dolorem, officia est. Quia recusandae rem fugiat tenetur aliquid
-                earum est corrupti, cupiditate porro ex accusantium voluptatum
-                consequatur, illo itaque! Laboriosam error nemo minima illo
-                mollitia officiis veritatis laudantium modi!
+                Their goals are to get more women playing golf on a regular
+                basis, for women to enjoy golf on and around the golf course; to
+                improve their game.
               </p>
               <p>
-                Hic quidem aliquam sunt harum ratione velit voluptate id,
-                explicabo, ad eaque quos cum facilis beatae numquam quam labore
-                placeat modi deserunt temporibus? Tempore, iure id. Ducimus
-                dolore quibusdam quisquam?
+                Lastly and most importantly for women to look outstanding and
+                play impressive golf — looking and feeling great is the key to
+                great golf!
               </p>
             </div>
           </div>
