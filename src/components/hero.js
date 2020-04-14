@@ -14,14 +14,14 @@ const Hero = () => {
   } = useGraphQL();
 
   return (
-    <article className="flex">
-      <div className="px-4 pt-6 pb-12 sm:px-6 lg:px-8">
-        <div className="w-64">
-          <img src={logo} alt="" className="w-full" />
+    <article className="md:flex">
+      <div className="px-4 pt-6 pb-12 md:px-6 lg:px-8">
+        <div className="md:w-64">
+          <img src={logo} alt="" className="w-full max-w-xs mx-auto" />
           <h1 className="mt-12 text-2xl font-bold leading-tight uppercase">
             Welcome to {title}
           </h1>
-          <div aria-hidden className="flex w-56 h-3 mt-6 overflow-hidden">
+          <div aria-hidden className="flex w-10/12 h-3 mt-6 overflow-hidden">
             <div className="w-1/2 bg-brand-pink">
               <div className="h-full transform -skew-x-12 bg-brand-pink" />
             </div>
@@ -37,13 +37,13 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col flex-1 text-white bg-green-600">
+      <div className="flex flex-col flex-1 text-white">
         <GatsbyImage
           fluid={heroImage.childImageSharp.fluid}
-          className="flex-1 h-full"
+          className="flex-1 hidden h-full md:block"
         />
-        <div className="flex mt-auto overflow-hidden">
-          <div className="w-1/2 bg-brand-pink">
+        <div className="mt-auto overflow-hidden md:flex">
+          <div className="w-full md:w-1/2 bg-brand-pink">
             <div className="flex items-center justify-center py-12 transform -skew-x-12 bg-brand-pink">
               <Link
                 to="/"
@@ -53,7 +53,7 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="w-1/2 bg-brand-blue">
+          <div className="w-full md:w-1/2 bg-brand-blue">
             <div className="flex items-center justify-center py-12 transform -skew-x-12 bg-brand-blue">
               <Link
                 to="/"
