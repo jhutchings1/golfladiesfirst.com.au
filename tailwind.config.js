@@ -23,7 +23,7 @@ module.exports = {
         },
         brand: {
           pink: '#e2006d',
-          blue: '#273b89',
+          blue: '#0c153c',
         },
       },
     },
