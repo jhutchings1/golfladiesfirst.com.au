@@ -4,72 +4,19 @@ import { Input, TextArea, CheckBox } from './form-elements';
 
 export function Contact() {
   return (
-    <div className="px-4 py-16 overflow-hidden bg-white sm:px-6 lg:px-8 lg:py-24">
-      <div className="relative max-w-xl mx-auto">
-        <svg
-          className="absolute transform translate-x-1/2 left-full"
-          width="404"
-          height="404"
-          fill="none"
-          viewBox="0 0 404 404"
-        >
-          <defs>
-            <pattern
-              id="85737c0e-0916-41d7-917f-596dc7edfa27"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect
-                x="0"
-                y="0"
-                width="4"
-                height="4"
-                className="text-gray-200"
-                fill="currentColor"
-              />
-            </pattern>
-          </defs>
-          <rect
-            width="404"
-            height="404"
-            fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"
-          />
-        </svg>
-        <svg
-          className="absolute bottom-0 transform -translate-x-1/2 right-full"
-          width="404"
-          height="404"
-          fill="none"
-          viewBox="0 0 404 404"
-        >
-          <defs>
-            <pattern
-              id="85737c0e-0916-41d7-917f-596dc7edfa27"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect
-                x="0"
-                y="0"
-                width="4"
-                height="4"
-                className="text-gray-200"
-                fill="currentColor"
-              />
-            </pattern>
-          </defs>
-          <rect
-            width="404"
-            height="404"
-            fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)"
-          />
-        </svg>
+    <article className="relative overflow-hidden bg-white">
+      <div
+        aria-hidden
+        className="absolute inset-0 flex w-1/3 w-full h-full overflow-hidden"
+      >
+        <div className="w-1/2 bg-brand-pink">
+          <div className="h-full transform -skew-x-12 bg-brand-pink" />
+        </div>
+        <div className="w-1/2 bg-brand-blue">
+          <div className="h-full transform -skew-x-12 bg-brand-blue" />
+        </div>
+      </div>
+      <div className="relative max-w-xl px-4 py-12 mx-auto lg:my-12 bg-gray-50 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="h2">Get in touch with our team</h2>
         </div>
@@ -141,6 +88,6 @@ export function Contact() {
           </form>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
