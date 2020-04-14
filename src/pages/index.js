@@ -7,6 +7,7 @@ import {
   CollectionPromo,
   BrandsWeLove,
   OurStory,
+  Contact,
 } from '../components';
 
 import { useGraphQL } from '../hooks';
@@ -23,6 +24,7 @@ const IndexPage = () => {
       <CollectionPromo />
       <BrandsWeLove />
       <OurStory />
+      <Contact />
     </Layout>
   );
 };
