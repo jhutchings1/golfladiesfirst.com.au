@@ -1,5 +1,6 @@
 export * from './alert';
 export * from './collection-latest';
+export * from './collection-promo';
 export * from './layout';
 export * from './link';
 export * from './option-picker';
