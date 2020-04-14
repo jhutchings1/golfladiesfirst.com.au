@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import PropTypes from 'prop-types';
 import React, { createContext, useState, useEffect } from 'react';
 import Client from 'shopify-buy';
