@@ -7,7 +7,7 @@ import Footer from './footer';
 
 const Layout = ({ children, hasHero }) => {
   return (
-    <div className="flex flex-col min-h-screen font-sans antialiased text-gray-700 bg-gray-50">
+    <div className="flex flex-col min-h-screen font-sans antialiased text-gray-700 bg-white">
       <Header />
       {hasHero ? <Hero /> : null}
       <main className="flex-1 w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
