@@ -8,6 +8,7 @@ import {
   BrandsWeLove,
   OurStory,
   Contact,
+  NewsletterSignup,
 } from '../components';
 
 const IndexPage = () => {
@@ -19,6 +20,7 @@ const IndexPage = () => {
       <BrandsWeLove />
       <OurStory />
       <Contact />
+      <NewsletterSignup />
     </Layout>
   );
 };
