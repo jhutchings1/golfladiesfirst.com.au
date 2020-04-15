@@ -5,7 +5,7 @@ import { Tile } from './tile';
 
 export function CollectionLatest() {
   const {
-    allShopifyProduct: { nodes: products },
+    allLatestShopifyProduct: { nodes: products },
   } = useGraphQL();
   return (
     <article className="relative w-full max-w-lg pt-16 pb-20 mx-auto sm:max-w-none lg:pt-24 lg:pb-28">

@@ -46,7 +46,34 @@ export function useGraphQL() {
             }
           }
         }
-        allShopifyProduct {
+        allShopifyProduct(sort: { fields: updatedAt, order: DESC }) {
+          nodes {
+            title
+            handle
+            images {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 512) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+            priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            variants {
+              shopifyId
+            }
+          }
+        }
+        allLatestShopifyProduct: allShopifyProduct(
+          sort: { fields: updatedAt, order: DESC }
+          limit: 4
+        ) {
           nodes {
             title
             handle
