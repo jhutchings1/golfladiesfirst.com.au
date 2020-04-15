@@ -107,6 +107,17 @@ module.exports = {
         // See: https://help.shopify.com/api/custom-storefronts/storefront-api/getting-started#authentication
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 
+        // Set the API version you want to use. For a list of available API versions,
+        // see: https://help.shopify.com/en/api/storefront-api/reference/queryroot
+        // Defaults to 2019-07
+        apiVersion: '2020-04',
+
+        // Set verbose to true to display a verbose output on `npm run develop`
+        // or `npm run build`. This prints which nodes are being fetched and how
+        // much time was required to fetch and process the data.
+        // Defaults to true.
+        verbose: true,
+
         // Number of records to fetch on each request when building the cache
         // at startup. If your application encounters timeout errors during
         // startup, try decreasing this number.
