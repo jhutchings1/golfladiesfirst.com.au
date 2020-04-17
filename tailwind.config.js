@@ -8,6 +8,7 @@ module.exports = {
       square: [1, 1],
       '16/9': [16, 9],
       '4/3': [4, 3],
+      '3/4': [3, 4],
     },
     extend: {
       colors: {

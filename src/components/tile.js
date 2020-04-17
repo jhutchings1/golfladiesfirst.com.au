@@ -14,7 +14,7 @@ const Tile = ({ title, slug, price, image }) => {
 
   return (
     <Link to={`/products/${slug}`} className="flex flex-col overflow-hidden">
-      <div className="relative h-0 overflow-hidden aspect-ratio-square">
+      <div className="relative h-0 overflow-hidden aspect-ratio-3/4">
         <div className="absolute inset-0 w-full h-full">
           <Image fluid={imageSrc} className="h-full" />
         </div>
