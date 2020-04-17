@@ -11,7 +11,7 @@ const Tile = ({ title, slug, price, image }) => {
   const imageSrc = image || data.placeholderImage.childImageSharp.fluid;
 
   return (
-    <Link to={`/product/${slug}`} className="flex flex-col overflow-hidden">
+    <Link to={`/products/${slug}`} className="flex flex-col overflow-hidden">
       <div className="relative h-0 overflow-hidden aspect-ratio-square">
         <div className="absolute inset-0 w-full h-full">
           <Image fluid={imageSrc} className="h-full" />
