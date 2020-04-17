@@ -4,20 +4,28 @@ import Image from 'gatsby-image';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { useAddItemToCart } from '../hooks';
+import { useAddItemToCart, useGraphQL } from '../hooks';
 import {
   prepareVariantsWithOptions,
   prepareVariantsImages,
 } from '../utilities';
-import { Layout, SEO, Alert, Thumbnail, OptionPicker } from '../components';
+import {
+  Layout,
+  SEO,
+  Alert,
+  Thumbnail,
+  // OptionPicker
+} from '../components';
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
+  const { placeholderImage } = useGraphQL();
   // const colors = product.options.find(
   //   (option) => option.name.toLowerCase() === 'color'
   // ).values;
-  const sizes = product.options.find(
-    (option) => option.name.toLowerCase() === 'size'
-  ).values;
+
+  // const sizes = product.options.find(
+  //   (option) => option.name.toLowerCase() === 'size'
+  // ).values;
 
   const variants = useMemo(() => prepareVariantsWithOptions(product.variants), [
     product.variants,
@@ -77,7 +85,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
           )}
           <div>
             <Image
-              fluid={variant.image.localFile.childImageSharp.fluid}
+              fluid={
+                variant.image
+                  ? variant.image.localFile.childImageSharp.fluid
+                  : placeholderImage.childImageSharp.fluid
+              }
               className="overflow-hidden rounded-md shadow"
             />
             {gallery}
@@ -98,12 +110,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 selected={color}
                 onChange={(event) => setColor(event.target.value)}
               /> */}
-              <OptionPicker
-                name="Size"
-                options={sizes}
-                selected={size}
-                onChange={(event) => setSize(event.target.value)}
-              />
+              {/* {sizes && (
+                <OptionPicker
+                  name="Size"
+                  options={sizes}
+                  selected={size}
+                  onChange={(event) => setSize(event.target.value)}
+                />
+              )} */}
             </div>
             <div className="mt-6">
               <button
