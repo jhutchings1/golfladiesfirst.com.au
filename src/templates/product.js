@@ -1,76 +1,47 @@
-/* eslint-disable no-shadow */
-import React, { useState, useEffect, useMemo } from 'react';
-import Image from 'gatsby-image';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import { useInView } from 'react-intersection-observer';
+import Spinner from 'react-svg-spinner';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
 import { useAddItemToCart, useGraphQL } from '../hooks';
-import {
-  prepareVariantsWithOptions,
-  prepareVariantsImages,
-} from '../utilities';
-import {
-  Layout,
-  SEO,
-  Alert,
-  Thumbnail,
-  // OptionPicker
-} from '../components';
+import { prepareVariantsWithOptions } from '../utilities';
+import { Layout, SEO, Alert } from '../components';
+import tailwindConfig from '../../tailwind.config.js';
+
+const fullConfig = resolveConfig(tailwindConfig);
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
-  const { placeholderImage } = useGraphQL();
-  // const colors = product.options.find(
-  //   (option) => option.name.toLowerCase() === 'color'
-  // ).values;
+  const [imgLoaded, setImgLoaded] = useState(false);
 
-  // const sizes = product.options.find(
-  //   (option) => option.name.toLowerCase() === 'size'
-  // ).values;
+  const { placeholderImage } = useGraphQL();
+
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
+  const imgRef = useRef(null);
 
   const variants = useMemo(() => prepareVariantsWithOptions(product.variants), [
     product.variants,
   ]);
-  const images = useMemo(() => prepareVariantsImages(variants, 'color'), [
-    variants,
-  ]);
-
-  if (images.length < 1) {
-    throw new Error('Must have at least one product image!');
-  }
 
   const addItemToCart = useAddItemToCart();
-  const [variant, setVariant] = useState(variants[0]);
-  const [color, setColor] = useState(variant.color);
-  const [size, setSize] = useState(variant.size);
+  const variant = variants[0];
   const [addedToCartMessage, setAddedToCartMessage] = useState(null);
-
-  useEffect(() => {
-    const newVariant = variants.find((variant) => {
-      return variant.size === size && variant.color === color;
-    });
-
-    if (variant.shopifyId !== newVariant.shopifyId) {
-      setVariant(newVariant);
-    }
-  }, [size, color, variants, variant.shopifyId]);
-
-  const gallery =
-    images.length > 1 ? (
-      <div className="grid grid-cols-6 gap-2">
-        {images.map((image) => (
-          <Thumbnail
-            key={image.color}
-            src={image.src}
-            onClick={() => setColor(image.color)}
-          />
-        ))}
-      </div>
-    ) : null;
 
   function handleAddToCart() {
     addItemToCart(variant.shopifyId, 1);
     setAddedToCartMessage('🛒 Added to your cart!');
   }
+
+  useEffect(() => {
+    if (inView) {
+      imgRef.current.src = imgRef.current.dataset.src;
+    }
+  }, [inView]);
 
   return (
     <Layout>
@@ -83,16 +54,29 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               dismiss={() => setAddedToCartMessage(null)}
             />
           )}
-          <div>
-            <Image
-              fluid={
+          <div ref={ref} className="relative h-0 aspect-ratio-square">
+            <img
+              ref={imgRef}
+              data-src={
                 variant.image
-                  ? variant.image.localFile.childImageSharp.fluid
-                  : placeholderImage.childImageSharp.fluid
+                  ? variant.image.originalSrc
+                  : placeholderImage.publicURL
               }
-              className="overflow-hidden rounded-md shadow"
+              onLoad={() => setImgLoaded(true)}
+              alt={variant?.image?.altText && variant.image.altText}
+              width={592}
+              height={592}
+              className="absolute inset-0 object-cover h-full overflow-hidden rounded-md shadow"
             />
-            {gallery}
+            {!imgLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
+                <Spinner
+                  size={fullConfig.theme.spacing[8]}
+                  color={fullConfig.theme.colors.brand.pink}
+                  thickness={3}
+                />
+              </div>
+            )}
           </div>
           <div className="flex flex-col mt-16">
             <h1 className="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9">
@@ -102,23 +86,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
               className="mt-4 text-base leading-6 text-gray-500 sm:mt-3"
             />
-            <div className="grid grid-cols-2">
-              {/* <OptionPicker
-                key="Color"
-                name="Color"
-                options={colors}
-                selected={color}
-                onChange={(event) => setColor(event.target.value)}
-              /> */}
-              {/* {sizes && (
-                <OptionPicker
-                  name="Size"
-                  options={sizes}
-                  selected={size}
-                  onChange={(event) => setSize(event.target.value)}
-                />
-              )} */}
-            </div>
             <div className="mt-6">
               <button
                 onClick={handleAddToCart}
@@ -161,13 +128,8 @@ export const ProductPageQuery = graphql`
           value
         }
         image {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 446) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
+          altText
+          originalSrc
         }
       }
     }

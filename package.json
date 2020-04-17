@@ -32,6 +32,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.9.0",
+    "react-intersection-observer": "^8.26.1",
+    "react-svg-spinner": "^1.0.4",
     "shopify-buy": "^2.9.3",
     "tailwindcss": "^1.2.0",
     "tailwindcss-aspect-ratio": "^3.0.0",

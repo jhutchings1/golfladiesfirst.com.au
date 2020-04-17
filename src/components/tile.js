@@ -1,23 +1,60 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import Image from 'gatsby-image';
 import { Link } from 'gatsby';
+import { useInView } from 'react-intersection-observer';
+import Spinner from 'react-svg-spinner';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
+import tailwindConfig from '../../tailwind.config.js';
 import { useGraphQL } from '../hooks';
 
-const Tile = ({ title, slug, price, image }) => {
-  const data = useGraphQL();
+const fullConfig = resolveConfig(tailwindConfig);
 
-  const imageSrc = image
-    ? image.localFile.childImageSharp.fluid
-    : data.placeholderImage.childImageSharp.fluid;
+const Tile = ({ title, slug, price, image }) => {
+  const { placeholderImage } = useGraphQL();
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
+  const imgRef = useRef(null);
+  const imageSrc = image ? image.originalSrc : placeholderImage.publicURL;
+
+  useEffect(() => {
+    if (inView) {
+      imgRef.current.src = imgRef.current.dataset.src;
+    }
+  }, [inView]);
 
   return (
-    <Link to={`/products/${slug}`} className="flex flex-col overflow-hidden">
+    <Link
+      ref={ref}
+      to={`/products/${slug}`}
+      className="flex flex-col overflow-hidden"
+    >
       <div className="relative h-0 overflow-hidden aspect-ratio-3/4">
-        <div className="absolute inset-0 w-full h-full">
-          <Image fluid={imageSrc} className="h-full" />
+        <div className="absolute inset-0 flex justify-center w-full h-full">
+          <img
+            ref={imgRef}
+            data-src={imageSrc}
+            onLoad={() => setImgLoaded(true)}
+            alt={imageSrc.altText && imageSrc.altText}
+            width={289}
+            height={385}
+            className="object-cover h-full"
+          />
         </div>
+        {!imgLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
+            <Spinner
+              size={fullConfig.theme.spacing[8]}
+              color={fullConfig.theme.colors.brand.pink}
+              thickness={3}
+            />
+          </div>
+        )}
       </div>
       <div className="flex flex-col justify-between flex-1 p-6 bg-white">
         <div className="flex-1">
