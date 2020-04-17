@@ -8,7 +8,9 @@ import { useGraphQL } from '../hooks';
 const Tile = ({ title, slug, price, image }) => {
   const data = useGraphQL();
 
-  const imageSrc = image || data.placeholderImage.childImageSharp.fluid;
+  const imageSrc = image
+    ? image.localFile.childImageSharp.fluid
+    : data.placeholderImage.childImageSharp.fluid;
 
   return (
     <Link to={`/products/${slug}`} className="flex flex-col overflow-hidden">
