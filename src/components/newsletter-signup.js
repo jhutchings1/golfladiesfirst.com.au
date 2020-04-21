@@ -23,7 +23,7 @@ export function NewsletterSignup() {
               </label>
               <button
                 type="button"
-                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-600 border border-transparent hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700"
+                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900"
               >
                 <span className="">Join</span>
               </button>
