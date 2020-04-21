@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { navigate } from 'gatsby';
 
 import { Input, TextArea, CheckBox } from './form-elements';
+import { encode } from '../utilities';
 
 export function Contact() {
+  const [state, setState] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone_number: '',
+    subject: '',
+    message: '',
+  });
+
+  function handleChange(e) {
+    setState({ ...state, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error));
+  }
+
   return (
     <article className="relative overflow-hidden bg-white">
       <div
@@ -22,41 +52,54 @@ export function Contact() {
         </div>
         <div className="mt-12">
           <form
-            action="#"
+            action="/success/"
+            data-netlify="true"
             method="POST"
+            name="contact-form"
+            onSubmit={handleSubmit}
             className="grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8"
           >
-            <Input name="first_name" label="First name" />
-            <Input name="last_name" label="Last name" />
-            <Input name="email" label="Email" type="email" isFullWidth />
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="phone_number"
-                className="block text-sm font-medium leading-5 text-gray-700"
-              >
-                Phone Number
-              </label>
-              <div className="relative mt-1 rounded-md shadow-sm">
-                <div className="absolute inset-y-0 left-0 flex items-center">
-                  <select
-                    aria-label="Country"
-                    className="h-full py-0 pl-4 pr-8 text-gray-500 transition duration-150 ease-in-out bg-transparent border-transparent form-select"
-                  >
-                    <option>AU</option>
-                    <option>US</option>
-                    <option>CA</option>
-                    <option>EU</option>
-                  </select>
-                </div>
-                <input
-                  id="phone_number"
-                  className="block w-full px-4 py-3 pl-20 transition duration-150 ease-in-out form-input"
-                  placeholder="+61 400 000 000"
-                />
-              </div>
-            </div>
-            <Input name="subject" label="Subject" isFullWidth />
-            <TextArea name="message" label="Message" />
+            <Input
+              name="first_name"
+              label="First name"
+              value={state.first_name}
+              handleChange={handleChange}
+            />
+            <Input
+              name="last_name"
+              label="Last name"
+              value={state.last_name}
+              handleChange={handleChange}
+            />
+            <Input
+              name="email"
+              label="Email"
+              type="email"
+              isFullWidth
+              value={state.email}
+              handleChange={handleChange}
+            />
+            <Input
+              name="phone_number"
+              label="Phone Number"
+              type="tel"
+              isFullWidth
+              value={state.phone_number}
+              handleChange={handleChange}
+            />
+            <Input
+              name="subject"
+              label="Subject"
+              isFullWidth
+              value={state.subject}
+              handleChange={handleChange}
+            />
+            <TextArea
+              name="message"
+              label="Message"
+              value={state.message}
+              handleChange={handleChange}
+            />
             <div className="sm:col-span-2">
               <div className="flex items-start">
                 <CheckBox />
@@ -76,10 +119,10 @@ export function Contact() {
               </div>
             </div>
             <div className="sm:col-span-2">
-              <span className="inline-flex w-full rounded-md shadow-sm">
+              <span className="inline-flex w-full shadow-sm">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-600 border border-transparent rounded-md hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900"
                 >
                   Submit
                 </button>

@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function Input({ name, label, type = 'text', isFullWidth }) {
+export function Input({
+  name,
+  label,
+  type = 'text',
+  isFullWidth,
+  value,
+  handleChange,
+}) {
   return (
     <div className={isFullWidth ? 'sm:col-span-2' : ''}>
       <label
@@ -10,12 +17,14 @@ export function Input({ name, label, type = 'text', isFullWidth }) {
       >
         {label}
       </label>
-      <div className="relative mt-1 rounded-md shadow-sm">
+      <div className="relative mt-1 shadow-sm">
         <input
           id={name}
           name={name}
           type={type}
-          className="block w-full px-4 py-3 transition duration-150 ease-in-out form-input"
+          value={value}
+          onChange={handleChange}
+          className="block w-full px-4 py-3 transition duration-150 ease-in-out rounded-none form-input"
         />
       </div>
     </div>
@@ -23,8 +32,10 @@ export function Input({ name, label, type = 'text', isFullWidth }) {
 }
 
 Input.propTypes = {
+  handleChange: PropTypes.func.isRequired,
   isFullWidth: PropTypes.bool,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
+  value: PropTypes.PropTypes.string.isRequired,
 };
