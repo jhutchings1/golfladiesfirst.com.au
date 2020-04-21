@@ -25,7 +25,7 @@ export function TextArea({ name, label, rows = 4, value, handleChange }) {
 }
 
 TextArea.propTypes = {
-  handleChange: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   rows: PropTypes.number,
