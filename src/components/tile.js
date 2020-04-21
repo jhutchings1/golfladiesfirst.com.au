@@ -29,21 +29,15 @@ const Tile = ({ title, slug, price, image }) => {
   }, [inView]);
 
   return (
-    <Link
-      ref={ref}
-      to={`/products/${slug}`}
-      className="flex flex-col flex-shrink-0 h-full overflow-hidden"
-    >
-      <div className="relative h-0 overflow-hidden aspect-ratio-3/4">
-        <div className="absolute inset-0 flex justify-center w-full h-full">
-          <img
-            ref={imgRef}
-            data-src={imageSrc}
-            onLoad={() => setImgLoaded(true)}
-            alt={imageSrc.altText && imageSrc.altText}
-            className="object-contain h-full"
-          />
-        </div>
+    <Link ref={ref} to={`/products/${slug}`} className="flex flex-col">
+      <div className="relative h-64">
+        <img
+          ref={imgRef}
+          data-src={imageSrc}
+          onLoad={() => setImgLoaded(true)}
+          alt={imageSrc.altText && imageSrc.altText}
+          className="object-contain w-full h-full"
+        />
         {!imgLoaded && (
           <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
             <Spinner
@@ -54,16 +48,12 @@ const Tile = ({ title, slug, price, image }) => {
           </div>
         )}
       </div>
-      <div className="flex flex-col justify-between flex-1 p-6 bg-white">
-        <div className="flex-1">
-          <h3 className="mt-2 leading-7">{title}</h3>
-          <p className="mt-3 text-base leading-6 text-gray-500">
-            Starting from:{' '}
-            <span className="font-bold text-brand-pink">
-              ${price.toFixed(2)}
-            </span>
-          </p>
-        </div>
+      <div className="p-6 bg-white">
+        <h3 className="mt-2">{title}</h3>
+        <p className="mt-3 text-base leading-6 text-gray-500">
+          Starting from:{' '}
+          <span className="font-bold text-brand-pink">${price.toFixed(2)}</span>
+        </p>
       </div>
     </Link>
   );

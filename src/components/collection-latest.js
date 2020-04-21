@@ -1,23 +1,36 @@
 import React, { useState } from 'react';
 import Carousel from 'nuka-carousel';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
-import { useGraphQL } from '../hooks';
+import { useGraphQL, useMediaQuery } from '../hooks';
+import tailwindConfig from '../../tailwind.config.js';
 import { Tile } from './tile';
 
 export function CollectionLatest() {
   const {
     latestSkirtsAndSkortsCollection: { nodes: products },
   } = useGraphQL();
+
   const [index, setIndex] = useState(0);
+
+  const fullConfig = resolveConfig(tailwindConfig);
+
+  const screenSize = useMediaQuery(
+    `(min-width: ${fullConfig.theme.screens.lg})`,
+    4,
+    2
+  );
+
   return (
     <article className="relative w-full max-w-lg pt-16 pb-20 mx-auto sm:max-w-none lg:pt-24 lg:pb-28">
       <h2 className="h2">Latest ladies and mens shirts</h2>
       <Carousel
         slideIndex={index}
         afterSlide={(slideIndex) => setIndex(slideIndex)}
-        slidesToShow={4}
+        slidesToShow={screenSize}
         withoutControls
         wrapAround
+        heightMode="max"
         className="relative flex w-full mt-12"
       >
         {products.map((product) => (
@@ -34,7 +47,7 @@ export function CollectionLatest() {
         <button
           type="button"
           onClick={() => setIndex(index - 1)}
-          className="px-4 py-2 text-white rounded-md pointer-events-auto bg-brand-pink"
+          className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
         >
           Prev
         </button>
@@ -43,7 +56,7 @@ export function CollectionLatest() {
         <button
           type="button"
           onClick={() => setIndex(index + 1)}
-          className="px-4 py-2 text-white rounded-md pointer-events-auto bg-brand-pink"
+          className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
         >
           Next
         </button>
