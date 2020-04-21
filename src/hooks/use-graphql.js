@@ -16,6 +16,14 @@ export function useGraphQL() {
             title
             description
             author
+            address
+            hours
+            email
+            phone {
+              name
+              numberDisplay
+              numberFormatted
+            }
           }
         }
         heroImage: file(relativePath: { eq: "hero.jpg" }) {

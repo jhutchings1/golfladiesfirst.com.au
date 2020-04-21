@@ -24,11 +24,13 @@ module.exports = {
     phone: [
       {
         name: 'Chantale',
-        number: '0431 248 847',
+        numberDisplay: '0431 248 847',
+        numberFormatted: '0431248847',
       },
       {
         name: 'Gordon',
-        number: '0401 726 598',
+        numberDisplay: '0401 726 598',
+        numberFormatted: '0401726598',
       },
     ],
     email: 'info@golfladiesfirst.com.au',
