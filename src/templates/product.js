@@ -63,7 +63,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   : placeholderImage.publicURL
               }
               onLoad={() => setImgLoaded(true)}
-              alt={variant?.image?.altText && variant.image.altText}
+              alt={variant?.image?.altText ? variant.image.altText : ''}
               width={592}
               height={592}
               className="absolute inset-0 object-cover h-full overflow-hidden rounded-md shadow"

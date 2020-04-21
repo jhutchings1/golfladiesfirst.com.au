@@ -35,7 +35,7 @@ const Tile = ({ title, slug, price, image }) => {
           ref={imgRef}
           data-src={imageSrc}
           onLoad={() => setImgLoaded(true)}
-          alt={imageSrc.altText && imageSrc.altText}
+          alt={imageSrc.altText ? imageSrc.altText : ''}
           className="object-contain w-full h-full"
         />
         {!imgLoaded && (
