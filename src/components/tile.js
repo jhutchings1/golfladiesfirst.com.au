@@ -32,7 +32,7 @@ const Tile = ({ title, slug, price, image }) => {
     <Link
       ref={ref}
       to={`/products/${slug}`}
-      className="flex flex-col overflow-hidden"
+      className="flex flex-col flex-shrink-0 h-full overflow-hidden"
     >
       <div className="relative h-0 overflow-hidden aspect-ratio-3/4">
         <div className="absolute inset-0 flex justify-center w-full h-full">
@@ -41,9 +41,7 @@ const Tile = ({ title, slug, price, image }) => {
             data-src={imageSrc}
             onLoad={() => setImgLoaded(true)}
             alt={imageSrc.altText && imageSrc.altText}
-            width={289}
-            height={385}
-            className="object-cover h-full"
+            className="object-contain h-full"
           />
         </div>
         {!imgLoaded && (

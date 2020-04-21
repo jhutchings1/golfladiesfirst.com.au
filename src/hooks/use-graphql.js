@@ -56,9 +56,13 @@ export function useGraphQL() {
             }
           }
         }
-        allLatestShopifyProduct: allShopifyProduct(
+        latestSkirtsAndSkortsCollection: allShopifyProduct(
           sort: { fields: updatedAt, order: DESC }
-          limit: 4
+          limit: 8
+          filter: {
+            availableForSale: { eq: true }
+            variants: { elemMatch: { availableForSale: { eq: true } } }
+          }
         ) {
           nodes {
             title
