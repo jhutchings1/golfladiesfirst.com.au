@@ -4,7 +4,8 @@
 
 ## Todo
 
-- [ ] Swap out environment variables with GLF credentials
+- [x] Swap out environment variables with GLF Shopify credentials
 - [ ] Set up Ladies and Mens sections in the Shopify backend (using tags?)
 - [ ] Set up newsletter section
-- [ ] Set up Instagram section
+- [ ] Swap out environment variables with GLF Instagram credentials
+- [x] Set up Instagram section

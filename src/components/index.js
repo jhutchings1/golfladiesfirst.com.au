@@ -3,6 +3,7 @@ export * from './brands-we-love';
 export * from './collection-latest';
 export * from './collection-promo';
 export * from './contact';
+export * from './instagram-feed';
 export * from './layout';
 export * from './link';
 export * from './logo';

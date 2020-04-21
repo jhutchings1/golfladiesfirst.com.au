@@ -9,6 +9,7 @@ import {
   OurStory,
   Contact,
   NewsletterSignup,
+  InstagramFeed,
 } from '../components';
 
 const IndexPage = () => {
@@ -21,6 +22,7 @@ const IndexPage = () => {
       <OurStory />
       <Contact />
       <NewsletterSignup />
+      <InstagramFeed />
     </Layout>
   );
 };
