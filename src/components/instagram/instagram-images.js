@@ -6,8 +6,6 @@ import { InstagramImage } from './instagram-image';
 export function InstagramImages({ imagesToShow = 6 }) {
   const [data, setData] = useState(Array(imagesToShow).fill({}));
 
-  console.log(data);
-
   useEffect(() => {
     async function fetchInstagramPosts() {
       const res = await fetch(
