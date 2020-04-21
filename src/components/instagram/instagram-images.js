@@ -22,9 +22,7 @@ export function InstagramImages({ imagesToShow = 6 }) {
     fetchInstagramPosts();
   }, [imagesToShow]);
 
-  return data.map((item) => {
-    return <InstagramImage key={item.id} item={item} />;
-  });
+  return data.map((item) => <InstagramImage key={item.id} item={item} />);
 }
 
 InstagramImages.propTypes = {
