@@ -22,6 +22,7 @@ module.exports = {
           '50': 'hsla(0, 100%, 100%, 0.50)',
           '75': 'hsla(0, 100%, 100%, 0.75)',
         },
+        black: '#2c2c2c',
         brand: {
           pink: '#e2006d',
           blue: '#0c153c',
