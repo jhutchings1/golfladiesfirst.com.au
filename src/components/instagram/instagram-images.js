@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 import { InstagramImage } from './instagram-image';
 
@@ -22,7 +23,16 @@ export function InstagramImages({ imagesToShow = 6 }) {
     fetchInstagramPosts();
   }, [imagesToShow]);
 
-  return data.map((item) => <InstagramImage key={item.id} item={item} />);
+  return (
+    <>
+      <Helmet>
+        <link rel="preconnect" href="//graph.instagram.com" crossOrigin />
+      </Helmet>
+      {data.map((item) => (
+        <InstagramImage key={item.id} item={item} />
+      ))}
+    </>
+  );
 }
 
 InstagramImages.propTypes = {
