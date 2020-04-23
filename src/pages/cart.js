@@ -5,7 +5,7 @@ import { EmptyCart, Cart } from '../components/cart';
 
 import { useCartItems } from '../hooks';
 
-const CartPage = () => {
+export default function CartPage() {
   const lineItems = useCartItems();
 
   return (
@@ -14,6 +14,4 @@ const CartPage = () => {
       {lineItems.length < 1 ? <EmptyCart /> : <Cart />}
     </Layout>
   );
-};
-
-export default CartPage;
+}

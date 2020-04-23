@@ -13,7 +13,7 @@ import {
   Map,
 } from '../components';
 
-const IndexPage = () => {
+export default function IndexPage() {
   return (
     <Layout hasHero>
       <SEO title="Home" />
@@ -23,10 +23,8 @@ const IndexPage = () => {
       <OurStory />
       <Contact />
       <NewsletterSignup />
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
       <Map />
     </Layout>
   );
-};
-
-export default IndexPage;
+}
