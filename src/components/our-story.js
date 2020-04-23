@@ -7,12 +7,12 @@ export function OurStory() {
   const { heroImage } = useGraphQL();
   return (
     <article className="relative bg-white">
-      <div className="grid gap-5 py-5 lg:grid-cols-2">
+      <div className="grid w-full gap-4 mx-auto xl:py-16 lg:grid-cols-2 max-w-7xl">
         <GatsbyImage
           fluid={heroImage.childImageSharp.fluid}
           className="h-full"
         />
-        <div className="px-4 pt-12 pb-16 sm:pt-16 sm:px-6 lg:px-8">
+        <div className="px-4 py-12 sm:py-16 sm:px-6 lg:px-8">
           <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
             <h2 className="h2">
               Our <br />

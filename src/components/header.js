@@ -14,8 +14,8 @@ const Header = () => {
   const count = useCartCount();
 
   return (
-    <header className="sticky z-10 bg-white shadow top-8">
-      <div className="px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <header className="sticky z-10 bg-white border-b border-gray-50 top-8">
+      <div className="w-full px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <Link to="/">
             <h1 className="text-xl font-semibold leading-none text-gray-900">

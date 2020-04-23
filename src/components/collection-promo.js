@@ -7,8 +7,8 @@ import { useGraphQL } from '../hooks';
 export function CollectionPromo() {
   const { heroImage } = useGraphQL();
   return (
-    <article className="relative w-full max-w-lg mx-auto sm:max-w-none">
-      <div className="grid w-full gap-5 py-5 mt-12 md:grid-cols-2">
+    <article className="relative bg-white">
+      <div className="grid w-full max-w-lg gap-4 py-12 mx-auto sm:py-16 sm:max-w-7xl md:grid-cols-2">
         <div className="relative">
           <div className="h-0 aspect-ratio-square">
             <div className="absolute inset-0 w-full h-full">
@@ -27,7 +27,7 @@ export function CollectionPromo() {
               <span className="leading-7">head to toe looks</span>
             </h2>
             <Link
-              to="/"
+              to="/ladies/"
               className="inline-block px-8 py-2 mt-4 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out border border-brand-pink bg-brand-pink hover:bg-white hover:text-brand-pink hover:border-white"
             >
               Shop Ladies
@@ -52,7 +52,7 @@ export function CollectionPromo() {
               <span className="leading-7">head to toe looks</span>
             </h2>
             <Link
-              to="/"
+              to="/mens/"
               className="inline-block px-8 py-2 mt-4 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out border border-brand-blue bg-brand-blue hover:bg-white hover:text-brand-blue hover:border-white"
             >
               Shop Mens

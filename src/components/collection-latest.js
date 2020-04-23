@@ -22,45 +22,47 @@ export function CollectionLatest() {
   );
 
   return (
-    <article className="relative w-full max-w-lg pt-16 pb-20 mx-auto sm:max-w-none lg:pt-24 lg:pb-28">
-      <h2 className="h2">Latest ladies and mens shirts</h2>
-      <Carousel
-        slideIndex={index}
-        afterSlide={(slideIndex) => setIndex(slideIndex)}
-        slidesToShow={screenSize}
-        withoutControls
-        wrapAround
-        heightMode="max"
-        className="relative flex w-full mt-12"
-      >
-        {products.map((product) => (
-          <Tile
-            key={product.handle}
-            slug={product.handle}
-            title={product.title}
-            price={Number(product.priceRange.minVariantPrice.amount)}
-            image={product.images[0]}
-          />
-        ))}
-      </Carousel>
-      <span className="absolute inset-y-0 left-0 inline-flex items-center pointer-events-none">
-        <button
-          type="button"
-          onClick={() => setIndex(index - 1)}
-          className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
+    <article className="bg-white">
+      <div className="relative w-full max-w-lg px-4 py-12 mx-auto sm:max-w-7xl sm:py-16 sm:px-6 lg:px-8">
+        <h2 className="h2">Latest ladies and mens shirts</h2>
+        <Carousel
+          slideIndex={index}
+          afterSlide={(slideIndex) => setIndex(slideIndex)}
+          slidesToShow={screenSize}
+          withoutControls
+          wrapAround
+          heightMode="max"
+          className="relative flex w-full mt-12"
         >
-          Prev
-        </button>
-      </span>
-      <span className="absolute inset-y-0 right-0 inline-flex items-center pointer-events-none">
-        <button
-          type="button"
-          onClick={() => setIndex(index + 1)}
-          className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
-        >
-          Next
-        </button>
-      </span>
+          {products.map((product) => (
+            <Tile
+              key={product.handle}
+              slug={product.handle}
+              title={product.title}
+              price={Number(product.priceRange.minVariantPrice.amount)}
+              image={product.images[0]}
+            />
+          ))}
+        </Carousel>
+        <span className="absolute inset-y-0 left-0 inline-flex items-center pointer-events-none">
+          <button
+            type="button"
+            onClick={() => setIndex(index - 1)}
+            className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
+          >
+            Prev
+          </button>
+        </span>
+        <span className="absolute inset-y-0 right-0 inline-flex items-center pointer-events-none">
+          <button
+            type="button"
+            onClick={() => setIndex(index + 1)}
+            className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
+          >
+            Next
+          </button>
+        </span>
+      </div>
     </article>
   );
 }

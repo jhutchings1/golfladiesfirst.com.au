@@ -15,75 +15,77 @@ import ping from '../images/brand-logos/ping.svg';
 
 export function BrandsWeLove() {
   return (
-    <article className="px-4 py-5 bg-gray-100">
-      <h2 className="h2">Shop brands we love</h2>
-      <div className="grid grid-cols-2 mt-6 md:grid-cols-3 lg:mt-8">
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={bermudaSands} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={callaway} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={corsicanGolf} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={cutterAndBuck} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={dailySports} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={ecco} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={fit39} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={gregNorman} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={jamieSadock} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={nivo} alt="" />
-        </Link>
-        <Link
-          to="/"
-          className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
-        >
-          <img className="max-h-12" src={ping} alt="" />
-        </Link>
+    <article className="bg-gray-100">
+      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 sm:py-16 lg:px-8">
+        <h2 className="h2">Shop brands we love</h2>
+        <div className="grid grid-cols-2 mt-6 md:grid-cols-3 lg:mt-8">
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={bermudaSands} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={callaway} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={corsicanGolf} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={cutterAndBuck} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={dailySports} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={ecco} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={fit39} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={gregNorman} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={jamieSadock} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={nivo} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+          >
+            <img className="max-h-12" src={ping} alt="" />
+          </Link>
+        </div>
       </div>
     </article>
   );

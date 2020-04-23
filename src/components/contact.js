@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { navigate } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 
 import { Input, TextArea, CheckBox } from './form-elements';
 import { encode } from '../utilities';
@@ -106,13 +106,12 @@ export function Contact() {
                 <div className="ml-3">
                   <p className="text-base leading-6 text-gray-500">
                     By selecting this, you agree to the{' '}
-                    <a href="#" className="font-medium text-gray-700 underline">
+                    <Link
+                      to="/privacy-policy/"
+                      className="font-medium text-gray-700 underline"
+                    >
                       Privacy Policy
-                    </a>{' '}
-                    and{' '}
-                    <a href="#" className="font-medium text-gray-700 underline">
-                      Cookie Policy
-                    </a>
+                    </Link>
                     .
                   </p>
                 </div>

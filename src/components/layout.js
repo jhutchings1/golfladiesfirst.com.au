@@ -17,14 +17,12 @@ const Layout = ({ children, hasHero }) => {
           crossOrigin
         />
       </Helmet>
-      <div className="flex flex-col min-h-screen font-sans antialiased text-gray-700 bg-white">
+      <div className="flex flex-col min-h-screen font-sans antialiased text-gray-700">
         <Topbar />
         <div className="flex flex-col flex-1">
           {hasHero && <Hero />}
           <Header />
-          <main className="flex-1 w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            {children}
-          </main>
+          <main className="flex-1 bg-gray-50">{children}</main>
           <Footer />
         </div>
       </div>

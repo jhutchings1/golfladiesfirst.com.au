@@ -24,6 +24,8 @@ export function useGraphQL() {
               numberDisplay
               numberFormatted
             }
+            facebook
+            instagram
           }
         }
         heroImage: file(relativePath: { eq: "hero.jpg" }) {
