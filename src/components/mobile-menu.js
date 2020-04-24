@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'gatsby';
+import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { IoIosArrowDown } from 'react-icons/io';
 import { animated, useTransition } from 'react-spring';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
 import { Logo } from './logo';
@@ -20,24 +21,28 @@ export function MobileMenu({ isOpen, setIsOpen }) {
     leave: { opacity: 0, transform: 'translateX(-100%)' },
   });
 
+  const AnimatedDialogOverlay = animated(DialogOverlay);
+  const AnimatedDialogContent = animated(DialogContent);
+
   return transitions.map(
     ({ item, key, props }) =>
       item && (
-        <animated.div
+        <AnimatedDialogOverlay
           key={key}
+          onDismiss={() => setIsOpen(false)}
           style={{ opacity: props.opacity }}
           className="fixed inset-0 z-40 flex bg-transparent-black-75"
         >
-          <div className="absolute inset-0 bg-transparent" />
-          <animated.div
+          <AnimatedDialogContent
+            aria-label="Sidebar menu"
             style={{ transform: props.transform }}
-            className="relative flex flex-col flex-1 w-full max-w-xs bg-white"
+            className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
           >
             <div className="absolute top-0 right-0 p-1 -mr-14">
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                aria-label="Close sidebar"
+                aria-label="Close sidebar menu"
                 className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
               >
                 <svg
@@ -147,9 +152,9 @@ export function MobileMenu({ isOpen, setIsOpen }) {
                 </a>
               </div>
             </div>
-          </animated.div>
+          </AnimatedDialogContent>
           <div className="flex-shrink-0 w-14" />
-        </animated.div>
+        </AnimatedDialogOverlay>
       )
   );
 }
