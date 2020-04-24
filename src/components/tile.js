@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 
 import { useGraphQL } from '../hooks';
+import { resizeShopifyImage } from '../utilities';
 import { Spinner } from './spinner';
 
 export function Tile({ title, slug, price, image }) {
@@ -16,7 +17,10 @@ export function Tile({ title, slug, price, image }) {
   });
 
   const imgRef = useRef(null);
-  const imageSrc = image ? image.originalSrc : placeholderImage.publicURL;
+  const imageSrc = image
+    ? image.originalSrc &&
+      resizeShopifyImage({ url: image.originalSrc, width: 300 })
+    : placeholderImage.publicURL;
 
   useEffect(() => {
     if (inView) {
