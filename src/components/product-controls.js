@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'gatsby';
+import { DropdownMenu } from './dropdown-menu';
 
-export function ProductControls({ index, setIndex, products }) {
-  console.log(`Index: ${index}`);
+export function ProductControls({
+  index,
+  setIndex,
+  products,
+  itemsToIncrement,
+  setItemsToIncrement,
+}) {
   return (
-    <div className="flex items-center justify-between px-4 py-3 bg-white border-t border-gray-200 sm:px-6">
+    <div className="flex items-center justify-between px-4 pt-12 bg-white border-t border-gray-200 sm:px-6 lg:px-8">
       <div className="flex justify-between flex-1 sm:hidden">
         <Link
           to="/"
@@ -21,12 +27,19 @@ export function ProductControls({ index, setIndex, products }) {
         </Link>
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+        <DropdownMenu
+          label="Items to Show"
+          options={[8, 12, 24, 48]}
+          setItemsToIncrement={setItemsToIncrement}
+        />
         <div className="ml-auto">
           <span className="relative z-0 inline-flex shadow-sm">
             <button
               type="button"
-              onClick={() => setIndex((prevState) => prevState - 9)}
-              disabled={index - 9 < 0}
+              onClick={() =>
+                setIndex((prevState) => prevState - itemsToIncrement)
+              }
+              disabled={index - itemsToIncrement < 0}
               className="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -40,14 +53,13 @@ export function ProductControls({ index, setIndex, products }) {
             {Array(5)
               .fill('')
               .map((_, i) => {
-                console.log(`I: ${i}`);
                 return (
                   <button
                     key={i}
                     type="button"
-                    onClick={() => setIndex(i * 9)}
+                    onClick={() => setIndex(i * itemsToIncrement)}
                     className={`${
-                      index === i * 9
+                      index === i * itemsToIncrement
                         ? 'bg-brand-blue text-white hover:text-gray-100'
                         : 'bg-white text-gray-700 hover:text-gray-500'
                     } relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-gray-300 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700`}
@@ -58,8 +70,10 @@ export function ProductControls({ index, setIndex, products }) {
               })}
             <button
               type="button"
-              onClick={() => setIndex((prevState) => prevState + 9)}
-              disabled={index + 9 > products.length + 1}
+              onClick={() =>
+                setIndex((prevState) => prevState + itemsToIncrement)
+              }
+              disabled={index + itemsToIncrement > products.length + 1}
               className="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -79,8 +93,8 @@ export function ProductControls({ index, setIndex, products }) {
 
 ProductControls.propTypes = {
   index: PropTypes.number,
-  products: PropTypes.shape({
-    length: PropTypes.number,
-  }),
+  products: PropTypes.array,
   setIndex: PropTypes.func,
+  setItemsToIncrement: PropTypes.func,
+  itemsToIncrement: PropTypes.number,
 };
