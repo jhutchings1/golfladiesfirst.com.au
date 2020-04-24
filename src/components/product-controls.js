@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link } from 'gatsby';
 import { DropdownMenu } from './dropdown-menu';
 
 export function ProductControls({
@@ -13,18 +12,22 @@ export function ProductControls({
   return (
     <div className="flex items-center justify-between px-4 pt-12 bg-white border-t border-gray-200 sm:px-6 lg:px-8">
       <div className="flex justify-between flex-1 sm:hidden">
-        <Link
-          to="/"
-          className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+        <button
+          type="button"
+          onClick={() => setIndex((prevState) => prevState - itemsToIncrement)}
+          disabled={index - itemsToIncrement < 0}
+          className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
         >
-          Previous
-        </Link>
-        <Link
-          to="/"
-          className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+          &larr; Previous
+        </button>
+        <button
+          type="button"
+          onClick={() => setIndex((prevState) => prevState + itemsToIncrement)}
+          disabled={index + itemsToIncrement > products.length + 1}
+          className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
         >
-          Next
-        </Link>
+          Next &rarr;
+        </button>
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <DropdownMenu
