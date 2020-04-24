@@ -24,7 +24,7 @@ export function Input({
           type={type}
           value={value}
           onChange={handleChange}
-          className="block w-full px-4 py-3 transition duration-150 ease-in-out rounded-none form-input"
+          className="block w-full px-4 py-3 transition duration-150 ease-in-out rounded-none form-input focus:outline-none focus:shadow-outline-pink focus:border-brand-pink"
         />
       </div>
     </div>

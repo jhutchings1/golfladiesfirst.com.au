@@ -21,67 +21,67 @@ export function BrandsWeLove() {
         <div className="grid grid-cols-2 mt-6 md:grid-cols-3 lg:mt-8">
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={bermudaSands} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={callaway} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={corsicanGolf} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={cutterAndBuck} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={dailySports} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={ecco} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={fit39} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={gregNorman} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={jamieSadock} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={nivo} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={ping} alt="" />
           </Link>

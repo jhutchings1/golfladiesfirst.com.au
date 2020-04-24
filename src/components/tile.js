@@ -28,7 +28,7 @@ export function Tile({ title, slug, price, image }) {
     <Link
       ref={ref}
       to={`/products/${slug}`}
-      className="flex flex-col max-w-sm py-3 mx-auto transition duration-150 ease-in-out transform bg-white rounded-md hover:bg-gray-50 hover:shadow hover:-translate-y-px"
+      className="flex flex-col max-w-sm py-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white group focus:outline-none focus:shadow-outline-pink"
     >
       <div className="relative h-64">
         <img
@@ -36,7 +36,7 @@ export function Tile({ title, slug, price, image }) {
           data-src={imageSrc}
           onLoad={() => setImgLoaded(true)}
           alt={image?.altText ? image.altText : ''}
-          className="object-contain w-full h-full"
+          className="object-contain w-full h-full duration-500 ease-in-out transform group-hover:scale-110 group-focus:scale-110"
         />
         {!imgLoaded && (
           <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
@@ -53,7 +53,7 @@ export function Tile({ title, slug, price, image }) {
       </div>
     </Link>
   );
-};
+}
 
 Tile.propTypes = {
   image: PropTypes.object,
@@ -66,5 +66,3 @@ Tile.defaultProps = {
   title: "Men's Down Jacket",
   price: '50',
 };
-
-export { Tile };

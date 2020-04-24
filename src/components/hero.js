@@ -48,7 +48,7 @@ const Hero = () => {
               <div className="flex items-center justify-center py-12 transform -skew-x-12 bg-brand-pink">
                 <Link
                   to="/ladies/"
-                  className="inline-block px-8 py-2 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out transform skew-x-12 border border-white hover:bg-white hover:text-brand-pink"
+                  className="inline-block px-8 py-2 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out transform skew-x-12 border border-white hover:bg-white hover:text-brand-pink focus:outline-none focus:shadow-outline-pink"
                 >
                   Shop Ladies
                 </Link>
@@ -58,7 +58,7 @@ const Hero = () => {
               <div className="flex items-center justify-center py-12 transform -skew-x-12 bg-brand-blue">
                 <Link
                   to="/men/"
-                  className="inline-block px-8 py-2 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out transform skew-x-12 border border-white hover:bg-white hover:text-brand-blue"
+                  className="inline-block px-8 py-2 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out transform skew-x-12 border border-white hover:bg-white hover:text-brand-blue focus:outline-none focus:shadow-outline-pink"
                 >
                   Shop Mens
                 </Link>

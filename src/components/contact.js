@@ -108,7 +108,7 @@ export function Contact() {
                     By selecting this, you agree to the{' '}
                     <Link
                       to="/privacy-policy/"
-                      className="font-medium text-gray-700 underline"
+                      className="font-medium text-gray-700 underline focus:outline-none focus:shadow-outline-pink"
                     >
                       Privacy Policy
                     </Link>
@@ -121,7 +121,7 @@ export function Contact() {
               <span className="inline-flex w-full shadow-sm">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-pink active:bg-gray-900"
                 >
                   Submit
                 </button>

@@ -57,6 +57,8 @@ export function useGraphQL() {
           nodes {
             title
             handle
+            productType
+            tags
             images {
               altText
               originalSrc

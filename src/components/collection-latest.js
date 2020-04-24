@@ -32,7 +32,7 @@ export function CollectionLatest() {
           withoutControls
           wrapAround
           heightMode="max"
-          className="relative flex w-full mt-12"
+          className="relative flex w-full mt-12 focus:outline-none focus:shadow-outline-pink"
         >
           {products.map((product) => (
             <Tile
@@ -48,18 +48,32 @@ export function CollectionLatest() {
           <button
             type="button"
             onClick={() => setIndex(index - 1)}
-            className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
+            className="px-1 py-1 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink focus:outline-none focus:shadow-outline-pink"
           >
-            Prev
+            <span className="sr-only">Previous slide</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
+              <path
+                fillRule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
           </button>
         </span>
         <span className="absolute inset-y-0 right-0 inline-flex items-center pointer-events-none">
           <button
             type="button"
             onClick={() => setIndex(index + 1)}
-            className="px-4 py-2 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink"
+            className="px-1 py-1 text-white transition duration-150 ease-in-out border border-transparent pointer-events-auto bg-brand-pink hover:border-brand-pink hover:bg-white hover:text-brand-pink focus:outline-none focus:shadow-outline-pink"
           >
-            Next
+            <span className="sr-only">Next slide</span>
+            <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
           </button>
         </span>
       </div>

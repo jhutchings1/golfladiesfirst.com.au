@@ -57,7 +57,10 @@ export function MobileMenu({ isOpen, setIsOpen }) {
             </div>
             <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
               <div className="flex items-center flex-shrink-0 px-4">
-                <Link to="/">
+                <Link
+                  to="/"
+                  className="focus:outline-none focus:shadow-outline-pink"
+                >
                   <h1>
                     <span className="sr-only">{title}</span>
                     <Logo className="h-24 text-brand-pink" />
@@ -110,7 +113,7 @@ export function MobileMenu({ isOpen, setIsOpen }) {
               <div className="flex justify-center">
                 <a
                   href={facebook}
-                  className="text-gray-400 hover:text-gray-500"
+                  className="text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
                 >
                   <span className="sr-only">Facebook</span>
                   <svg
@@ -127,7 +130,7 @@ export function MobileMenu({ isOpen, setIsOpen }) {
                 </a>
                 <a
                   href={instagram}
-                  className="ml-6 text-gray-400 hover:text-gray-500"
+                  className="ml-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
                 >
                   <span className="sr-only">Instagram</span>
                   <svg

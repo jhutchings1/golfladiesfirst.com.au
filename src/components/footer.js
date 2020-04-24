@@ -21,8 +21,11 @@ export default function Footer() {
   return (
     <footer className="bg-white">
       <div className="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="py-12 mx-auto md:flex md:items-start md:justify-between">
-          <Link to="/" className="my-auto">
+        <div className="flex flex-col items-start py-12 mx-auto md:flex-row md:justify-between">
+          <Link
+            to="/"
+            className="flex my-auto focus:outline-none focus:shadow-outline-pink"
+          >
             <h1 className="text-xl font-semibold leading-none text-gray-900">
               <span className="sr-only">{title}</span>
               <Logo className="h-24" />
@@ -32,7 +35,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/ladies/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 Shop Ladies
               </Link>
@@ -40,7 +43,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/mens/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 Shop Mens
               </Link>
@@ -48,7 +51,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/faq/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 FAQ
               </Link>
@@ -56,7 +59,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/contact/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 Contact
               </Link>
@@ -64,7 +67,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/privacy-policy/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 Privacy Policy
               </Link>
@@ -131,7 +134,7 @@ export default function Footer() {
                         {p.name}:{' '}
                         <a
                           href={`tel:${p.numberFormatted}`}
-                          className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 hover:underline"
+                          className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 hover:underline focus:outline-none focus:shadow-outline-pink"
                         >
                           {p.numberDisplay}
                         </a>
@@ -160,7 +163,7 @@ export default function Footer() {
                 <span className="ml-3">
                   <a
                     href={`mailto:${email}`}
-                    className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 hover:underline"
+                    className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 hover:underline focus:outline-none focus:shadow-outline-pink"
                   >
                     {email}
                   </a>
@@ -172,7 +175,10 @@ export default function Footer() {
         <div className="mt-8 bg-white border-t border-gray-200">
           <div className="py-12 mx-auto sm:px-6 md:flex md:items-center md:justify-between">
             <div className="flex justify-center md:order-2">
-              <a href={facebook} className="text-gray-400 hover:text-gray-500">
+              <a
+                href={facebook}
+                className="text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+              >
                 <span className="sr-only">Facebook</span>
                 <svg
                   className="w-6 h-6"
@@ -188,7 +194,7 @@ export default function Footer() {
               </a>
               <a
                 href={instagram}
-                className="ml-6 text-gray-400 hover:text-gray-500"
+                className="ml-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -209,7 +215,7 @@ export default function Footer() {
                 Website by{' '}
                 <a
                   href="https://www.phirannodesigns.com.au"
-                  className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500"
+                  className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
                 >
                   Phiranno Designs
                 </a>
