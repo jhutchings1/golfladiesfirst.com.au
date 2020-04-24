@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { DropdownMenu } from './dropdown-menu';
+
+import { Select } from './form-elements';
 
 export function ProductControls({
   index,
@@ -30,10 +31,10 @@ export function ProductControls({
         </button>
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-        <DropdownMenu
+        <Select
           label="Items to Show"
           options={[8, 12, 24, 48]}
-          setItemsToIncrement={setItemsToIncrement}
+          handleChange={setItemsToIncrement}
         />
         <div className="ml-auto">
           <span className="relative z-0 inline-flex shadow-sm">
