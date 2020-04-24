@@ -9,3 +9,5 @@
 - [ ] Set up newsletter section
 - [ ] Swap out environment variables with GLF Instagram credentials
 - [x] Set up Instagram section
+- [ ] Replace carousel [with this](https://github.com/luispuig/react-snaplist-carousel) [or this](https://github.com/farbenmeer/react-spring-slider)
+- [ ] [Base search off this](https://github.com/PHironaka/gatsby-shopify-starter-opinionated)
