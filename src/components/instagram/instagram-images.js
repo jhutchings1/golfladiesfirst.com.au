@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { InstagramImage } from './instagram-image';
 
 export function InstagramImages({ imagesToShow = 6 }) {
-  const [data, setData] = useState(Array(imagesToShow).fill({}));
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     async function fetchInstagramPosts() {
@@ -28,9 +28,7 @@ export function InstagramImages({ imagesToShow = 6 }) {
       <Helmet>
         <link rel="preconnect" href="//graph.instagram.com" crossOrigin />
       </Helmet>
-      {data.map((item) => (
-        <InstagramImage key={item.id} item={item} />
-      ))}
+      {data && data.map((item) => <InstagramImage key={item.id} item={item} />)}
     </>
   );
 }
