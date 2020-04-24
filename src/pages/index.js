@@ -23,7 +23,7 @@ export default function IndexPage() {
       <OurStory />
       <Contact />
       <NewsletterSignup />
-      {/* <InstagramFeed /> */}
+      <InstagramFeed />
       <Map />
     </Layout>
   );
