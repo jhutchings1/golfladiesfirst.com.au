@@ -29,7 +29,11 @@ const Tile = ({ title, slug, price, image }) => {
   }, [inView]);
 
   return (
-    <Link ref={ref} to={`/products/${slug}`} className="flex flex-col">
+    <Link
+      ref={ref}
+      to={`/products/${slug}`}
+      className="flex flex-col max-w-sm py-3 mx-auto transition duration-150 ease-in-out transform bg-white rounded-md hover:bg-gray-50 hover:shadow hover:-translate-y-px"
+    >
       <div className="relative h-64">
         <img
           ref={imgRef}
@@ -48,7 +52,7 @@ const Tile = ({ title, slug, price, image }) => {
           </div>
         )}
       </div>
-      <div className="p-6 bg-white">
+      <div className="p-6">
         <h3 className="mt-2">{title}</h3>
         <p className="mt-3 text-base leading-6 text-gray-500">
           Starting from:{' '}
