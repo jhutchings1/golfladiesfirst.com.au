@@ -32,6 +32,7 @@ module.exports = {
   },
   variants: {
     margin: ['responsive', 'first'],
+    scale: ['responsive', 'hover', 'group-focus', 'group-hover'],
   },
   plugins: [tailwindcssAspectRatio, tailwindUI],
 };
