@@ -12,6 +12,8 @@ import gregNorman from '../images/brand-logos/greg-norman.svg';
 import jamieSadock from '../images/brand-logos/jamie-sadock.svg';
 import nivo from '../images/brand-logos/nivo.svg';
 import ping from '../images/brand-logos/ping.svg';
+import skechers from '../images/brand-logos/skechers.svg';
+import sporteLeisure from '../images/brand-logos/sporte-leisure.svg';
 
 export function BrandsWeLove() {
   return (
@@ -84,6 +86,18 @@ export function BrandsWeLove() {
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
           >
             <img className="max-h-12" src={ping} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
+          >
+            <img className="max-h-12" src={skechers} alt="" />
+          </Link>
+          <Link
+            to="/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-white focus:outline-none focus:shadow-outline-pink focus:bg-white"
+          >
+            <img className="max-h-12" src={sporteLeisure} alt="" />
           </Link>
         </div>
       </div>
