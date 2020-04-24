@@ -47,7 +47,13 @@ export function useGraphQL() {
             }
           }
         }
-        allShopifyProduct(sort: { fields: updatedAt, order: DESC }) {
+        allShopifyProduct(
+          sort: { fields: updatedAt, order: DESC }
+          filter: {
+            availableForSale: { eq: true }
+            variants: { elemMatch: { availableForSale: { eq: true } } }
+          }
+        ) {
           nodes {
             title
             handle
