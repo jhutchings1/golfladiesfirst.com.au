@@ -1,11 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import Spinner from 'react-svg-spinner';
-import resolveConfig from 'tailwindcss/resolveConfig';
 
-import tailwindConfig from '../../tailwind.config.js';
-
-const fullConfig = resolveConfig(tailwindConfig);
+import { Spinner } from './spinner';
 
 export function Map() {
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -38,11 +34,7 @@ export function Map() {
       />
       {!mapLoaded && (
         <div className="absolute inset-0 flex items-center justify-center w-full h-full">
-          <Spinner
-            size={fullConfig.theme.spacing[8]}
-            color={fullConfig.theme.colors.brand.pink}
-            thickness={3}
-          />
+          <Spinner />
         </div>
       )}
     </article>

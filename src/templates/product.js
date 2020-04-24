@@ -2,15 +2,10 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { useInView } from 'react-intersection-observer';
-import Spinner from 'react-svg-spinner';
-import resolveConfig from 'tailwindcss/resolveConfig';
 
 import { useAddItemToCart, useGraphQL } from '../hooks';
 import { prepareVariantsWithOptions } from '../utilities';
-import { Layout, SEO, Alert } from '../components';
-import tailwindConfig from '../../tailwind.config.js';
-
-const fullConfig = resolveConfig(tailwindConfig);
+import { Layout, SEO, Alert, Spinner } from '../components';
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -70,11 +65,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             />
             {!imgLoaded && (
               <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
-                <Spinner
-                  size={fullConfig.theme.spacing[8]}
-                  color={fullConfig.theme.colors.brand.pink}
-                  thickness={3}
-                />
+                <Spinner />
               </div>
             )}
           </div>

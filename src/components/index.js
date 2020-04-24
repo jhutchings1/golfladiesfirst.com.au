@@ -12,4 +12,5 @@ export * from './newsletter-signup';
 export * from './option-picker';
 export * from './our-story';
 export * from './seo';
+export * from './spinner';
 export * from './tile';

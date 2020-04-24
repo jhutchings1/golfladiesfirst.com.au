@@ -2,13 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
-import Spinner from 'react-svg-spinner';
-import resolveConfig from 'tailwindcss/resolveConfig';
 
 import { useGraphQL, useRemoveItemFromCart } from '../../hooks';
-import tailwindConfig from '../../../tailwind.config.js';
-
-const fullConfig = resolveConfig(tailwindConfig);
+import { Spinner } from '../spinner';
 
 export const LineItem = ({ item }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -75,11 +71,7 @@ export const LineItem = ({ item }) => {
           />
           {!imgLoaded && (
             <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
-              <Spinner
-                size={fullConfig.theme.spacing[8]}
-                color={fullConfig.theme.colors.brand.pink}
-                thickness={3}
-              />
+              <Spinner />
             </div>
           )}
         </div>

@@ -2,15 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
-import Spinner from 'react-svg-spinner';
-import resolveConfig from 'tailwindcss/resolveConfig';
 
-import tailwindConfig from '../../tailwind.config.js';
 import { useGraphQL } from '../hooks';
+import { Spinner } from './spinner';
 
-const fullConfig = resolveConfig(tailwindConfig);
-
-const Tile = ({ title, slug, price, image }) => {
+export function Tile({ title, slug, price, image }) {
   const { placeholderImage } = useGraphQL();
   const [imgLoaded, setImgLoaded] = useState(false);
 
@@ -44,11 +40,7 @@ const Tile = ({ title, slug, price, image }) => {
         />
         {!imgLoaded && (
           <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
-            <Spinner
-              size={fullConfig.theme.spacing[8]}
-              color={fullConfig.theme.colors.brand.pink}
-              thickness={3}
-            />
+            <Spinner />
           </div>
         )}
       </div>

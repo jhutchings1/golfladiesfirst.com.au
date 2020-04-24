@@ -1,12 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import PropTypes from 'prop-types';
-import Spinner from 'react-svg-spinner';
-import resolveConfig from 'tailwindcss/resolveConfig';
 
-import tailwindConfig from '../../../tailwind.config.js';
-
-const fullConfig = resolveConfig(tailwindConfig);
+import { Spinner } from '../spinner';
 
 export function InstagramImage({ item }) {
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -40,11 +36,7 @@ export function InstagramImage({ item }) {
       />
       {!imgLoaded && (
         <div className="absolute inset-0 flex items-center justify-center w-full h-full">
-          <Spinner
-            size={fullConfig.theme.spacing[8]}
-            color={fullConfig.theme.colors.brand.pink}
-            thickness={3}
-          />
+          <Spinner />
         </div>
       )}
 
