@@ -39,7 +39,7 @@ export function Tile({ title, slug, price, image }) {
           ref={imgRef}
           data-src={imageSrc}
           onLoad={() => setImgLoaded(true)}
-          alt={image?.altText ? image.altText : ''}
+          alt=""
           className="object-contain w-full h-full duration-500 ease-in-out transform group-hover:scale-110 group-focus:scale-110"
         />
         {!imgLoaded && (
@@ -52,7 +52,7 @@ export function Tile({ title, slug, price, image }) {
         <h3 className="mt-2">{title}</h3>
         <p className="mt-3 text-base leading-6 text-gray-500">
           Starting from:{' '}
-          <span className="font-bold text-brand-pink">${price.toFixed(2)}</span>
+          <span className="font-bold text-primary">${price.toFixed(2)}</span>
         </p>
       </div>
     </Link>

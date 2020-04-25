@@ -42,7 +42,6 @@ export function useGraphQL() {
           nodes {
             shopifyId
             image {
-              altText
               originalSrc
             }
           }
