@@ -14,3 +14,5 @@
 - [ ] Implement theme context to style ladies and mens pages differently
 - [x] Get `resizeShopifyImage` function working so we can serve smaller versions of the products
 - [ ] Make pagination numbers always show 2 behind and 2 in front if those pages are available
+- [ ] Add Google Tag Manager (code: GTM-WGP5KZZ)
+- [ ] Add Google Site Verification: `<meta name="google-site-verification" content="ltMJ1cu6qKkIJnQyJ1VXgrNPEPnu0JyPl10uY_rJ3vo" />`
