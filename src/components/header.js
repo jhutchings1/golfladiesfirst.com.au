@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { IoMdCart, IoIosArrowDown } from 'react-icons/io';
 import { Link } from 'gatsby';
 
 import { useGraphQL, useCartCount } from '../hooks';
@@ -45,7 +44,7 @@ const Header = () => {
             >
               <h1>
                 <span className="sr-only">{title}</span>
-                <Logo className="h-24 text-brand-pink" />
+                <Logo className="h-24 text-primary" />
               </h1>
             </Link>
           </div>
@@ -54,7 +53,9 @@ const Header = () => {
               to="/cart"
               className="flex items-center focus:outline-none focus:shadow-outline-pink"
             >
-              <IoMdCart className="text-xl" />
+              <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+              </svg>
               <span className="ml-1 text-sm leading-5 tracking-wide uppercase">
                 {count} items
               </span>
@@ -64,7 +65,18 @@ const Header = () => {
                 to="/"
                 className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-pink"
               >
-                Apparel <IoIosArrowDown className="ml-1 text-sm" />
+                Apparel{' '}
+                <svg
+                  className="w-5 h-5 -mr-1 text-gray-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </Link>
               <Link
                 to="/"

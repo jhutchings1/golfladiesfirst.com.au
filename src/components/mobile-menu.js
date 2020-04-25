@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
-import { IoIosArrowDown } from 'react-icons/io';
 import { animated, useChain, useSpring, useTransition } from 'react-spring';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
@@ -94,7 +93,18 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                   to="/"
                   className="flex items-center px-2 py-2 text-base font-medium leading-6 text-gray-900 uppercase transition duration-150 ease-in-out bg-gray-100 rounded-md group focus:outline-none focus:bg-gray-200"
                 >
-                  Apparel <IoIosArrowDown className="ml-1 text-sm" />
+                  Apparel{' '}
+                  <svg
+                    className="w-5 h-5 -mr-1 text-gray-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </Link>
                 <Link
                   to="/"
