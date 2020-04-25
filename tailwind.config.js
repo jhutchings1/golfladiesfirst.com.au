@@ -27,6 +27,7 @@ module.exports = {
           pink: '#e2006d',
           blue: '#0c153c',
         },
+        primary: 'var(--brand-color)',
       },
     },
   },

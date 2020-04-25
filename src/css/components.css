@@ -3,6 +3,18 @@
  * with utility classes 
  */
 
+:root {
+  --brand-color: theme("colors.brand.pink");
+}
+
+[data-theme="ladies"] {
+  --brand-color: theme("colors.brand.pink");
+}
+
+[data-theme="mens"] {
+  --brand-color: theme("colors.brand.blue");
+}
+
 .h2 {
   @apply text-2xl font-bold leading-none uppercase;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
@@ -7,7 +7,17 @@ import { Header } from './header';
 import { Hero } from './hero';
 import Footer from './footer';
 
-const Layout = ({ children, hasHero }) => {
+const Layout = ({ children, hasHero, theme = 'ladies' }) => {
+  // Set theme
+  useEffect(() => {
+    // Check if window object exists
+    if (typeof window !== 'undefined') {
+      const element = window.document.body;
+      // Append theme data-attribute to body element — defaults to ladies
+      element.dataset.theme = theme;
+    }
+  }, [theme]);
+
   return (
     <>
       <Helmet>
@@ -33,6 +43,7 @@ const Layout = ({ children, hasHero }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   hasHero: PropTypes.bool,
+  theme: PropTypes.oneOf(['ladies', 'mens']),
 };
 
 export { Layout };

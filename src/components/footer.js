@@ -28,7 +28,7 @@ export default function Footer() {
           >
             <h1 className="text-xl font-semibold leading-none text-gray-900">
               <span className="sr-only">{title}</span>
-              <Logo className="h-24" />
+              <Logo className="h-24 text-primary" />
             </h1>
           </Link>
           <nav className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
@@ -76,7 +76,7 @@ export default function Footer() {
           <dl className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
             <div className="mt-3 first:mt-0">
               <dt className="sr-only">Address</dt>
-              <dd className="flex">
+              <dd className="flex group">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -84,7 +84,7 @@ export default function Footer() {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   viewBox="0 0 24 24"
-                  className="flex-shrink-0 w-6 h-6 text-gray-400"
+                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-primary"
                 >
                   <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
@@ -93,7 +93,7 @@ export default function Footer() {
             </div>
             <div className="mt-3 first:mt-0">
               <dt className="sr-only">Hours</dt>
-              <dd className="flex">
+              <dd className="flex group">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -101,7 +101,7 @@ export default function Footer() {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   viewBox="0 0 24 24"
-                  className="flex-shrink-0 w-6 h-6 text-gray-400"
+                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-primary"
                 >
                   <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -110,9 +110,9 @@ export default function Footer() {
             </div>
             <div className="mt-3 first:mt-0">
               <dt className="sr-only">Phone number</dt>
-              <dd className="flex">
+              <dd className="flex group">
                 <svg
-                  className="flex-shrink-0 w-6 h-6 text-gray-400"
+                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-primary"
                   fill="none"
                   stroke="currentColor"
                   strokeLinecap="round"
@@ -146,9 +146,9 @@ export default function Footer() {
             </div>
             <div className="mt-3 first:mt-0">
               <dt className="sr-only">Email</dt>
-              <dd className="flex">
+              <dd className="flex group">
                 <svg
-                  className="flex-shrink-0 w-6 h-6 text-gray-400"
+                  className="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-150 ease-in-out group-hover:text-primary"
                   stroke="currentColor"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -177,7 +177,7 @@ export default function Footer() {
             <div className="flex justify-center md:order-2">
               <a
                 href={facebook}
-                className="text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="text-gray-400 transition duration-150 ease-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -194,7 +194,7 @@ export default function Footer() {
               </a>
               <a
                 href={instagram}
-                className="ml-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="ml-6 text-gray-400 transition duration-150 ease-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -215,7 +215,7 @@ export default function Footer() {
                 Website by{' '}
                 <a
                   href="https://www.phirannodesigns.com.au"
-                  className="text-gray-900 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:shadow-outline-pink"
+                  className="text-gray-900 transition duration-150 ease-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
                 >
                   Phiranno Designs
                 </a>
