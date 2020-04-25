@@ -45,7 +45,7 @@ const Hero = () => {
               </span>
             </Link>
             <Link
-              to="/men/"
+              to="/mens/"
               className="w-full md:w-1/2 bg-brand-blue focus:outline-none focus:shadow-outline-pink group focus:bg-blue-900"
             >
               <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-blue group-focus:bg-blue-900">
