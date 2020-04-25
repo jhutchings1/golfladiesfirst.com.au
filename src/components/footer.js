@@ -134,7 +134,7 @@ export default function Footer() {
                         {p.name}:{' '}
                         <a
                           href={`tel:${p.numberFormatted}`}
-                          className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 hover:underline focus:outline-none focus:shadow-outline-pink"
+                          className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:shadow-outline-pink"
                         >
                           {p.numberDisplay}
                         </a>
@@ -163,7 +163,7 @@ export default function Footer() {
                 <span className="ml-3">
                   <a
                     href={`mailto:${email}`}
-                    className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 hover:underline focus:outline-none focus:shadow-outline-pink"
+                    className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:shadow-outline-pink"
                   >
                     {email}
                   </a>
@@ -211,11 +211,11 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-8 md:mt-0 md:order-1">
-              <p className="text-base leading-6 text-center text-gray-400">
+              <p className="text-base leading-6 text-center text-gray-500">
                 Website by{' '}
                 <a
                   href="https://www.phirannodesigns.com.au"
-                  className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                  className="text-gray-900 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none focus:shadow-outline-pink"
                 >
                   Phiranno Designs
                 </a>
