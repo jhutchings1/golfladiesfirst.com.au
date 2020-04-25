@@ -53,7 +53,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
           <AnimatedDialogContent
             aria-label="Sidebar menu"
             style={{ transform }}
-            className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
+            className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
           >
             <div className="absolute top-0 right-0 p-1 -mr-14">
               <button
