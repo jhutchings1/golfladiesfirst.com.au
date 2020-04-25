@@ -8,17 +8,17 @@ import { Link } from 'gatsby';
 import { useGraphQL } from '../hooks';
 import { Logo } from './logo';
 
-export function MobileMenu({ isOpen, setIsOpen }) {
+export function MobileMenu({ isModalOpen, setIsModalOpen }) {
   const {
     site: {
       siteMetadata: { title, facebook, instagram },
     },
   } = useGraphQL();
 
-  const transitions = useTransition(isOpen, null, {
-    from: { opacity: 0, transform: 'translateX(-100%)' },
-    enter: { opacity: 1, transform: 'translateX(0%)' },
-    leave: { opacity: 0, transform: 'translateX(-100%)' },
+  const transitions = useTransition(isModalOpen, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
   });
 
   const AnimatedDialogOverlay = animated(DialogOverlay);
@@ -29,8 +29,7 @@ export function MobileMenu({ isOpen, setIsOpen }) {
       item && (
         <AnimatedDialogOverlay
           key={key}
-          onDismiss={() => setIsOpen(false)}
-          style={{ opacity: props.opacity }}
+          onDismiss={() => setIsModalOpen(false)}
           className="fixed inset-0 z-40 flex bg-transparent-black-75"
         >
           <AnimatedDialogContent
@@ -41,7 +40,7 @@ export function MobileMenu({ isOpen, setIsOpen }) {
             <div className="absolute top-0 right-0 p-1 -mr-14">
               <button
                 type="button"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsModalOpen(false)}
                 aria-label="Close sidebar menu"
                 className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
               >

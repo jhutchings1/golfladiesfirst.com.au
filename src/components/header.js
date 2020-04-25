@@ -14,7 +14,7 @@ const Header = () => {
   } = useGraphQL();
   const count = useCartCount();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <header className="sticky z-10 bg-white border-b border-gray-50 top-8">
@@ -23,7 +23,7 @@ const Header = () => {
           <div className="flex items-center">
             <button
               type="button"
-              onClick={() => setIsOpen((prevState) => !prevState)}
+              onClick={() => setIsModalOpen((prevState) => !prevState)}
               className="mr-2 md:hidden focus:outline-none focus:shadow-outline-pink"
             >
               <div className="sr-only">Menu</div>
@@ -99,7 +99,7 @@ const Header = () => {
             </nav>
           </div>
         </div>
-        <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        <MobileMenu isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </div>
     </header>
   );
