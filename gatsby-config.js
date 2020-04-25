@@ -16,8 +16,9 @@ dotenv.config({
 module.exports = {
   siteMetadata: {
     title: 'Golf Ladies First',
-    description: '',
-    author: '',
+    description:
+      'Dedicated entirely to womens golfing needs with personalised service and club fittings. Online golf store with large product range and excellent service.',
+    author: 'Golf Ladies First',
     siteUrl: 'https://www.golfladiesfirst.com.au',
     address: 'Shop 2 Royal Bayside, 2 Horton Street, Port Macquarie NSW',
     hours: 'Monday to Friday 9am – 5pm',
