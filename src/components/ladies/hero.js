@@ -16,7 +16,7 @@ const Hero = () => {
             className="h-full"
           />
         </div>
-        <div className="relative flex flex-wrap bg-transparent-white-50">
+        <div className="relative flex flex-wrap bg-transparent-white-1/2">
           <div className="flex w-full text-center md:w-1/2">
             <div className="absolute inset-0 h-full md:hidden">
               <GatsbyImage
@@ -24,7 +24,7 @@ const Hero = () => {
                 className="h-full"
               />
             </div>
-            <div className="relative flex-1 py-12 bg-transparent-white-50 md:bg-transparent">
+            <div className="relative flex-1 py-12 bg-transparent-white-1/2 md:bg-transparent">
               <h1 className="font-bold leading-none text-center text-black uppercase">
                 <span className="text-6xl">20% off </span>
                 <br />
