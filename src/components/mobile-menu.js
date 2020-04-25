@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { IoIosArrowDown } from 'react-icons/io';
-import { animated, useTransition } from 'react-spring';
+import { animated, useChain, useSpring, useTransition } from 'react-spring';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
@@ -15,26 +15,44 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
     },
   } = useGraphQL();
 
+  const transitionRef = useRef();
   const transitions = useTransition(isModalOpen, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
+    ref: transitionRef,
   });
+
+  const springRef = useRef();
+  const { transform } = useSpring({
+    ...{
+      from: { transform: 'translate3d(-100%, 0 , 0)' },
+      to: {
+        transform: isModalOpen
+          ? 'translate3d(0%, 0 , 0)'
+          : 'translate3d(-100%, 0 , 0)',
+      },
+    },
+    ref: springRef,
+  });
+
+  useChain([transitionRef, springRef]);
 
   const AnimatedDialogOverlay = animated(DialogOverlay);
   const AnimatedDialogContent = animated(DialogContent);
 
   return transitions.map(
-    ({ item, key, props }) =>
+    ({ item, key, props: styles }) =>
       item && (
         <AnimatedDialogOverlay
           key={key}
           onDismiss={() => setIsModalOpen(false)}
+          style={{ opacity: styles.opacity }}
           className="fixed inset-0 z-40 flex bg-transparent-black-75"
         >
           <AnimatedDialogContent
             aria-label="Sidebar menu"
-            style={{ transform: props.transform }}
+            style={{ transform }}
             className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
           >
             <div className="absolute top-0 right-0 p-1 -mr-14">
@@ -159,6 +177,6 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
 }
 
 MobileMenu.propTypes = {
-  isOpen: PropTypes.bool,
-  setIsOpen: PropTypes.func,
+  isModalOpen: PropTypes.bool,
+  setIsModalOpen: PropTypes.func,
 };
