@@ -9,10 +9,8 @@
 - [ ] Set up newsletter section
 - [ ] Swap out environment variables with GLF Instagram credentials
 - [x] Set up Instagram section
-- [ ] Replace carousel [with this](https://github.com/luispuig/react-snaplist-carousel) [or this](https://github.com/farbenmeer/react-spring-slider)
 - [ ] [Base search off this](https://github.com/PHironaka/gatsby-shopify-starter-opinionated)
-- [ ] Add useClickOutside hook to dismiss mobile menu
-- [ ] Add event listener to dismiss mobile menu with ESC key
-- [ ] Replace 'Prev' and 'Next' buttons on product carousel with SVG icons
+- [x] Replace 'Prev' and 'Next' buttons on product carousel with SVG icons
 - [ ] Implement theme context to style ladies and mens pages differently
-- [ ] Get `resizeShopifyImage` function working so we can serve smaller versions of the products
+- [x] Get `resizeShopifyImage` function working so we can serve smaller versions of the products
+- [ ] Make pagination numbers always show 2 behind and 2 in front if those pages are available
