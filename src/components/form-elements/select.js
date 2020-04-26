@@ -9,7 +9,7 @@ export function Select({ label, id, options, handleChange }) {
       </label>
       <div className="mt-1 rounded-md shadow-sm">
         <select
-          onChange={(e) => handleChange(e.target.value)}
+          onChange={(e) => handleChange(Number(e.target.value))}
           defaultValue={label}
           id={id}
           className="block w-full transition duration-150 ease-in-out rounded-none form-select sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
