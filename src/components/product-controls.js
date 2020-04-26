@@ -16,7 +16,7 @@ export function ProductControls({
         <button
           type="button"
           onClick={() => setIndex((prevState) => prevState - 1)}
-          disabled={index - itemsToIncrement < 0}
+          disabled={index - 1 < 0}
           className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 group disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg
