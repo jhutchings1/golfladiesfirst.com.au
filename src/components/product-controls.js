@@ -15,9 +15,9 @@ export function ProductControls({
       <div className="flex justify-between flex-1 sm:hidden">
         <button
           type="button"
-          onClick={() => setIndex((prevState) => prevState - itemsToIncrement)}
+          onClick={() => setIndex((prevState) => prevState - 1)}
           disabled={index - itemsToIncrement < 0}
-          className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
+          className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 group disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg
             className="w-5 h-5 mr-1 -ml-2 text-gray-600 group-hover:text-gray-400"
@@ -34,9 +34,9 @@ export function ProductControls({
         </button>
         <button
           type="button"
-          onClick={() => setIndex((prevState) => prevState + itemsToIncrement)}
-          disabled={index + itemsToIncrement > products.length + 1}
-          className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300 active:bg-gray-100 active:text-gray-700"
+          onClick={() => setIndex((prevState) => prevState + 1)}
+          disabled={index + 1 >= products.length / itemsToIncrement}
+          className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300 active:bg-gray-100 active:text-gray-700 group disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next{' '}
           <svg
@@ -57,16 +57,15 @@ export function ProductControls({
           label="Items to Show"
           options={[8, 12, 24, 48]}
           handleChange={setItemsToIncrement}
+          id="items-to-show"
         />
         <div className="ml-auto">
           <span className="relative z-0 inline-flex shadow-sm">
             <button
               type="button"
-              onClick={() =>
-                setIndex((prevState) => prevState - itemsToIncrement)
-              }
-              disabled={index - itemsToIncrement < 0}
-              className="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:shadow-outline-pink focus:border-pink-300 active:bg-gray-100 active:text-gray-500"
+              onClick={() => setIndex((prevState) => prevState - 1)}
+              disabled={index - 1 < 0}
+              className="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:shadow-outline-pink focus:border-pink-300 active:bg-gray-100 active:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -83,24 +82,25 @@ export function ProductControls({
                   <button
                     key={i}
                     type="button"
-                    onClick={() => setIndex(i * itemsToIncrement)}
+                    onClick={() => setIndex(index + 1 + i)}
+                    disabled={
+                      index + 1 + i >= products.length / itemsToIncrement
+                    }
                     className={`${
-                      index === i * itemsToIncrement
+                      index === i
                         ? 'bg-brand-blue text-white hover:text-gray-100'
                         : 'bg-white text-gray-700 hover:text-gray-500'
-                    } relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-gray-300 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700`}
+                    } relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-gray-300 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed`}
                   >
-                    {i + 1}
+                    {index + 1 + i}
                   </button>
                 );
               })}
             <button
               type="button"
-              onClick={() =>
-                setIndex((prevState) => prevState + itemsToIncrement)
-              }
-              disabled={index + itemsToIncrement > products.length + 1}
-              className="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
+              onClick={() => setIndex((prevState) => prevState + 1)}
+              disabled={index + 1 >= products.length / itemsToIncrement}
+              className="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path

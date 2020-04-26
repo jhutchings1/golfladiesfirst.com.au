@@ -10,7 +10,9 @@ export function ProductWrapper() {
   const [itemsToIncrement, setItemsToIncrement] = useState(8);
   useEffect(() => {
     const filteredProducts = [...allShopifyProduct.nodes];
-    setProducts(filteredProducts.splice(index, itemsToIncrement));
+    setProducts(
+      filteredProducts.splice(index * itemsToIncrement, itemsToIncrement)
+    );
   }, [allShopifyProduct.nodes, index, itemsToIncrement]);
 
   return (
@@ -36,7 +38,7 @@ export function ProductWrapper() {
               ))
             : Array(8)
                 .fill('')
-                .map(() => <div>Loading...</div>)}
+                .map((_, i) => <div key={i}>Loading...</div>)}
         </div>
       </div>
     </div>
