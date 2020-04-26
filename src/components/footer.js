@@ -35,7 +35,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/products/ladies/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 Shop Ladies
               </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/products/mens/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 Shop Mens
               </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/faq/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 FAQ
               </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/contact/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 Contact
               </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
             <p className="mt-3 first:mt-0">
               <Link
                 to="/privacy-policy/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
+                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-pink"
               >
                 Privacy Policy
               </Link>
