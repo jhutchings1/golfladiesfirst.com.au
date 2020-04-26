@@ -32,7 +32,9 @@ module.exports = {
     },
   },
   variants: {
+    cursor: ['responsive', 'disabled'],
     margin: ['responsive', 'first'],
+    opacity: ['responsive', 'hover', 'focus', 'disabled'],
     scale: ['responsive', 'hover', 'group-focus', 'group-hover'],
   },
   plugins: [tailwindcssAspectRatio, tailwindUI],
