@@ -19,7 +19,18 @@ export function ProductControls({
           disabled={index - itemsToIncrement < 0}
           className="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700"
         >
-          &larr; Previous
+          <svg
+            className="w-5 h-5 mr-1 -ml-2 text-gray-600 group-hover:text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>{' '}
+          Previous
         </button>
         <button
           type="button"
@@ -27,7 +38,18 @@ export function ProductControls({
           disabled={index + itemsToIncrement > products.length + 1}
           className="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300 active:bg-gray-100 active:text-gray-700"
         >
-          Next &rarr;
+          Next{' '}
+          <svg
+            className="w-5 h-5 ml-1 -mr-2 text-gray-600 group-hover:text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>
         </button>
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
