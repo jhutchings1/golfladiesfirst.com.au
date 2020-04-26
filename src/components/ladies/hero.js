@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
           <div className="w-full mt-auto ml-auto overflow-hidden md:inline-flex md:w-1/2">
             <Link
-              to="/ladies/"
+              to="/products/ladies/"
               className="w-full md:w-1/2 bg-brand-pink focus:outline-none focus:shadow-outline-pink group focus:bg-pink-500"
             >
               <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-pink group-focus:bg-pink-500">
@@ -45,7 +45,7 @@ const Hero = () => {
               </span>
             </Link>
             <Link
-              to="/mens/"
+              to="/products/mens/"
               className="w-full md:w-1/2 bg-brand-blue focus:outline-none focus:shadow-outline-pink group focus:bg-blue-900"
             >
               <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-blue group-focus:bg-blue-900">

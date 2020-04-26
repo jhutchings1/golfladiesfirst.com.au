@@ -34,7 +34,7 @@ export default function Footer() {
           <nav className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
             <p className="mt-3 first:mt-0">
               <Link
-                to="/ladies/"
+                to="/products/ladies/"
                 className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 Shop Ladies
@@ -42,7 +42,7 @@ export default function Footer() {
             </p>
             <p className="mt-3 first:mt-0">
               <Link
-                to="/mens/"
+                to="/products/mens/"
                 className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:shadow-outline-pink"
               >
                 Shop Mens
