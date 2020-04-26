@@ -9,12 +9,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 export function Spinner({ color = fullConfig.theme.colors.brand.pink }) {
   return (
-    <ReactSVGSpinner
-      size={fullConfig.theme.spacing[8]}
-      color={color}
-      thickness={3}
-      speed="slow"
-    />
+    <ReactSVGSpinner size="2em" color={color} thickness={3} speed="slow" />
   );
 }
 
