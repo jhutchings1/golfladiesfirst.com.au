@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function Select({ label, id, options, handleChange }) {
+export function Select({ id, label, options, setIndex, setItemsToShow }) {
   return (
     <div>
       <label htmlFor={id} className="sr-only">
@@ -9,7 +9,10 @@ export function Select({ label, id, options, handleChange }) {
       </label>
       <div className="mt-1 rounded-md shadow-sm">
         <select
-          onChange={(e) => handleChange(Number(e.target.value))}
+          onChange={(e) => {
+            setIndex(0);
+            setItemsToShow(Number(e.target.value));
+          }}
           defaultValue={label}
           id={id}
           className="block w-full transition duration-150 ease-in-out rounded-none form-select sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
@@ -29,5 +32,6 @@ Select.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  setIndex: PropTypes.func.isRequired,
+  setItemsToShow: PropTypes.func.isRequired,
 };

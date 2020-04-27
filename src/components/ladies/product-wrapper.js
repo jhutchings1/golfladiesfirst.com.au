@@ -7,13 +7,11 @@ export function ProductWrapper() {
   const { allShopifyProduct } = useGraphQL();
   const [index, setIndex] = useState(0);
   const [products, setProducts] = useState(null);
-  const [itemsToIncrement, setItemsToIncrement] = useState(8);
+  const [itemsToShow, setItemsToShow] = useState(8);
   useEffect(() => {
     const filteredProducts = [...allShopifyProduct.nodes];
-    setProducts(
-      filteredProducts.splice(index * itemsToIncrement, itemsToIncrement)
-    );
-  }, [allShopifyProduct.nodes, index, itemsToIncrement]);
+    setProducts(filteredProducts.splice(index * itemsToShow, itemsToShow));
+  }, [allShopifyProduct.nodes, index, itemsToShow]);
 
   return (
     <div className="bg-white">
@@ -22,8 +20,8 @@ export function ProductWrapper() {
           index={index}
           setIndex={setIndex}
           products={allShopifyProduct.nodes}
-          itemsToIncrement={itemsToIncrement}
-          setItemsToIncrement={setItemsToIncrement}
+          itemsToShow={itemsToShow}
+          setItemsToShow={setItemsToShow}
         />
         <div className="grid row-gap-6 col-gap-12 px-4 py-12 md:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8 sm:py-16">
           {products
