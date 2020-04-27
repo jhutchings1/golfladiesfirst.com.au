@@ -47,7 +47,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
           key={key}
           onDismiss={() => setIsModalOpen(false)}
           style={{ opacity: styles.opacity }}
-          className="fixed inset-0 z-40 flex bg-transparent-black-3/4"
+          className="fixed inset-0 z-40 flex bg-transparent-black-75"
         >
           <AnimatedDialogContent
             aria-label="Sidebar menu"
