@@ -3,8 +3,6 @@ import React from 'react';
 import {
   Layout,
   SEO,
-  CollectionLatest,
-  CollectionPromo,
   BrandsWeLove,
   OurStory,
   Contact,
@@ -12,6 +10,7 @@ import {
   InstagramFeed,
   Map,
 } from '../components';
+import { CollectionLatest, CollectionPromo } from '../components/collections';
 
 export default function IndexPage() {
   return (

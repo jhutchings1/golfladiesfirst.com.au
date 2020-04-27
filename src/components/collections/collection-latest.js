@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Carousel from 'nuka-carousel';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import { useGraphQL, useMediaQuery } from '../hooks';
-import tailwindConfig from '../../tailwind.config.js';
-import { Tile } from './tile';
+import { useGraphQL, useMediaQuery } from '../../hooks';
+import tailwindConfig from '../../../tailwind.config.js';
+import { Tile } from '../tile';
 
 export function CollectionLatest() {
   const {
