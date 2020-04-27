@@ -32,7 +32,7 @@ export function Tile({ title, slug, price, image }) {
     <Link
       ref={ref}
       to={`/products/${slug}`}
-      className="flex flex-col max-w-sm py-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white group focus:outline-none focus:shadow-outline-pink"
+      className="flex flex-col max-w-sm pb-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white h-96 group focus:outline-none focus:shadow-outline-pink"
     >
       <div className="relative h-64">
         <img
