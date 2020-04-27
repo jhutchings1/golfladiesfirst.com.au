@@ -4,7 +4,7 @@ import GatsbyImage from 'gatsby-image';
 
 import { useGraphQL } from '../../hooks';
 
-const Hero = () => {
+export function LadiesProductsHero() {
   const { heroImage } = useGraphQL();
 
   return (
@@ -59,6 +59,4 @@ const Hero = () => {
       </div>
     </article>
   );
-};
-
-export { Hero };
+}

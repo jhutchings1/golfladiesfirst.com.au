@@ -35,6 +35,22 @@ export function useGraphQL() {
             }
           }
         }
+        ladiesHats: file(relativePath: { eq: "collections/ladies-hats.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 506) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        ladiesSkorts: file(
+          relativePath: { eq: "collections/ladies-skorts.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 760) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         placeholderImage: file(relativePath: { eq: "placeholder/shoe.png" }) {
           publicURL
         }
