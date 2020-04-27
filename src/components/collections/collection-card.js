@@ -24,6 +24,6 @@ export function CollectionCard({ image, width, children }) {
 
 CollectionCard.propTypes = {
   children: PropTypes.node.isRequired,
-  width: PropTypes.oneOf('small', 'medium', 'large').isRequired,
+  width: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
   image: PropTypes.object.isRequired,
 };
