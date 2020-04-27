@@ -29,7 +29,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   function handleAddToCart() {
     addItemToCart(variant.shopifyId, 1);
-    setAddedToCartMessage('🛒 Added to your cart!');
+    setAddedToCartMessage('Added to your cart!');
   }
 
   useEffect(() => {
@@ -41,15 +41,18 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   return (
     <Layout>
       <SEO title={product.title} />
-      <div className="relative pt-16 pb-20">
-        <div className="relative lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8">
+      <article className="relative px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-8">
           {addedToCartMessage && (
             <Alert
               message={addedToCartMessage}
               dismiss={() => setAddedToCartMessage(null)}
             />
           )}
-          <div ref={ref} className="relative h-0 aspect-ratio-square">
+          <div
+            ref={ref}
+            className="relative h-0 mt-2 overflow-hidden aspect-ratio-square"
+          >
             <img
               ref={imgRef}
               data-src={
@@ -61,7 +64,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               alt=""
               width={592}
               height={592}
-              className="absolute inset-0 object-cover h-full overflow-hidden rounded-md shadow"
+              className="absolute inset-0 object-cover h-full mx-auto overflow-hidden duration-500 ease-in-out transform hover:scale-110"
             />
             {!imgLoaded && (
               <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
@@ -69,26 +72,24 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               </div>
             )}
           </div>
-          <div className="flex flex-col mt-16">
-            <h1 className="text-2xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-3xl sm:leading-9">
-              {product.title}
-            </h1>
-            <div
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-              className="mt-4 text-base leading-6 text-gray-500 sm:mt-3"
-            />
-            <div className="mt-6">
+          <div className="mt-12">
+            <h1 className="h2">{product.title}</h1>
+            <span className="inline-flex mt-6 shadow-sm">
               <button
                 onClick={handleAddToCart}
                 type="button"
-                className="flex items-center justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                className="inline-flex items-center justify-center px-12 py-3 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900"
               >
                 Add to Cart
               </button>
-            </div>
+            </span>
+            <div
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+              className="mt-6 text-base leading-6 text-gray-700"
+            />
           </div>
         </div>
-      </div>
+      </article>
     </Layout>
   );
 }
