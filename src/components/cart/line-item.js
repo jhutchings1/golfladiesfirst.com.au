@@ -66,7 +66,7 @@ export const LineItem = ({ item }) => {
           <img
             ref={imgRef}
             data-src={getImageFluidForVariant(item.variant.id).originalSrc}
-            alt={getImageFluidForVariant(item.variant.id).altText || ''}
+            alt=""
             onLoad={() => setImgLoaded(true)}
           />
           {!imgLoaded && (

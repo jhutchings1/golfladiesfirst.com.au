@@ -119,7 +119,6 @@ export const ProductPageQuery = graphql`
           value
         }
         image {
-          altText
           originalSrc
         }
       }

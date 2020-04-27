@@ -59,7 +59,6 @@ export function useGraphQL() {
             productType
             tags
             images {
-              altText
               originalSrc
             }
             priceRange {
@@ -86,10 +85,8 @@ export function useGraphQL() {
             handle
             images {
               originalSrc
-              altText
             }
             images {
-              altText
               originalSrc
             }
             priceRange {
