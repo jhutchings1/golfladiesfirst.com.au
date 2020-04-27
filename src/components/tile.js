@@ -49,7 +49,7 @@ export function Tile({ title, slug, price, image }) {
         )}
       </div>
       <div className="p-6">
-        <h3 className="mt-2">{title}</h3>
+        <h3 className="mt-2 line-clamp">{title}</h3>
         <p className="mt-3 text-base leading-6 text-gray-500">
           Starting from:{' '}
           <span className="font-bold text-primary">${price.toFixed(2)}</span>
