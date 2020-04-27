@@ -6,7 +6,7 @@ import { CollectionCard } from '../collections';
 export function LadiesGregNorman() {
   const { heroImage } = useGraphQL();
   return (
-    <CollectionCard image={heroImage} width="large">
+    <CollectionCard image={heroImage} to="/products/ladies/" width="large">
       <div className="flex items-end justify-center w-2/3 py-12 mr-auto text-center text-white h2">
         Shop <br />
         Greg Norman
