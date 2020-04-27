@@ -28,7 +28,7 @@ export function CollectionPromo() {
             </h2>
             <Link
               to="/products/ladies/"
-              className="inline-block px-8 py-2 mt-4 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out border border-brand-pink bg-brand-pink hover:bg-white hover:text-brand-pink hover:border-white focus:outline-none focus:shadow-outline-pink"
+              className="inline-block px-8 py-2 mt-4 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out border border-brand-pink bg-brand-pink hover:bg-white hover:text-brand-pink hover:border-white focus:outline-none focus:shadow-outline-primary"
             >
               Shop Ladies
             </Link>
@@ -53,7 +53,7 @@ export function CollectionPromo() {
             </h2>
             <Link
               to="/products/mens/"
-              className="inline-block px-8 py-2 mt-4 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out border border-brand-blue bg-brand-blue hover:bg-white hover:text-brand-blue hover:border-white focus:outline-none focus:shadow-outline-pink"
+              className="inline-block px-8 py-2 mt-4 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out border border-brand-blue bg-brand-blue hover:bg-white hover:text-brand-blue hover:border-white focus:outline-none focus:shadow-outline-primary"
             >
               Shop Mens
             </Link>

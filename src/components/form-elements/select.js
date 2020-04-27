@@ -12,7 +12,7 @@ export function Select({ label, id, options, handleChange }) {
           onChange={(e) => handleChange(Number(e.target.value))}
           defaultValue={label}
           id={id}
-          className="block w-full transition duration-150 ease-in-out rounded-none form-select sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
+          className="block w-full transition duration-150 ease-in-out rounded-none form-select sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
         >
           {options.map((option) => (
             <option key={option} value={option}>

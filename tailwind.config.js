@@ -11,6 +11,10 @@ module.exports = {
       '3/4': [3, 4],
     },
     extend: {
+      boxShadow: {
+        ...tailwindUI.boxShadow,
+        'outline-primary': '0 0 0 3px var(--shadow-color)',
+      },
       colors: {
         'transparent-black': {
           '25': 'hsla(0, 0%, 0%, 0.25)',
@@ -25,9 +29,14 @@ module.exports = {
         black: '#2c2c2c',
         brand: {
           pink: '#e2006d',
+          'pink-light': '#fab6d7',
+          'pink-shadow': 'hsla(331, 100%, 63%, 0.5)',
           blue: '#0c153c',
+          'blue-light': '#b6c3fa',
+          'blue-shadow': 'hsla(229, 100%, 63%, 0.5)',
         },
         primary: 'var(--brand-color)',
+        'primary-light': 'var(--brand-color-light)',
       },
     },
   },

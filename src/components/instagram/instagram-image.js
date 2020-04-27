@@ -25,7 +25,7 @@ export function InstagramImage({ item }) {
       href={item && item.permalink}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative h-0 bg-gray-200 border border-transparent aspect-ratio-square focus:outline-none focus:shadow-outline-pink focus:border-brand-pink"
+      className="relative h-0 bg-gray-200 border border-transparent aspect-ratio-square focus:outline-none focus:shadow-outline-primary focus:border-primary-light"
     >
       <img
         onLoad={() => setImgLoaded(true)}

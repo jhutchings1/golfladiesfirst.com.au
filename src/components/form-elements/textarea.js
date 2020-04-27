@@ -17,7 +17,7 @@ export function TextArea({ name, label, rows = 4, value, handleChange }) {
           rows={rows}
           value={value}
           onChange={handleChange}
-          className="block w-full px-4 py-3 transition duration-150 ease-in-out rounded-none form-textarea focus:outline-none focus:shadow-outline-pink focus:border-brand-pink"
+          className="block w-full px-4 py-3 transition duration-150 ease-in-out rounded-none form-textarea focus:outline-none focus:shadow-outline-primary focus:border-primary-light"
         />
       </div>
     </div>

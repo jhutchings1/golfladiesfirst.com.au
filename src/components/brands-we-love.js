@@ -23,91 +23,91 @@ export function BrandsWeLove() {
         <div className="grid grid-cols-2 mt-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:mt-8">
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Bermuda Sands</span>
             <img className="max-h-12" src={bermudaSands} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Callaway</span>
             <img className="max-h-12" src={callaway} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Corsican Golf</span>
             <img className="max-h-12" src={corsicanGolf} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Cutter &amp; Buck</span>
             <img className="max-h-12" src={cutterAndBuck} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Daily Sports</span>
             <img className="max-h-12" src={dailySports} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Ecco</span>
             <img className="max-h-12" src={ecco} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Fit 39</span>
             <img className="max-h-12" src={fit39} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Greg Norman</span>
             <img className="max-h-12" src={gregNorman} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Jamie Sadock</span>
             <img className="max-h-12" src={jamieSadock} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Nivo</span>
             <img className="max-h-12" src={nivo} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Ping</span>
             <img className="max-h-12" src={ping} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Skechers</span>
             <img className="max-h-12" src={skechers} alt="" />
           </Link>
           <Link
             to="/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-pink focus:bg-gray-100"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Sporte Leisure</span>
             <img className="max-h-12" src={sporteLeisure} alt="" />

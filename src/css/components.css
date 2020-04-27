@@ -5,14 +5,20 @@
 
 :root {
   --brand-color: theme("colors.brand.pink");
+  --brand-color-light: theme("colors.brand['pink-light']");
+  --shadow-color: theme("colors.brand['pink-shadow']");
 }
 
 [data-theme="ladies"] {
   --brand-color: theme("colors.brand.pink");
+  --brand-color-light: theme("colors.brand['pink-light']");
+  --shadow-color: theme("colors.brand['pink-shadow']");
 }
 
 [data-theme="mens"] {
   --brand-color: theme("colors.brand.blue");
+  --brand-color-light: theme("colors.brand['blue-light']");
+  --shadow-color: theme("colors.brand['blue-shadow']");
 }
 
 .h2 {

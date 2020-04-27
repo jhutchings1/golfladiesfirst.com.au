@@ -52,7 +52,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
           <AnimatedDialogContent
             aria-label="Sidebar menu"
             style={{ transform }}
-            className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
+            className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
           >
             <div className="absolute top-0 right-0 p-1 -mr-14">
               <button
@@ -80,7 +80,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
               <div className="flex items-center flex-shrink-0 px-4">
                 <Link
                   to="/"
-                  className="focus:outline-none focus:shadow-outline-pink"
+                  className="focus:outline-none focus:shadow-outline-primary"
                 >
                   <h1>
                     <span className="sr-only">{title}</span>
@@ -145,7 +145,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
               <div className="flex justify-center">
                 <a
                   href={facebook}
-                  className="text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
+                  className="text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
                 >
                   <span className="sr-only">Facebook</span>
                   <svg
@@ -162,7 +162,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                 </a>
                 <a
                   href={instagram}
-                  className="ml-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-pink focus:border-pink-300"
+                  className="ml-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
                 >
                   <span className="sr-only">Instagram</span>
                   <svg

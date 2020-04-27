@@ -32,7 +32,7 @@ export function CollectionLatest() {
           withoutControls
           wrapAround
           heightMode="max"
-          className="relative flex w-full mt-12 focus:outline-none focus:shadow-outline-pink"
+          className="relative flex w-full mt-12 focus:outline-none focus:shadow-outline-primary"
         >
           {products.map((product) => (
             <Tile
@@ -48,7 +48,7 @@ export function CollectionLatest() {
           <button
             type="button"
             onClick={() => setIndex(index - 1)}
-            className="px-1 py-1 text-white transition duration-150 ease-in-out pointer-events-auto bg-primary focus:outline-none focus:shadow-outline-pink"
+            className="px-1 py-1 text-white transition duration-150 ease-in-out pointer-events-auto bg-primary focus:outline-none focus:shadow-outline-primary"
           >
             <span className="sr-only">Previous slide</span>
             <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">
@@ -64,7 +64,7 @@ export function CollectionLatest() {
           <button
             type="button"
             onClick={() => setIndex(index + 1)}
-            className="px-1 py-1 text-white transition duration-150 ease-in-out pointer-events-auto bg-primary focus:outline-none focus:shadow-outline-pink"
+            className="px-1 py-1 text-white transition duration-150 ease-in-out pointer-events-auto bg-primary focus:outline-none focus:shadow-outline-primary"
           >
             <span className="sr-only">Next slide</span>
             <svg fill="currentColor" viewBox="0 0 20 20" className="w-8 h-8">

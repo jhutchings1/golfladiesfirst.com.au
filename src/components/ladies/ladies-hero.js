@@ -42,7 +42,7 @@ function Copy() {
       <span className="inline-flex mt-6 shadow-sm">
         <Link
           to="/products/ladies/"
-          className="inline-flex items-center px-6 py-3 text-base font-bold leading-6 text-black uppercase transition duration-150 ease-in-out bg-white border border-transparent hover:text-gray-700 focus:outline-none focus:border-primary focus:shadow-outline-pink active:text-gray-800 active:bg-gray-50"
+          className="inline-flex items-center px-6 py-3 text-base font-bold leading-6 text-black uppercase transition duration-150 ease-in-out bg-white border border-transparent hover:text-gray-700 focus:outline-none focus:border-primary focus:shadow-outline-primary active:text-gray-800 active:bg-gray-50"
         >
           Shop now
         </Link>
@@ -55,7 +55,7 @@ function Buttons() {
     <>
       <Link
         to="/products/ladies/"
-        className="inline-block w-full md:w-1/2 bg-brand-pink focus:outline-none focus:shadow-outline-pink group focus:bg-pink-500"
+        className="inline-block w-full md:w-1/2 bg-brand-pink focus:outline-none focus:shadow-outline-primary group focus:bg-pink-500"
       >
         <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-pink group-focus:bg-pink-500">
           <h3 className="px-12 py-4 text-sm font-bold tracking-wider text-white uppercase whitespace-no-wrap transform md:skew-x-12 px4">
@@ -65,7 +65,7 @@ function Buttons() {
       </Link>
       <Link
         to="/products/mens/"
-        className="inline-block w-full md:w-1/2 bg-brand-blue focus:outline-none focus:shadow-outline-pink group focus:bg-blue-900"
+        className="inline-block w-full md:w-1/2 bg-brand-blue focus:outline-none focus:shadow-outline-primary group focus:bg-blue-900"
       >
         <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-blue group-focus:bg-blue-900">
           <h3 className="px-12 py-4 text-sm font-bold tracking-wider text-white uppercase whitespace-no-wrap transform md:skew-x-12 px4">

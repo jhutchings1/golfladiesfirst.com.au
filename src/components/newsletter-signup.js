@@ -17,13 +17,13 @@ export function NewsletterSignup() {
                   <input
                     id="email"
                     placeholder="Enter email address"
-                    className="block w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-none appearance-none focus:outline-none focus:shadow-outline focus:border-brand-pink form-input focus:shadow-outline-pink"
+                    className="block w-full px-5 py-3 text-base leading-6 text-gray-900 placeholder-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-none appearance-none focus:outline-none focus:shadow-outline focus:border-primary-light form-input focus:shadow-outline-primary"
                   />
                 </div>
               </label>
               <button
                 type="button"
-                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-brand-pink active:bg-gray-900 focus:shadow-outline-pink"
+                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-primary-light active:bg-gray-900 focus:shadow-outline-primary"
               >
                 <span className="">Join</span>
               </button>
