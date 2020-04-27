@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { Layout, SEO } from '../../components';
-import { Hero, ProductWrapper } from '../../components/ladies';
+import { LadiesProductsHero, ProductWrapper } from '../../components/ladies';
 
-export default function MensPage() {
+export default function MensProductsPage() {
   return (
     <Layout theme="mens">
       <SEO title="Men's" />
-      <Hero />
+      <LadiesProductsHero />
       <ProductWrapper />
     </Layout>
   );
