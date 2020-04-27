@@ -62,12 +62,12 @@ export function ProductControls({
           id="items-to-show"
         />
         <div className="ml-auto">
-          <span className="relative z-0 inline-flex shadow-sm">
+          <span className="relative z-0 inline-flex items-center shadow-sm">
             <button
               type="button"
               onClick={() => setIndex((prevState) => prevState - 1)}
               disabled={index - 1 < 0}
-              className="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:shadow-outline-primary focus:border-pink-300 active:bg-gray-100 active:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:shadow-outline-primary focus:border-primary active:bg-gray-100 active:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -77,30 +77,15 @@ export function ProductControls({
                 />
               </svg>
             </button>
-            {Array(5)
-              .fill('')
-              .map((_, i) => {
-                return (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setIndex(index + 1 + i)}
-                    disabled={index + 1 + i >= products.length / itemsToShow}
-                    className={`${
-                      index === i
-                        ? 'bg-brand-blue text-white hover:text-gray-100'
-                        : 'bg-white text-gray-700 hover:text-gray-500'
-                    } relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border border-gray-300 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed`}
-                  >
-                    {index + 1 + i}
-                  </button>
-                );
-              })}
+
+            <span className="w-32 text-sm text-center">
+              Page {index + 1} of {Math.ceil(products.length / itemsToShow)}
+            </span>
             <button
               type="button"
               onClick={() => setIndex((prevState) => prevState + 1)}
               disabled={index + 1 >= products.length / itemsToShow}
-              className="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-400 focus:z-10 focus:outline-none focus:shadow-outline-primary focus:border-primary active:bg-gray-100 active:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path
