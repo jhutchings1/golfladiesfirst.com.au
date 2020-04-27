@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export function Alert({ message, dismiss }) {
+  useEffect(() => {
+    setTimeout(() => {
+      dismiss();
+    }, 2000);
+  }, [dismiss]);
+
   return (
     <div className="absolute top-0 right-0 p-4 mt-4 mr-4 shadow sm:mr-6 lg:mr-8 bg-white-50">
       <div className="flex">
