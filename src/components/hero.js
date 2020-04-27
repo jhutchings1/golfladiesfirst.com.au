@@ -30,7 +30,7 @@ const Hero = () => {
                 <div className="h-full transform -skew-x-12 bg-brand-blue" />
               </div>
             </div>
-            <p className="mt-6">
+            <p className="mt-6 text-gray-700">
               With over 30 years experience in Scotland, Germany and Australia
               they felt the need to give women in a male dominated environment a
               friendly, comfortable atmosphere in which to involve themselves in

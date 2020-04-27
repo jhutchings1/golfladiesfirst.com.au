@@ -27,7 +27,7 @@ const Layout = ({ children, hasHero, theme = 'ladies' }) => {
           crossOrigin
         />
       </Helmet>
-      <div className="flex flex-col min-h-screen font-sans antialiased text-gray-700">
+      <div className="flex flex-col min-h-screen font-sans antialiased text-black">
         <Topbar />
         <div className="flex flex-col flex-1">
           {hasHero && <Hero />}

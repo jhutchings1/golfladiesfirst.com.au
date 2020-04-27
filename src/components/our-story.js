@@ -26,7 +26,7 @@ export function OurStory() {
                 <div className="h-full transform -skew-x-12 bg-brand-blue" />
               </div>
             </div>
-            <div className="grid gap-2 mt-5">
+            <div className="grid gap-2 mt-5 text-gray-700">
               <p>
                 Golf Ladies First — A one-stop ladies’ golf shop where you can
                 be covered in golf from head to toe by a friendly, welcoming,
