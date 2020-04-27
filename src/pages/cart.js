@@ -11,7 +11,9 @@ export default function CartPage() {
   return (
     <Layout>
       <SEO title="Cart" />
-      {lineItems.length < 1 ? <EmptyCart /> : <Cart />}
+      <div className="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        {lineItems.length < 1 ? <EmptyCart /> : <Cart />}
+      </div>
     </Layout>
   );
 }

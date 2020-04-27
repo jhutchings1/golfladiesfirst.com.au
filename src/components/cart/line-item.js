@@ -57,12 +57,9 @@ export const LineItem = ({ item }) => {
   }, [inView]);
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-wrap items-center justify-between">
       <div className="flex items-center">
-        <div
-          ref={ref}
-          className="relative w-48 overflow-hidden rounded-md shadow"
-        >
+        <div ref={ref} className="relative w-48">
           <img
             ref={imgRef}
             data-src={getImageFluidForVariant(item.variant.id).originalSrc}
@@ -100,7 +97,7 @@ export const LineItem = ({ item }) => {
           </dl>
         </div>
       </div>
-      <div className="flex items-baseline">
+      <div className="flex items-baseline ml-auto">
         <button
           onClick={() => removeFromCart(item.id)}
           type="button"
