@@ -8,7 +8,7 @@
 - [ ] Add 'sale' badge
 - [ ] Add modal previews
 - [ ] Build a skeleton-screen for product tiles that are loading
-- [ ] Make pagination numbers always show 2 behind and 2 in front if those pages are available
+- [ ] Make pagination numbers always show 2 behind and 2 in front if those pages are available. [This link might be useful](https://github.com/GatsbyStorefront/gatsby-theme-storefront-shopify/blob/master/src/components/Pagination/index.jsx)
 - [ ] [Base search off this](https://github.com/PHironaka/gatsby-shopify-starter-opinionated)
 - [ ] Create proper 'Skeleton' loaders in `product-wrapper.js`
 - [ ] Set up Ladies and Mens sections in the Shopify backend (using tags?)
