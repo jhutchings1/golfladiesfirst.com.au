@@ -9,7 +9,7 @@
 - [ ] Add modal previews
 - [ ] Build a skeleton-screen for product tiles that are loading
 - [ ] Make pagination numbers always show 2 behind and 2 in front if those pages are available. [This link might be useful](https://github.com/GatsbyStorefront/gatsby-theme-storefront-shopify/blob/master/src/components/Pagination/index.jsx)
-- [ ] [Base search off this](https://github.com/PHironaka/gatsby-shopify-starter-opinionated)
+- [ ] Add search [base search off this](https://github.com/PHironaka/gatsby-shopify-starter-opinionated) [or this](https://github.com/AlexanderProd/gatsby-shopify-starter/pull/31/commits/2978d6f886ac4bcd4cbd889c8c274bcfd2673ba8)
 - [ ] Create proper 'Skeleton' loaders in `product-wrapper.js`
 - [ ] Set up Ladies and Mens sections in the Shopify backend (using tags?)
 - [ ] Set up newsletter section
