@@ -1,10 +1,25 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { useLazyLoad } from '../hooks';
+
 export function Thumbnail({ src, onClick }) {
+  const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
   return (
-    <button type="button" onClick={onClick} className="cursor-pointer">
-      <img src={src.originalSrc} alt="" />
+    <button
+      ref={ref}
+      type="button"
+      onClick={onClick}
+      className="relative h-0 overflow-hidden bg-white cursor-pointer aspect-ratio-square"
+    >
+      <img
+        ref={imgRef}
+        onLoad={handleImgLoaded}
+        data-src={src.originalSrc}
+        alt=""
+        className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50"
+      />
+      {!isImgLoaded && <Spinner />}
     </button>
   );
 }

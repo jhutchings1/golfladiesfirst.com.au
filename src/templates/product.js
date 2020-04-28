@@ -1,21 +1,13 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useInView } from 'react-intersection-observer';
 
-import { useAddItemToCart, useGraphQL } from '../hooks';
+import { useAddItemToCart, useGraphQL, useLazyLoad } from '../hooks';
 import {
   prepareVariantsWithOptions,
   prepareVariantsImages,
 } from '../utilities';
-import {
-  Layout,
-  SEO,
-  Alert,
-  Spinner,
-  OptionPicker,
-  Thumbnail,
-} from '../components';
+import { Layout, SEO, Alert, OptionPicker, Thumbnail } from '../components';
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
   // Get available colours
@@ -73,27 +65,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     }
   }, [size, colour, variants, variant.shopifyId]);
 
-  // Add a ref to image wrapper so that we can detect when it enters the viewport using IntersectionObserver
-  const [ref, inView] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
-  // Create a ref for the product image
-  const imgRef = useRef(null);
-
   // If product doesn't have an image, we can use a placeholder
   const { placeholderImage } = useGraphQL();
 
-  // Show a spinner until `imgLoaded === true`
-  const [imgLoaded, setImgLoaded] = useState(false);
-
-  // When image enters the screen swap out src for the data-src
-  useEffect(() => {
-    if (inView) {
-      imgRef.current.src = imgRef.current.dataset.src;
-    }
-  }, [inView]);
+  //
+  const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
 
   return (
     <Layout>
@@ -106,10 +82,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               dismiss={() => setAddedToCartMessage(null)}
             />
           )}
-          <div>
+          <div className="grid gap-6 mt-2">
             <div
               ref={ref}
-              className="relative h-0 mt-2 overflow-hidden aspect-ratio-square"
+              className="relative h-0 overflow-hidden bg-white aspect-ratio-square"
             >
               <img
                 ref={imgRef}
@@ -118,20 +94,16 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                     ? variant.image.originalSrc
                     : placeholderImage.publicURL
                 }
-                onLoad={() => setImgLoaded(true)}
+                onLoad={handleImgLoaded}
                 alt=""
                 width={592}
                 height={592}
-                className="absolute inset-0 object-contain h-full mx-auto overflow-hidden duration-500 ease-in-out transform hover:scale-110"
+                className="absolute inset-0 object-contain h-full mx-auto duration-500 ease-in-out transform hover:scale-110"
               />
-              {!imgLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50">
-                  <Spinner />
-                </div>
-              )}
+              {!isImgLoaded && <Spinner />}
             </div>
             {images.length > 1 && (
-              <div className="grid">
+              <div className="grid grid-cols-3 gap-6">
                 {images.map((img) => (
                   <Thumbnail
                     key={img.colour}
