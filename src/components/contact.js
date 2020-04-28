@@ -1,37 +1,19 @@
-import React, { useState } from 'react';
-import { navigate, Link } from 'gatsby';
+import React from 'react';
+import { Link } from 'gatsby';
 
+import { useForm } from '../hooks';
 import { Input, TextArea, CheckBox } from './form-elements';
-import { encode } from '../utilities';
 
 export function Contact() {
-  const [state, setState] = useState({
+  const { state, handleChange, Form } = useForm({
     first_name: '',
     last_name: '',
     email: '',
     phone_number: '',
     subject: '',
     message: '',
+    agree_to_privacy_policy: false,
   });
-
-  function handleChange(e) {
-    setState({ ...state, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error));
-  }
 
   return (
     <article className="relative overflow-hidden bg-white">
@@ -51,12 +33,9 @@ export function Contact() {
           <h2 className="h2">Get in touch with our team</h2>
         </div>
         <div className="mt-12">
-          <form
+          <Form
             action="/success/"
-            data-netlify="true"
-            method="POST"
             name="contact-form"
-            onSubmit={handleSubmit}
             className="grid grid-cols-1 row-gap-6 sm:grid-cols-2 sm:col-gap-8"
           >
             <Input
@@ -127,7 +106,7 @@ export function Contact() {
                 </button>
               </span>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
     </article>
