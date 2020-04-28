@@ -116,6 +116,12 @@ export function useGraphQL() {
             }
           }
         }
+        allShopifyShopPolicy {
+          nodes {
+            body
+            title
+          }
+        }
       }
     `
   );
