@@ -7,7 +7,14 @@ import {
   prepareVariantsWithOptions,
   prepareVariantsImages,
 } from '../utilities';
-import { Layout, SEO, Alert, OptionPicker, Thumbnail } from '../components';
+import {
+  Layout,
+  SEO,
+  Alert,
+  OptionPicker,
+  SizePicker,
+  Thumbnail,
+} from '../components';
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
   // Get available colours
@@ -115,7 +122,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             )}
           </div>
           <div className="mt-12">
-            <h1 className="h2">{product.title}</h1>
+            <h1 className="font-normal h2">{product.title}</h1>
+            <dl>
+              <dt className="sr-only">Price:</dt>
+              <dd className="mt-2 h2 text-primary">${variant.price}</dd>
+            </dl>
             <div className="grid gap-4 mt-6 sm:grid-cols-2">
               {colours.length > 1 && (
                 <OptionPicker
@@ -123,16 +134,17 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   name="Colour"
                   options={colours}
                   selected={colour}
-                  onChange={(event) => setColour(event.target.value)}
+                  handleChange={(event) => setColour(event.target.value)}
                 />
               )}
               {sizes.length > 1 && (
-                <OptionPicker
+                <SizePicker
                   key="Size"
                   name="Size"
+                  available={!variant.availableForSale}
                   options={sizes}
                   selected={size}
-                  onChange={(event) => setSize(event.target.value)}
+                  setSize={setSize}
                 />
               )}
             </div>
@@ -140,14 +152,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               <button
                 onClick={handleAddToCart}
                 type="button"
-                className="inline-flex items-center justify-center px-12 py-3 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900"
+                className="inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-none bg-primary hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900"
               >
                 Add to Cart
               </button>
             </span>
             <div
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-              className="mt-6 text-base leading-6 text-gray-700"
+              className="grid gap-4 mt-6 text-base leading-6 text-gray-700"
             />
           </div>
         </div>

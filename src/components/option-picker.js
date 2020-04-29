@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export const OptionPicker = ({ name, options, onChange, selected }) => {
+export function OptionPicker({ name, options, handleChange, selected }) {
   return (
     <div>
       <label htmlFor={name.toLowerCase()}>
-        <div>{name}</div>
+        <div className="font-bold leading-6">{name}</div>
         <select
-          onChange={onChange}
+          onChange={handleChange}
           value={selected}
           id={name.toLowerCase()}
-          className="w-full max-w-xs transition duration-150 ease-in-out rounded-none form-select sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-primary focus:border-primary-light"
+          className="w-full max-w-xs mt-1 transition duration-150 ease-in-out rounded-none form-select sm:text-sm sm:leading-5 focus:outline-none focus:shadow-outline-primary focus:border-primary-light"
         >
           {options.map((option) => (
             <option value={option} key={option}>
@@ -21,11 +21,11 @@ export const OptionPicker = ({ name, options, onChange, selected }) => {
       </label>
     </div>
   );
-};
+}
 
 OptionPicker.propTypes = {
   name: PropTypes.string,
-  onChange: PropTypes.func,
+  handleChange: PropTypes.func,
   options: PropTypes.any,
   selected: PropTypes.any,
 };
