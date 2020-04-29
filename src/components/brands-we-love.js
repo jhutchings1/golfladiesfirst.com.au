@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import annika from '../images/brand-logos/annika.svg';
 import bermudaSands from '../images/brand-logos/bermuda-sands.svg';
 import callaway from '../images/brand-logos/callaway.svg';
 import corsicanGolf from '../images/brand-logos/corsican-golf.svg';
-import annika from '../images/brand-logos/annika.svg';
 import dailySports from '../images/brand-logos/daily-sports.svg';
 import eccoShoes from '../images/brand-logos/ecco-shoes.svg';
 import fit39Gloves from '../images/brand-logos/fit39-gloves.svg';
 import gregNorman from '../images/brand-logos/greg-norman.svg';
 import jamieSadock from '../images/brand-logos/jamie-sadock.svg';
 import nivo from '../images/brand-logos/nivo.svg';
-import ping from '../images/brand-logos/ping.svg';
 import skechers from '../images/brand-logos/skechers.svg';
 import sporteLeisure from '../images/brand-logos/sporte-leisure.svg';
 
@@ -21,6 +20,13 @@ export function BrandsWeLove() {
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 sm:py-16 lg:px-8">
         <h2 className="h2">Shop brands we love</h2>
         <div className="grid grid-cols-2 mt-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:mt-8">
+          <Link
+            to="/collections/annika/"
+            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
+          >
+            <span className="sr-only">Annika</span>
+            <img className="max-h-12" src={annika} alt="" />
+          </Link>
           <Link
             to="/collections/bermuda-sands/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
@@ -41,13 +47,6 @@ export function BrandsWeLove() {
           >
             <span className="sr-only">Corsican Golf</span>
             <img className="max-h-12" src={corsicanGolf} alt="" />
-          </Link>
-          <Link
-            to="/collections/annika/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
-          >
-            <span className="sr-only">Annika</span>
-            <img className="max-h-12" src={annika} alt="" />
           </Link>
           <Link
             to="/collections/daily-sports/"
@@ -90,13 +89,6 @@ export function BrandsWeLove() {
           >
             <span className="sr-only">Nivo</span>
             <img className="max-h-12" src={nivo} alt="" />
-          </Link>
-          <Link
-            to="/collections/"
-            className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
-          >
-            <span className="sr-only">Ping</span>
-            <img className="max-h-12" src={ping} alt="" />
           </Link>
           <Link
             to="/collections/"
