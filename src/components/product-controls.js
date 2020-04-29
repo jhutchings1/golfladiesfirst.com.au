@@ -61,8 +61,8 @@ export function ProductControls({
           setItemsToShow={setItemsToShow}
           id="items-to-show"
         />
-        <div className="ml-auto">
-          <span className="relative z-0 inline-flex items-center shadow-sm">
+        <div className="flex items-center ml-auto">
+          <span className="relative z-0 inline-flex shadow-sm">
             <button
               type="button"
               onClick={() => setIndex((prevState) => prevState - 1)}
@@ -77,10 +77,11 @@ export function ProductControls({
                 />
               </svg>
             </button>
-
-            <span className="w-32 text-sm text-center">
-              Page {index + 1} of {Math.ceil(products.length / itemsToShow)}
-            </span>
+          </span>
+          <span className="inline-block w-32 text-sm text-center">
+            Page {index + 1} of {Math.ceil(products.length / itemsToShow)}
+          </span>
+          <span className="relative z-0 inline-flex items-center shadow-sm">
             <button
               type="button"
               onClick={() => setIndex((prevState) => prevState + 1)}
