@@ -47,7 +47,7 @@ const Hero = () => {
             <div className="w-full md:w-1/2 bg-brand-pink">
               <div className="flex items-center justify-center py-12 transform -skew-x-12 bg-brand-pink">
                 <Link
-                  to="/products/ladies/"
+                  to="/collections/ladies/"
                   className="inline-block px-8 py-2 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out transform skew-x-12 border border-white hover:bg-white hover:text-brand-pink focus:outline-none focus:shadow-outline-primary"
                 >
                   Shop Ladies
@@ -57,7 +57,7 @@ const Hero = () => {
             <div className="w-full md:w-1/2 bg-brand-blue">
               <div className="flex items-center justify-center py-12 transform -skew-x-12 bg-brand-blue">
                 <Link
-                  to="/products/mens/"
+                  to="/collections/mens/"
                   className="inline-block px-8 py-2 text-sm font-bold tracking-wider uppercase transition duration-150 ease-in-out transform skew-x-12 border border-white hover:bg-white hover:text-brand-blue focus:outline-none focus:shadow-outline-primary"
                 >
                   Shop Mens
