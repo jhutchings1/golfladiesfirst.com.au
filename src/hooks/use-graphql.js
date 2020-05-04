@@ -88,12 +88,12 @@ export function useGraphQL() {
             }
           }
         }
-        latestSkirtsAndSkortsCollection: allShopifyProduct(
+        latestShirtsCollection: allShopifyProduct(
           sort: { fields: updatedAt, order: DESC }
           limit: 8
           filter: {
             availableForSale: { eq: true }
-            variants: { elemMatch: { availableForSale: { eq: true } } }
+            productType: { eq: "Shirts" }
           }
         ) {
           nodes {

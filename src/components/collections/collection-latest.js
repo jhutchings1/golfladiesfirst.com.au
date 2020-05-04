@@ -8,7 +8,7 @@ import { Tile } from '../tile';
 
 export function CollectionLatest() {
   const {
-    latestSkirtsAndSkortsCollection: { nodes: products },
+    latestShirtsCollection: { nodes: products },
   } = useGraphQL();
 
   const [index, setIndex] = useState(0);
