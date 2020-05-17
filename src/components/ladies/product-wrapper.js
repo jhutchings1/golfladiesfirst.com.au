@@ -34,7 +34,7 @@ export function ProductWrapper() {
                   image={product.images[0]}
                 />
               ))
-            : Array(8)
+            : Array(itemsToShow)
                 .fill('')
                 .map((_, i) => <div key={i}>Loading...</div>)}
         </div>
