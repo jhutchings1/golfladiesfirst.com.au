@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { useLazyLoad } from '../hooks';
+import { useLazyLoad, useGraphQL } from '../hooks';
 
 export function Thumbnail({ src, onClick }) {
+  const { placeholderImage } = useGraphQL();
   const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
   return (
     <button
@@ -15,7 +16,7 @@ export function Thumbnail({ src, onClick }) {
       <img
         ref={imgRef}
         onLoad={handleImgLoaded}
-        data-src={src.originalSrc}
+        data-src={src?.originalSrc || placeholderImage.publicURL}
         alt=""
         className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50"
       />
