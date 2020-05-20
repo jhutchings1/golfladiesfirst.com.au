@@ -7,7 +7,7 @@ import {
   OurStory,
   Contact,
   NewsletterSignup,
-  InstagramFeed,
+  // InstagramFeed,
   Map,
 } from '../components';
 import { CollectionLatest, CollectionPromo } from '../components/collections';
@@ -22,7 +22,7 @@ export default function IndexPage() {
       <OurStory />
       <Contact />
       <NewsletterSignup />
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
       <Map />
     </Layout>
   );
