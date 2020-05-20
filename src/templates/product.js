@@ -17,6 +17,16 @@ import {
 } from '../components';
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
+  // Lazy load images using custom hook
+  const {
+    ref,
+    imgRef,
+    isImgLoaded,
+    setImgLoaded,
+    handleImgLoaded,
+    Spinner,
+  } = useLazyLoad();
+
   // Get available colours
   const colours =
     product.options.find((option) => option.name.toLowerCase() === 'colour')
@@ -33,14 +43,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     product.variants,
   ]);
 
+  // Keep variants in state, and set the default variant to be the first item
+  const [variant, setVariant] = useState(variants[0]);
+
   // Format the data we get back from GraphQL for images to be a little easier to work with
   // See comment in `prepare-variants-images.js`
   const images = useMemo(() => prepareVariantsImages(variants, 'colour'), [
     variants,
   ]);
-
-  // Keep variants in state, and set the default variant to be the first item
-  const [variant, setVariant] = useState(variants[0]);
 
   // Keep different colour options in state
   const [colour, setColour] = useState(variant.colour);
@@ -75,8 +85,16 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   // If product doesn't have an image, we can use a placeholder
   const { placeholderImage } = useGraphQL();
 
-  //
-  const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
+  // Keep source for primary image in state
+  const [imgSrc, setImgSrc] = useState(placeholderImage.publicURL);
+
+  // Update the primary image whenever the variant changes
+  useEffect(() => {
+    if (variant.image) {
+      setImgSrc(variant.image.originalSrc);
+      imgRef.current.src = imgSrc;
+    }
+  }, [variant, imgSrc, imgRef]);
 
   return (
     <Layout>
@@ -96,11 +114,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             >
               <img
                 ref={imgRef}
-                data-src={
-                  variant.image
-                    ? variant.image.originalSrc
-                    : placeholderImage.publicURL
-                }
+                data-src={imgSrc}
                 onLoad={handleImgLoaded}
                 alt=""
                 width={592}
@@ -115,7 +129,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   <Thumbnail
                     key={img.colour}
                     src={img.src}
-                    onClick={() => setColour(colour)}
+                    onClick={() => {
+                      setColour(img.colour);
+                      setImgLoaded(false);
+                    }}
                   />
                 ))}
               </div>
