@@ -36,5 +36,12 @@ export function useLazyLoad() {
     }
   }, [inView]);
 
-  return { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner: LoadingSpinner };
+  return {
+    ref,
+    imgRef,
+    isImgLoaded,
+    setImgLoaded,
+    handleImgLoaded,
+    Spinner: LoadingSpinner,
+  };
 }
