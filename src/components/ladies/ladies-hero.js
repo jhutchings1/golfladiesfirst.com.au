@@ -23,9 +23,6 @@ export function LadiesHero() {
             </div>
           </div>
         </div>
-        <div className="overflow-hidden md:flex md:absolute md:bottom-0 md:right-0">
-          <Buttons />
-        </div>
       </div>
     </article>
   );
@@ -47,32 +44,6 @@ function Copy() {
           Shop now
         </Link>
       </span>
-    </>
-  );
-}
-function Buttons() {
-  return (
-    <>
-      <Link
-        to="/products/ladies/"
-        className="inline-block w-full md:w-1/2 bg-brand-pink focus:outline-none focus:shadow-outline-primary group focus:bg-pink-500"
-      >
-        <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-pink group-focus:bg-pink-500">
-          <h3 className="px-12 py-4 text-sm font-bold tracking-wider text-white uppercase whitespace-no-wrap transform md:skew-x-12 px4">
-            Shop Ladies
-          </h3>
-        </span>
-      </Link>
-      <Link
-        to="/products/mens/"
-        className="inline-block w-full md:w-1/2 bg-brand-blue focus:outline-none focus:shadow-outline-primary group focus:bg-blue-900"
-      >
-        <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-blue group-focus:bg-blue-900">
-          <h3 className="px-12 py-4 text-sm font-bold tracking-wider text-white uppercase whitespace-no-wrap transform md:skew-x-12 px4">
-            Shop Mens
-          </h3>
-        </span>
-      </Link>
     </>
   );
 }

@@ -1,6 +1,7 @@
 export * from './alert';
 export * from './brands-we-love';
 export * from './contact';
+export * from './fixed-buttons';
 export * from './instagram-feed';
 export * from './layout';
 export * from './link';
