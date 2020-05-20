@@ -127,7 +127,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               <dt className="sr-only">Price:</dt>
               <dd className="mt-2 h2 text-primary">${variant.price}</dd>
             </dl>
-            <div className="grid gap-4 mt-6 sm:grid-cols-2">
+            <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
               {colours.length > 1 && (
                 <OptionPicker
                   key="Colour"
