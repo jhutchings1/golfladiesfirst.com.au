@@ -2,10 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useLazyLoad, useGraphQL } from '../hooks';
+import { resizeShopifyImage } from '../utilities';
 
 export function Thumbnail({ src, onClick }) {
   const { placeholderImage } = useGraphQL();
   const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
+  const imgSrc = src?.originalSrc
+    ? resizeShopifyImage({ url: src.originalSrc, width: 300 })
+    : placeholderImage.publicURL;
   return (
     <button
       ref={ref}
@@ -16,9 +20,9 @@ export function Thumbnail({ src, onClick }) {
       <img
         ref={imgRef}
         onLoad={handleImgLoaded}
-        data-src={src?.originalSrc || placeholderImage.publicURL}
+        data-src={imgSrc}
         alt=""
-        className="absolute inset-0 flex items-center justify-center w-full h-full bg-gray-50"
+        className="absolute inset-0 flex items-center justify-center object-contain w-full h-full bg-white"
       />
       {!isImgLoaded && <Spinner />}
     </button>
