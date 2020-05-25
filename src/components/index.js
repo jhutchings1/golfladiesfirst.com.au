@@ -15,3 +15,4 @@ export * from './size-picker';
 export * from './spinner';
 export * from './thumbnail';
 export * from './tile';
+export * from './related-products';

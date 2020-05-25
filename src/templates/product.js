@@ -14,6 +14,7 @@ import {
   OptionPicker,
   SizePicker,
   Thumbnail,
+  RelatedProducts,
 } from '../components';
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
@@ -26,6 +27,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     handleImgLoaded,
     Spinner,
   } = useLazyLoad();
+
+  const {
+    allShopifyProduct: { nodes: products },
+  } = useGraphQL();
 
   // Get available colours
   const colours =
@@ -180,6 +185,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             />
           </div>
         </div>
+        <RelatedProducts product={product} products={products} />
       </article>
     </Layout>
   );
