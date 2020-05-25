@@ -3,7 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import { useInView } from 'react-intersection-observer';
 
-import { useGraphQL, useRemoveItemFromCart } from '../../hooks';
+import {
+  useGraphQL,
+  useRemoveItemFromCart,
+  useUpdateQuantity,
+} from '../../hooks';
 import { Spinner } from '../spinner';
 
 export const LineItem = ({ item }) => {
@@ -15,6 +19,9 @@ export const LineItem = ({ item }) => {
   } = useGraphQL();
 
   const removeFromCart = useRemoveItemFromCart();
+  const updateQuantity = useUpdateQuantity();
+
+  const [quantity, setQuantity] = useState(item.quantity);
 
   const betterProductHandles = products.map((product) => {
     const newVariants = product.variants.map((variant) => variant.shopifyId);
@@ -41,6 +48,20 @@ export const LineItem = ({ item }) => {
       return selectedVariant.image;
     }
     return null;
+  }
+
+  function handleChange(event) {
+    if (event.target.value >= 1) {
+      setQuantity(event.target.value);
+      updateQuantity(item.id, event.target.value);
+    } else if (event.target.value === '') {
+      setQuantity('');
+      updateQuantity(item.id, 1);
+    }
+  }
+
+  function handleBlur() {
+    if (quantity === '') setQuantity(1);
   }
 
   const [ref, inView] = useInView({
@@ -91,7 +112,16 @@ export const LineItem = ({ item }) => {
             <div key="quantity">
               <dt className="inline font-medium text-gray-500">Quantity: </dt>
               <dd className="inline mt-1 text-gray-900 sm:mt-0 sm:col-span-2">
-                {item.quantity}
+                <input
+                  id="cart_qty"
+                  className="w-16 rounded-none form-input"
+                  type="number"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={quantity}
+                  min={0}
+                  pattern="[0-9]*"
+                />
               </dd>
             </div>
           </dl>
@@ -106,7 +136,7 @@ export const LineItem = ({ item }) => {
           Delete
         </button>
         <div className="ml-4 text-3xl font-bold text-gray-900">
-          ${Number(item.variant.priceV2.amount).toFixed(2)}
+          ${Number(item.variant.priceV2.amount * item.quantity).toFixed(2)}
         </div>
       </div>
     </div>

@@ -9,3 +9,4 @@ export * from './use-lazyload';
 export * from './use-media-query';
 export * from './use-remove-item-to-cart';
 export * from './use-store-context';
+export * from './use-update-quantity';
