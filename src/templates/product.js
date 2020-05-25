@@ -82,8 +82,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       return v.size === size && v.colour === colour;
     });
 
-    if (variant.shopifyId !== newVariant.shopifyId) {
-      setVariant(newVariant);
+    if (typeof newVariant === 'object') {
+      if (variant.shopifyId !== newVariant.shopifyId) {
+        setVariant(newVariant);
+      }
+    } else {
+      console.log('Unavailable');
     }
   }, [size, colour, variants, variant.shopifyId]);
 
@@ -165,7 +169,9 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   name="Size"
                   available={!variant.availableForSale}
                   options={sizes}
+                  colour={colour}
                   selected={size}
+                  variants={variants}
                   setSize={setSize}
                 />
               )}

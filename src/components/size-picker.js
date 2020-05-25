@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function SizePicker({ available, options, selected, setSize }) {
+export function SizePicker({
+  available,
+  options,
+  colour,
+  selected,
+  setSize,
+  variants,
+}) {
   return (
     <div>
       <div className="font-bold leading-6">Size</div>
@@ -10,7 +17,15 @@ export function SizePicker({ available, options, selected, setSize }) {
           <button
             key={option}
             type="button"
-            disabled={available}
+            disabled={
+              typeof variants.find((v) => {
+                return v.size === option && v.colour === colour;
+              }) === 'object'
+                ? !variants.find((v) => {
+                    return v.size === option && v.colour === colour;
+                  }).availableForSale
+                : true
+            }
             onClick={() => setSize(option)}
             className={`${
               option === selected
@@ -31,4 +46,6 @@ SizePicker.propTypes = {
   setSize: PropTypes.func,
   options: PropTypes.any,
   selected: PropTypes.any,
+  variants: PropTypes.array,
+  colour: PropTypes.any,
 };
