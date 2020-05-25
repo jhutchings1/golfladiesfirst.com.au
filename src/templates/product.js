@@ -85,9 +85,25 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     if (typeof newVariant === 'object') {
       if (variant.shopifyId !== newVariant.shopifyId) {
         setVariant(newVariant);
+        if (!newVariant.availableForSale) {
+          setSize(
+            variants.find((v) => {
+              return v.colour === colour && v.availableForSale === true;
+            }).size
+          );
+        }
       }
     } else {
-      console.log('Unavailable');
+      setVariant(
+        variants.find((v) => {
+          return v.colour === colour;
+        })
+      );
+      setSize(
+        variants.find((v) => {
+          return v.colour === colour;
+        }).size
+      );
     }
   }, [size, colour, variants, variant.shopifyId]);
 
