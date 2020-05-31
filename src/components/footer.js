@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { useGraphQL } from '../hooks';
 import { Logo } from './logo';
 
-export default function Footer() {
+export function Footer() {
   const {
     site: {
       siteMetadata: {

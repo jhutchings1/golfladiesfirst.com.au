@@ -6,9 +6,9 @@ import { Topbar } from './topbar';
 import { Header } from './header';
 import { Hero } from './hero';
 import { FixedButtons } from './fixed-buttons';
-import Footer from './footer';
+import { Footer } from './footer';
 
-const Layout = ({ children, hasHero, theme = 'ladies' }) => {
+export function Layout({ children, hasHero, theme = 'ladies' }) {
   // Set theme
   useEffect(() => {
     // Check if window object exists
@@ -43,12 +43,10 @@ const Layout = ({ children, hasHero, theme = 'ladies' }) => {
       </div>
     </>
   );
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   hasHero: PropTypes.bool,
   theme: PropTypes.oneOf(['ladies', 'mens']),
 };
-
-export { Layout };
