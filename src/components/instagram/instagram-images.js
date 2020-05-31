@@ -21,9 +21,9 @@ export function InstagramImages({ imagesToShow = 6 }) {
         : Array(imagesToShow)
             .fill('')
             .map((_, i) => (
-              <div className="relative h-0 aspect-ratio-square">
+              <div key={i} className="relative h-0 aspect-ratio-square">
                 <div className="absolute inset-0 flex items-center justify-center w-full h-full">
-                  <Spinner key={i} />
+                  <Spinner />
                 </div>
               </div>
             ))}
