@@ -1,47 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Spinner } from '../spinner';
+import { useLazyLoad } from '../../hooks';
 
-export function InstagramImage({ item }) {
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const [ref, inView] = useInView({
-    threshold: 0,
-    triggerOnce: true,
-  });
-
-  const imgRef = useRef(null);
-
-  useEffect(() => {
-    if (inView && item.media_url) {
-      imgRef.current.src = imgRef.current.dataset.src;
-    }
-  }, [inView, item.media_url]);
-
+export function InstagramImage({ post }) {
+  const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
   return (
     <a
       ref={ref}
-      href={item && item.permalink}
+      href={post.url}
       target="_blank"
       rel="noopener noreferrer"
       className="relative h-0 bg-gray-200 border border-transparent aspect-ratio-square focus:outline-none focus:shadow-outline-primary focus:border-primary-light"
     >
       <img
-        onLoad={() => setImgLoaded(true)}
         ref={imgRef}
-        data-src={item && item.media_url}
-        alt={imgLoaded && item ? item.caption : ''}
+        onLoad={handleImgLoaded}
+        data-src={post.src}
+        srcSet={post.srcSet.toString()}
+        alt={post.caption}
         className="absolute inset-0 object-cover w-full h-full"
       />
-      {!imgLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center w-full h-full">
+      {!isImgLoaded && (
+        <div className="absolute inset-0 flex justify-center w-full h-full posts-center">
           <Spinner />
         </div>
       )}
 
       <div className="absolute inset-0 flex overflow-hidden font-sans text-sm text-white break-words whitespace-pre-wrap transition duration-200 ease-in-out opacity-0 hover:opacity-100 hover:bg-transparent-black-75">
-        {imgLoaded && (
+        {isImgLoaded && (
           <div className="absolute top-0 right-0 mt-2 mr-1 pointer-events-none">
             <svg
               viewBox="0 0 20 20"
@@ -54,9 +41,7 @@ export function InstagramImage({ item }) {
           </div>
         )}
         <div className="relative mx-4 my-6 line-clamp">
-          {item && item.caption && imgLoaded
-            ? item.caption
-            : 'Click to view on Instagram'}
+          {isImgLoaded ? post.caption : 'Click to view on Instagram'}
         </div>
       </div>
     </a>
@@ -64,5 +49,5 @@ export function InstagramImage({ item }) {
 }
 
 InstagramImage.propTypes = {
-  item: PropTypes.object,
+  post: PropTypes.object,
 };

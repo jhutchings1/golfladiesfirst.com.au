@@ -1,34 +1,32 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import { useInstagram } from '../../hooks';
 import { InstagramImage } from './instagram-image';
+import { Spinner } from '../spinner';
 
 export function InstagramImages({ imagesToShow = 6 }) {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    async function fetchInstagramPosts() {
-      const res = await fetch(
-        `https://graph.instagram.com/me/media?fields=id,username,caption,media_type,media_url,permalink&access_token=${process.env.INSTAGRAM_ACCESS_TOKEN}`
-      );
-      const json = await res.json();
-      setData(
-        json.data
-          .filter((item) => item.media_type === 'IMAGE')
-          .slice(0, imagesToShow)
-      );
-    }
-
-    fetchInstagramPosts();
-  }, [imagesToShow]);
+  const posts = useInstagram();
 
   return (
     <>
       <Helmet>
         <link rel="preconnect" href="//graph.instagram.com" crossOrigin />
       </Helmet>
-      {data && data.map((item) => <InstagramImage key={item.id} item={item} />)}
+      {posts.length
+        ? posts
+            .slice(0, imagesToShow)
+            .map((post) => <InstagramImage key={post.id} post={post} />)
+        : Array(imagesToShow)
+            .fill('')
+            .map((_, i) => (
+              <div className="relative h-0 aspect-ratio-square">
+                <div className="absolute inset-0 flex items-center justify-center w-full h-full">
+                  <Spinner key={i} />
+                </div>
+              </div>
+            ))}
     </>
   );
 }

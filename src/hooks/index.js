@@ -5,6 +5,7 @@ export * from './use-cart-totals';
 export * from './use-checkout';
 export * from './use-form';
 export * from './use-graphql';
+export * from './use-instagram';
 export * from './use-lazyload';
 export * from './use-media-query';
 export * from './use-remove-item-to-cart';
