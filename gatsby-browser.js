@@ -10,6 +10,8 @@ import smoothScroll from 'smooth-scroll';
 
 import { StoreContextProvider } from './src/context/store-context';
 import 'typeface-inter';
+
+import '@reach/dialog/styles.css';
 import './src/css/tailwind.css';
 
 export const wrapRootElement = ({ element }) => (
