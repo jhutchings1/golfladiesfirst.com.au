@@ -103,7 +103,7 @@ const Header = () => {
                 FAQ
               </Link>
               <Link
-                to="/"
+                to="/contact/"
                 className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
               >
                 Contact

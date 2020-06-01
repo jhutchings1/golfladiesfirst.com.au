@@ -6056,6 +6056,13 @@ gatsby-plugin-env-variables@^1.0.2:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-env-variables/-/gatsby-plugin-env-variables-1.0.2.tgz#db8b3bde03137cf062d7724dbc5e56e9308874f5"
   integrity sha512-GfzenmXxiahs0TOFrlDMtHFBCBLvYBkoTOcrkRvinYg/4VsXe65kb0XjX/6ym7FU3SiHgcaFBERO5ovrILjnRg==
 
+gatsby-plugin-google-tagmanager@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-2.3.3.tgz#d0266a07abd665178a9f4758cdb779f1886b4c91"
+  integrity sha512-7GLu3UW6qjhoj+hERN1gQhOwuX9jMGCGXugyCOcDfU/XD6hGp3MwTmeYqZ/JdvwZtIgGYPSPEc5HtsFKyuc0zw==
+  dependencies:
+    "@babel/runtime" "^7.9.6"
+
 gatsby-plugin-mailchimp@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-mailchimp/-/gatsby-plugin-mailchimp-5.2.2.tgz#bed94cb70b9d91267329a5e6a0220e821d8ff6e8"

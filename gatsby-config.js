@@ -46,6 +46,12 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-WGP5KZZ',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://www.golfladiesfirst.com.au',
