@@ -71,6 +71,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://phirannodesigns.us18.list-manage.com/subscribe/post?u=f1a3250b1845db3fb32199dd1&amp;id=537eda3c29',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Golf Ladies First',
