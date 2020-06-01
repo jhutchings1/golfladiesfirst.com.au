@@ -32,12 +32,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     allShopifyProduct: { nodes: products },
   } = useGraphQL();
 
-  // Get available colours
+  // Get all possible colours
   const colours =
     product.options.find((option) => option.name.toLowerCase() === 'colour')
       ?.values || [];
 
-  // Get available sizes
+  // Get all possible sizes
   const sizes =
     product.options.find((option) => option.name.toLowerCase() === 'size')
       ?.values || [];
@@ -47,6 +47,17 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const variants = useMemo(() => prepareVariantsWithOptions(product.variants), [
     product.variants,
   ]);
+
+  // Get list of colours that are actually available
+  const availableColours = [];
+
+  for (let i = 0; i < colours.length; i++) {
+    const newVar = variants.find((v) => {
+      return v.colour === colours[i] && v.availableForSale === true;
+    });
+
+    if (typeof newVar === 'object') availableColours.push(newVar.colour);
+  }
 
   // Keep variants in state, and set the default variant to be the first item
   const [variant, setVariant] = useState(variants[0]);
@@ -78,6 +89,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   // This handles adding the correct variant to the cart
   useEffect(() => {
+    // Try to find the variant with selected size and colour
     const newVariant = variants.find((v) => {
       return v.size === size && v.colour === colour;
     });
@@ -86,14 +98,16 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       if (variant.shopifyId !== newVariant.shopifyId) {
         setVariant(newVariant);
         if (!newVariant.availableForSale) {
+          // If variant exists but isn't available for sale, autoselect first available size
           setSize(
             variants.find((v) => {
-              return v.colour === colour && v.availableForSale === true;
+              return v.colour === colour;
             }).size
           );
         }
       }
     } else {
+      // If variant doesn't exist, set new variant to the first available size in the selected colour
       setVariant(
         variants.find((v) => {
           return v.colour === colour;
@@ -101,7 +115,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       );
       setSize(
         variants.find((v) => {
-          return v.colour === colour;
+          return v.colour === colour; // Autoselects first available size in chosen colour. This should never fail because all colours in the list have sizes available
         }).size
       );
     }
@@ -170,11 +184,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               <dd className="mt-2 h2 text-primary">${variant.price}</dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
-              {colours.length > 1 && (
+              {availableColours.length > 1 && (
                 <OptionPicker
                   key="Colour"
                   name="Colour"
-                  options={colours}
+                  options={availableColours}
                   selected={colour}
                   handleChange={(event) => setColour(event.target.value)}
                 />
