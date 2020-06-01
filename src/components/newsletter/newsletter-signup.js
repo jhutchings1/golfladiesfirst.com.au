@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 
-import { NewsletterThankYou } from './newsletter-thank-you';
-
 export function NewsletterSignup() {
   const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(true);
-
-  function handleSubmit() {
-    addToMailchimp(email)
-      .then(() => {
-        setIsSubmitted(true);
-      })
-      .catch(() => {});
-  }
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState(null);
 
   function handleEmailChange(event) {
     setEmail(event.currentTarget.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    addToMailchimp(email)
+      .then(({ msg, result }) => {
+        if (result !== 'success') {
+          throw msg;
+        }
+        setMessage(msg);
+        setIsSubmitting(false);
+      })
+      .catch((err) => {
+        setMessage(err);
+        setIsSubmitting(false);
+      });
   }
 
   return (
@@ -24,8 +32,7 @@ export function NewsletterSignup() {
       <div className="flex flex-col items-center max-w-screen-xl px-4 py-12 mx-auto text-left sm:px-6 lg:py-16 lg:px-8">
         <h2 className="h2">Don't miss out, join the club</h2>
         <form
-          action="https://phirannodesigns.us18.list-manage.com/subscribe/post?u=f1a3250b1845db3fb32199dd1&amp;id=537eda3c29"
-          method="post"
+          method="POST"
           onSubmit={handleSubmit}
           id="newsletter-signup-form"
           name="newsletter-signup-form"
@@ -54,15 +61,18 @@ export function NewsletterSignup() {
               </label>
               <button
                 type="submit"
-                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-primary-light active:bg-gray-900 focus:shadow-outline-primary"
+                disabled={isSubmitting}
+                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-primary-light active:bg-gray-900 focus:shadow-outline-primary disabled:opacity-50 disabled:cursor-wait"
               >
                 <span className="">Join</span>
               </button>
             </div>
-            <NewsletterThankYou
-              isSubmitted={isSubmitted}
-              setIsSubmitted={setIsSubmitted}
-            />
+            {message && (
+              <p
+                dangerouslySetInnerHTML={{ __html: message }}
+                className="mt-4 text-sm text-center prose"
+              />
+            )}
           </div>
         </form>
       </div>

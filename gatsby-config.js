@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const postCssImport = require('postcss-import');
+const postCssNesting = require('postcss-nesting');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -74,7 +75,7 @@ module.exports = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint:
-          'https://phirannodesigns.us18.list-manage.com/subscribe/post?u=f1a3250b1845db3fb32199dd1&amp;id=537eda3c29',
+          'https://golfladiesfirst.us12.list-manage.com/subscribe/post?u=f7790536b053b57996dbc24d0&amp;id=f711b0e505',
       },
     },
     {
@@ -95,6 +96,7 @@ module.exports = {
         postCssPlugins: [
           postCssImport,
           tailwindcss(tailwindConfig),
+          postCssNesting,
           autoprefixer,
           ...(process.env.NODE_ENV === 'production' ? [cssnano] : []),
         ],
