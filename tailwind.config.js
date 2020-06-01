@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
 const tailwindcssAspectRatio = require('tailwindcss-aspect-ratio');
 const tailwindUI = require('@tailwindcss/ui');
 
@@ -38,6 +39,9 @@ module.exports = {
         },
         primary: 'var(--brand-color)',
         'primary-light': 'var(--brand-color-light)',
+      },
+      fontFamily: {
+        sans: ['Century Gothic', ...defaultTheme.fontFamily.sans],
       },
     },
   },
