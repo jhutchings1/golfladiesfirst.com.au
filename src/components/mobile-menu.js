@@ -59,7 +59,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
           <AnimatedDialogContent
             aria-label="Sidebar menu"
             style={{ transform }}
-            className="absolute inset-0 flex flex-col flex-1 w-full max-w-sm m-0 bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
+            className="relative flex flex-col flex-1 w-full max-w-xs px-0 pt-5 pb-4 m-0 bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
           >
             <div className="absolute top-0 right-0 p-1 -mr-14">
               <button
@@ -101,7 +101,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                     navItem.submenu ? (
                       <AccordionItem key={navItem.id}>
                         <h2>
-                          <AccordionButton className="relative flex items-center justify-between w-full px-2 py-2 text-base font-medium leading-6 text-gray-900 uppercase transition duration-150 ease-in-out rounded-md focus:bg-gray-100 group focus:outline-none focus:bg-gray-200 focus:z-10">
+                          <AccordionButton className="relative flex items-center justify-between w-full px-2 py-2 text-base font-medium leading-6 text-gray-900 uppercase transition duration-150 ease-in-out rounded-md hover:bg-gray-50 focus:bg-gray-100 group focus:outline-none focus:z-10">
                             {navItem.label}
                             <svg
                               className="w-5 h-5 -mr-1 text-gray-600"
@@ -148,7 +148,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
               <div className="flex justify-center">
                 <a
                   href={facebook}
-                  className="text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
+                  className="text-gray-400 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:text-primary"
                 >
                   <span className="sr-only">Facebook</span>
                   <svg
@@ -165,7 +165,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                 </a>
                 <a
                   href={instagram}
-                  className="ml-6 text-gray-400 hover:text-gray-500 focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
+                  className="ml-6 text-gray-400 transition duration-150 ease-in-out hover:text-gray-500 focus:outline-none focus:text-primary"
                 >
                   <span className="sr-only">Instagram</span>
                   <svg
