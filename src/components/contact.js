@@ -60,7 +60,7 @@ export function Contact() {
             />
             <Input
               name="phone_number"
-              label="Phone Number"
+              label="Phone number"
               type="tel"
               isFullWidth
               value={state.phone_number}
