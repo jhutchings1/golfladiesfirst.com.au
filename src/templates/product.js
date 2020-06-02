@@ -90,7 +90,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const [handedness, setHandedness] = useState(variant.handness);
 
   // Keep different voucher values in state
-  const [voucherValue, setVoucherValue] = useState(variant.price);
+  const [voucherValue, setVoucherValue] = useState();
 
   // Manage add to cart alerts in state
   const [addedToCartMessage, setAddedToCartMessage] = useState(null);
