@@ -19,14 +19,7 @@ import {
 
 export default function ProductPage({ data: { shopifyProduct: product } }) {
   // Lazy load images using custom hook
-  const {
-    ref,
-    imgRef,
-    isImgLoaded,
-    setImgLoaded,
-    handleImgLoaded,
-    Spinner,
-  } = useLazyLoad();
+  const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
 
   const {
     allShopifyProduct: { nodes: products },
@@ -121,7 +114,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       setVariant(newVariant);
       setAddToCartDisabled(false);
       if (!newVariant.availableForSale) {
-        // If variant exists but availableForSale = false
+        // If variant exists but is not available for sale
         setAddToCartDisabled(true);
       }
     } else {
@@ -179,7 +172,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                     src={img.src}
                     onClick={() => {
                       setColour(img.colour);
-                      // setImgLoaded(false);
                     }}
                   />
                 ))}
@@ -228,7 +220,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                       type="button"
                       onClick={() => {
                         setColour(img.colour);
-                        // setImgLoaded(false);
                       }}
                       className="relative h-0 aspect-ratio-square focus:outline-none focus:shadow-outline disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -258,7 +249,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
             {addToCartDisabled && (
               <p className="mt-2">
-                This combination of product options is currently unavailable.
+                This product option is currently unavailable.
               </p>
             )}
             <span className="inline-flex mt-6 shadow-sm">
@@ -266,16 +257,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 onClick={handleAddToCart}
                 disabled={addToCartDisabled}
                 type="button"
-                className={`${
-                  addToCartDisabled ? 'bg-gray-900' : 'bg-primary'
-                } inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900`}
+                className="inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Add to Cart
               </button>
             </span>
             <div
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-              className="grid gap-4 mt-6 text-base leading-6 text-gray-700"
+              className="mt-6 prose"
             />
           </div>
         </div>
