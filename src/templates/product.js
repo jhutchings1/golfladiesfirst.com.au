@@ -224,11 +224,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               <dd className="mt-2 h2 text-primary">${variant.price}</dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
-              {availableColours.length > 1 && (
+              {colours.length > 1 && (
                 <OptionPicker
                   key="Colour"
                   name="Colour"
-                  options={availableColours}
+                  options={colours}
                   selected={colour}
                   handleChange={(event) => setColour(event.target.value)}
                 />
