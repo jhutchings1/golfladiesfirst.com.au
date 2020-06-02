@@ -6,6 +6,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import smoothScroll from 'smooth-scroll';
 
 import { StoreContextProvider } from './src/context/store-context';
@@ -16,7 +17,17 @@ import '@reach/menu-button/styles.css';
 import './src/css/tailwind.css';
 
 export const wrapRootElement = ({ element }) => (
-  <StoreContextProvider>{element}</StoreContextProvider>
+  <StoreContextProvider>
+    <Helmet>
+      <link
+        rel="preconnect"
+        href="//golfladiesfirst.myshopify.com"
+        crossOrigin
+      />
+      <link rel="preconnect" href="//cdn.shopify.com" crossOrigin />
+    </Helmet>
+    {element}
+  </StoreContextProvider>
 );
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558

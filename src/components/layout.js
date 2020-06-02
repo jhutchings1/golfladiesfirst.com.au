@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 
 import { Topbar } from './topbar';
 import { Header } from './header';
@@ -20,28 +19,19 @@ export function Layout({ children, hasHero, theme = 'ladies' }) {
   }, [theme]);
 
   return (
-    <>
-      <Helmet>
-        <link
-          rel="preconnect"
-          href="//golfladiesfirst.myshopify.com"
-          crossOrigin
-        />
-      </Helmet>
-      <div
-        id="top"
-        className="flex flex-col min-h-screen font-sans antialiased text-black"
-      >
-        <Topbar />
-        <div className="flex flex-col flex-1">
-          {hasHero && <Hero />}
-          <Header />
-          <main className="flex-1 bg-gray-50">{children}</main>
-          <FixedButtons theme={theme} />
-          <Footer />
-        </div>
+    <div
+      id="top"
+      className="flex flex-col min-h-screen font-sans antialiased text-black"
+    >
+      <Topbar />
+      <div className="flex flex-col flex-1">
+        {hasHero && <Hero />}
+        <Header />
+        <main className="flex-1 bg-gray-50">{children}</main>
+        <FixedButtons theme={theme} />
+        <Footer />
       </div>
-    </>
+    </div>
   );
 }
 
