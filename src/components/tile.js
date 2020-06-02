@@ -19,7 +19,7 @@ export function Tile({ title, slug, price, image }) {
     <Link
       ref={ref}
       to={`/products/${slug}`}
-      className="flex flex-col max-w-sm pb-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white h-96 group focus:outline-none focus:shadow-outline-primary"
+      className="flex flex-col w-full max-w-sm pb-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white h-96 group focus:outline-none focus:shadow-outline-primary"
     >
       <div className="relative h-64">
         <img
