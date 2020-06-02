@@ -58,17 +58,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     product.variants,
   ]);
 
-  // Get list of colours that are actually available
-  // const availableColours = [];
-
-  // for (let i = 0; i < colours.length; i++) {
-  //   const newVar = variants.find((v) => {
-  //     return v.colour === colours[i] && v.availableForSale === true;
-  //   });
-
-  //   if (typeof newVar === 'object') availableColours.push(newVar.colour);
-  // }
-
   // Keep variants in state, and set the default variant to be the first available item
   const [variant, setVariant] = useState(
     variants.find((v) => v.availableForSale === true) || variants[0]
@@ -132,31 +121,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       setVariant(newVariant);
       setAddToCartDisabled(false);
       if (!newVariant.availableForSale) {
-        // If variant exists but availableForSale = false, autoselect first available size
-        // setSize(
-        //   variants.find((v) => {
-        //     return (
-        //       v.colour === colour &&
-        //       v.handness === handedness &&
-        //       v.availableForSale === true
-        //     );
-        //   }).size
-        // );
+        // If variant exists but availableForSale = false
         setAddToCartDisabled(true);
       }
     } else {
       // If variant doesn't exist
-
-      // setVariant(
-      //   variants.find((v) => {
-      //     return v.colour === colour && v.handness === handedness;
-      //   })
-      // );
-      // setSize(
-      //   variants.find((v) => {
-      //     return v.colour === colour && v.handness === handedness; // Autoselects first available size in chosen colour. This should never fail because all colours in the list have sizes available
-      //   }).size
-      // );
       setAddToCartDisabled(true);
     }
   }, [size, colour, handedness, variants, voucherValue, variant.shopifyId]);
