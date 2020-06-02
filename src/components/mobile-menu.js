@@ -95,7 +95,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                   </h1>
                 </Link>
               </div>
-              <nav className="px-2 mt-5">
+              <nav className="px-4 mt-5">
                 <Accordion collapsible>
                   {siteNavigation.map((navItem) =>
                     navItem.submenu ? (
