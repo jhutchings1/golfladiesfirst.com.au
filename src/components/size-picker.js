@@ -12,10 +12,18 @@ export function SizePicker({ options, colour, selected, setSize, variants }) {
             type="button"
             disabled={
               typeof variants.find((v) => {
-                return v.size === option && v.colour === colour;
+                return (
+                  v.size === option &&
+                  v.colour === colour &&
+                  v.handness === handedness
+                );
               }) === 'object'
                 ? !variants.find((v) => {
-                    return v.size === option && v.colour === colour;
+                    return (
+                      v.size === option &&
+                      v.colour === colour &&
+                      v.handness === handedness
+                    );
                   }).availableForSale
                 : true
             }
@@ -40,4 +48,5 @@ SizePicker.propTypes = {
   selected: PropTypes.any,
   variants: PropTypes.array,
   colour: PropTypes.any,
+  handedness: PropTypes.any,
 };
