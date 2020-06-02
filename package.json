@@ -63,12 +63,11 @@
   },
   "scripts": {
     "build:serve": "yarn build && yarn serve",
-    "build": "yarn run prebuild && gatsby build",
+    "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop --host=0.0.0.0 --open",
+    "develop": "gatsby develop --host=0.0.0.0",
     "lint:fix": "eslint . --fix",
     "lint": "eslint .",
-    "prebuild": "cd functions/instagram && yarn",
     "serve": "gatsby serve --host=0.0.0.0 --open",
     "start": "netlify dev"
   },
