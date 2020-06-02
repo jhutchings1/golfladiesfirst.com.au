@@ -28,7 +28,7 @@ export function BrandsWeLove() {
             <img className="max-h-12" src={annika} alt="" />
           </Link>
           <Link
-            to="/collections/bermuda-sands/"
+            to="/collections/bermuda-sands-brand/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Bermuda Sands</span>
@@ -63,42 +63,42 @@ export function BrandsWeLove() {
             <img className="max-h-12" src={eccoShoes} alt="" />
           </Link>
           <Link
-            to="/collections/fit39-gloves"
+            to="/collections/fit39-gloves-brand/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Fit 39 Gloves</span>
             <img className="max-h-12" src={fit39Gloves} alt="" />
           </Link>
           <Link
-            to="/collections/"
+            to="/collections/greg-norman/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Greg Norman</span>
             <img className="max-h-12" src={gregNorman} alt="" />
           </Link>
           <Link
-            to="/collections/"
+            to="/collections/jamie-sadock-brand/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Jamie Sadock</span>
             <img className="max-h-12" src={jamieSadock} alt="" />
           </Link>
           <Link
-            to="/collections/"
+            to="/collections/nivo/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Nivo</span>
             <img className="max-h-12" src={nivo} alt="" />
           </Link>
           <Link
-            to="/collections/"
+            to="/collections/skechers-shoes/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Skechers</span>
             <img className="max-h-12" src={skechers} alt="" />
           </Link>
           <Link
-            to="/collections/"
+            to="/collections/sporte-leisure/"
             className="flex justify-center col-span-1 px-8 py-8 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus:shadow-outline-primary focus:bg-gray-100"
           >
             <span className="sr-only">Sporte Leisure</span>
