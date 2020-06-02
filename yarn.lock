@@ -1425,6 +1425,16 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
 
+"@reach/accordion@^0.10.3":
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/@reach/accordion/-/accordion-0.10.3.tgz#6be590b6f8468a42f5727d1ff5ea03f7b36eb8be"
+  integrity sha512-GzRCJUPeDTGUdo+TMdwOFTTKc0GubkOEdBTQcOjKKMcLHxpOfZTx+hvkNREnXuqAyylyOfhxBKnuMWGS45+Weg==
+  dependencies:
+    "@reach/auto-id" "^0.10.3"
+    "@reach/descendants" "^0.10.3"
+    "@reach/utils" "^0.10.3"
+    tslib "^1.11.2"
+
 "@reach/auto-id@^0.10.2":
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/@reach/auto-id/-/auto-id-0.10.2.tgz#a447af67241123dcb701ecd61931a2c786ed111e"

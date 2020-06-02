@@ -1,8 +1,15 @@
 import React, { useRef } from 'react';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+} from '@reach/accordion';
 import { animated, useChain, useSpring, useTransition } from 'react-spring';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import siteNavigation from '../data/site-navigation.json';
 
 import { useGraphQL } from '../hooks';
 import { Logo } from './logo';
@@ -47,19 +54,19 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
           key={key}
           onDismiss={() => setIsModalOpen(false)}
           style={{ opacity: styles.opacity }}
-          className="fixed inset-0 z-40 flex bg-transparent-black-75"
+          className="fixed inset-0 z-40 flex bg-black bg-opacity-75"
         >
           <AnimatedDialogContent
             aria-label="Sidebar menu"
             style={{ transform }}
-            className="relative flex flex-col flex-1 w-full max-w-xs bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
+            className="absolute inset-0 flex flex-col flex-1 w-full max-w-sm m-0 bg-white border-transparent border-pink-300 shadow focus:outline-none focus:shadow-outline-primary focus:border-pink-300"
           >
             <div className="absolute top-0 right-0 p-1 -mr-14">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
                 aria-label="Close sidebar menu"
-                className="flex items-center justify-center w-12 h-12 rounded-full focus:outline-none focus:bg-gray-600"
+                className="flex items-center justify-center w-12 h-12 transition duration-150 ease-in-out rounded-full focus:outline-none focus:bg-gray-600"
               >
                 <svg
                   className="w-6 h-6 text-white"
@@ -84,61 +91,57 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                 >
                   <h1>
                     <span className="sr-only">{title}</span>
-                    <Logo className="h-24 text-brand-pink" />
+                    <Logo className="h-24 text-primary" />
                   </h1>
                 </Link>
               </div>
               <nav className="px-2 mt-5">
-                <Link
-                  to="/"
-                  className="flex items-center px-2 py-2 text-base font-medium leading-6 text-gray-900 uppercase transition duration-150 ease-in-out bg-gray-100 rounded-md group focus:outline-none focus:bg-gray-200"
-                >
-                  Apparel{' '}
-                  <svg
-                    className="w-5 h-5 -mr-1 text-gray-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </Link>
-                <Link
-                  to="/"
-                  className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
-                >
-                  Brands
-                </Link>
-                <Link
-                  to="/"
-                  className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
-                >
-                  Accessories
-                </Link>
-                <Link
-                  to="/"
-                  className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
-                >
-                  Sale
-                </Link>
-                <Link
-                  to="/"
-                  className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
-                >
-                  FAQ
-                </Link>
-                <Link
-                  to="/"
-                  className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
-                >
-                  Contact
-                </Link>
+                <Accordion collapsible>
+                  {siteNavigation.map((navItem) =>
+                    navItem.submenu ? (
+                      <AccordionItem key={navItem.id}>
+                        <h2>
+                          <AccordionButton className="relative flex items-center justify-between w-full px-2 py-2 text-base font-medium leading-6 text-gray-900 uppercase transition duration-150 ease-in-out rounded-md focus:bg-gray-100 group focus:outline-none focus:bg-gray-200 focus:z-10">
+                            {navItem.label}
+                            <svg
+                              className="w-5 h-5 -mr-1 text-gray-600"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel>
+                          {navItem.submenu.map((submenu) => (
+                            <Link
+                              key={submenu.id}
+                              to={submenu.slug}
+                              className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
+                            >
+                              {submenu.label}
+                            </Link>
+                          ))}
+                        </AccordionPanel>
+                      </AccordionItem>
+                    ) : (
+                      <Link
+                        key={navItem.id}
+                        to={navItem.slug}
+                        className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
+                      >
+                        {navItem.label}
+                      </Link>
+                    )
+                  )}
+                </Accordion>
               </nav>
             </div>
-            <div className="flex justify-between flex-shrink-0 p-4 border-t border-gray-200">
+            <div className="flex items-start justify-between flex-shrink-0 p-4 border-t border-gray-200">
               <div className="text-gray-500">
                 &copy; {title} {new Date().getFullYear()}
               </div>
