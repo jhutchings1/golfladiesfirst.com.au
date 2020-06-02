@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export function SizePicker({ options, colour, selected, setSize, variants }) {
+export function SizePicker({
+  options,
+  colour,
+  selected,
+  setSize,
+  variants,
+  handedness,
+}) {
   return (
     <div>
       <div className="font-bold leading-6">Size</div>
