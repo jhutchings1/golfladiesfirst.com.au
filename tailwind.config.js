@@ -3,7 +3,7 @@ const tailwindcssAspectRatio = require('tailwindcss-aspect-ratio');
 const tailwindUI = require('@tailwindcss/ui');
 
 module.exports = {
-  purge: false,
+  purge: ['./src/**/*.js'],
   theme: {
     aspectRatio: {
       none: 0,

@@ -6,12 +6,6 @@ import { useLazyLoad } from '../../hooks';
 export function InstagramImage({ post }) {
   const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
 
-  let srcset = '';
-
-  post.srcSet.forEach((ele) => {
-    srcset += `${ele.src} ${ele.width}w, `;
-  });
-
   return (
     <a
       ref={ref}
@@ -24,7 +18,7 @@ export function InstagramImage({ post }) {
         ref={imgRef}
         onLoad={handleImgLoaded}
         data-src={post.src}
-        srcSet={srcset}
+        srcSet={post.srcSet.map((el) => `${el.src} ${el.width}w`).toString()}
         alt={post.caption}
         className="absolute inset-0 object-cover w-full h-full"
       />
@@ -33,7 +27,6 @@ export function InstagramImage({ post }) {
           <Spinner />
         </div>
       )}
-
       <div className="absolute inset-0 flex overflow-hidden font-sans text-sm text-white break-words whitespace-pre-wrap transition duration-200 ease-in-out bg-black opacity-0 hover:opacity-100 hover:bg-opacity-75">
         {isImgLoaded && (
           <div className="absolute top-0 right-0 mt-2 mr-1 pointer-events-none">
