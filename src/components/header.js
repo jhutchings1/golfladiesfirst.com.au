@@ -89,18 +89,35 @@ const Header = () => {
                       </span>
                     </MenuButton>
                     <MenuPopover className="z-20 p-0 mt-2 -mx-3 bg-white rounded shadow-lg outline-none">
-                      <MenuItems className="py-1 border-none rounded shadow-xs">
-                        {navItem.submenu.map((submenu) => (
-                          <MenuLink
-                            key={submenu.id}
-                            as={Link}
-                            to={submenu.slug}
-                            className="px-4 py-1 text-base leading-6 text-gray-700 hover:bg-primary focus:bg-primary"
-                          >
-                            {submenu.label}
-                          </MenuLink>
-                        ))}
-                      </MenuItems>
+                      <div className="flex py-1 rounded shadow-xs">
+                        <MenuItems className="py-0 border-none">
+                          {navItem.submenu.col1.map((submenu) => (
+                            <MenuLink
+                              key={submenu.id}
+                              as={Link}
+                              to={submenu.slug}
+                              className="px-4 py-1 text-base leading-6 text-gray-700 hover:bg-primary focus:bg-primary"
+                            >
+                              {submenu.label}
+                            </MenuLink>
+                          ))}
+                        </MenuItems>
+
+                        {navItem.submenu.col2 && (
+                          <MenuItems className="py-0 border-none">
+                            {navItem.submenu.col2.map((submenu) => (
+                              <MenuLink
+                                key={submenu.id}
+                                as={Link}
+                                to={submenu.slug}
+                                className="px-4 py-1 text-base leading-6 text-gray-700 hover:bg-primary focus:bg-primary"
+                              >
+                                {submenu.label}
+                              </MenuLink>
+                            ))}
+                          </MenuItems>
+                        )}
+                      </div>
                     </MenuPopover>
                   </Menu>
                 ) : (
