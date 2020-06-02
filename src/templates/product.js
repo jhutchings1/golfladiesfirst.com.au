@@ -59,20 +59,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   ]);
 
   // Get list of colours that are actually available
-<<<<<<< HEAD
-  const availableColours = [];
-
-  for (let i = 0; i < colours.length; i += 1) {
-    const newVar = variants.find((v) => {
-      return v.colour === colours[i] && v.availableForSale === true;
-    });
-
-    if (typeof newVar === 'object') availableColours.push(newVar.colour);
-  }
-
-  // Keep variants in state, and set the default variant to be the first item
-  const [variant, setVariant] = useState(variants[0]);
-=======
   // const availableColours = [];
 
   // for (let i = 0; i < colours.length; i++) {
@@ -87,7 +73,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const [variant, setVariant] = useState(
     variants.find((v) => v.availableForSale === true) || variants[0]
   );
->>>>>>> feature
 
   // Format the data we get back from GraphQL for images to be a little easier to work with
   // See comment in `prepare-variants-images.js`
