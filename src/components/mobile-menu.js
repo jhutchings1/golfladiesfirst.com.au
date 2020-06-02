@@ -117,7 +117,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel>
-                          {navItem.submenu.map((submenu) => (
+                          {navItem.submenu.col1.map((submenu) => (
                             <Link
                               key={submenu.id}
                               to={submenu.slug}
@@ -126,6 +126,16 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                               {submenu.label}
                             </Link>
                           ))}
+                          {navItem.submenu.col2 &&
+                            navItem.submenu.col2.map((submenu) => (
+                              <Link
+                                key={submenu.id}
+                                to={submenu.slug}
+                                className="flex items-center px-2 py-2 mt-1 text-base font-medium leading-6 text-gray-600 uppercase transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
+                              >
+                                {submenu.label}
+                              </Link>
+                            ))}
                         </AccordionPanel>
                       </AccordionItem>
                     ) : (

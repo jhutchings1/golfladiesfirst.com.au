@@ -102,7 +102,6 @@ const Header = () => {
                             </MenuLink>
                           ))}
                         </MenuItems>
-
                         {navItem.submenu.col2 && (
                           <MenuItems className="py-0 border-none">
                             {navItem.submenu.col2.map((submenu) => (
