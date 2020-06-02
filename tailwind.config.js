@@ -33,6 +33,10 @@ module.exports = {
       fontFamily: {
         sans: ['Century Gothic', ...defaultTheme.fontFamily.sans],
       },
+      minWidth: {
+        '10': '2.5rem',
+        ...defaultTheme.minWidth,
+      },
     },
   },
   variants: {
