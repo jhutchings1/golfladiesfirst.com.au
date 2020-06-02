@@ -68,11 +68,11 @@ const Header = () => {
                 {count} items
               </span>
             </Link>
-            <nav className="hidden mt-2 -mx-2 space-x-1 md:block">
+            <nav className="hidden -mx-2 md:flex md:flex-wrap md:justify-end">
               {siteNavigation.map((navItem) =>
                 navItem.submenu ? (
                   <Menu key={navItem.id}>
-                    <MenuButton className="inline-flex items-center pl-2 pr-1 uppercase focus:outline-none focus:shadow-outline-primary">
+                    <MenuButton className="inline-flex items-center pl-2 pr-1 mt-2 uppercase focus:outline-none focus:shadow-outline-primary">
                       {navItem.label}
                       <span aria-hidden>
                         <svg
@@ -107,7 +107,7 @@ const Header = () => {
                   <Link
                     key={navItem.id}
                     to={navItem.slug}
-                    className="inline-flex items-center px-2 uppercase focus:outline-none focus:shadow-outline-primary"
+                    className="inline-flex items-center px-2 mt-2 uppercase focus:outline-none focus:shadow-outline-primary"
                   >
                     {navItem.label}
                   </Link>
