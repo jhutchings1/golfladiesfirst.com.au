@@ -210,7 +210,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                     src={img.src}
                     onClick={() => {
                       setColour(img.colour);
-                      setImgLoaded(false);
+                      // setImgLoaded(false);
                     }}
                   />
                 ))}
@@ -251,6 +251,27 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   handleChange={(event) => setHandedness(event.target.value)}
                 />
               )}
+              {images.length > 1 && (
+                <div className="grid items-start grid-cols-4 gap-1 sm:grid-cols-6">
+                  {images.map((img) => (
+                    <button
+                      key={img.colour}
+                      type="button"
+                      onClick={() => {
+                        setColour(img.colour);
+                        // setImgLoaded(false);
+                      }}
+                      className="relative h-0 aspect-ratio-square focus:outline-none focus:shadow-outline disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <img
+                        src={img.src.originalSrc}
+                        alt=""
+                        className="absolute inset-0 object-contain w-full h-full"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
               {sizes.length > 1 && (
                 <SizePicker
                   key="Size"
@@ -265,6 +286,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 />
               )}
             </div>
+
             {addToCartDisabled && (
               <p className="mt-2">
                 This combination of product options is currently unavailable.
