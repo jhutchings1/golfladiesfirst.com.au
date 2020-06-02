@@ -129,22 +129,20 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     }
 
     if (typeof newVariant === 'object') {
-      if (variant.shopifyId !== newVariant.shopifyId) {
-        setVariant(newVariant);
-        setAddToCartDisabled(false);
-        if (!newVariant.availableForSale) {
-          // If variant exists but availableForSale = false, autoselect first available size
-          // setSize(
-          //   variants.find((v) => {
-          //     return (
-          //       v.colour === colour &&
-          //       v.handness === handedness &&
-          //       v.availableForSale === true
-          //     );
-          //   }).size
-          // );
-          setAddToCartDisabled(true);
-        }
+      setVariant(newVariant);
+      setAddToCartDisabled(false);
+      if (!newVariant.availableForSale) {
+        // If variant exists but availableForSale = false, autoselect first available size
+        // setSize(
+        //   variants.find((v) => {
+        //     return (
+        //       v.colour === colour &&
+        //       v.handness === handedness &&
+        //       v.availableForSale === true
+        //     );
+        //   }).size
+        // );
+        setAddToCartDisabled(true);
       }
     } else {
       // If variant doesn't exist
