@@ -145,6 +145,8 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
           // );
           setAddToCartDisabled(true);
         }
+      } else {
+        setAddToCartDisabled(false);
       }
     } else {
       // If variant doesn't exist
