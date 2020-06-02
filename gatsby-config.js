@@ -103,13 +103,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        tailwind: true,
-        purgeOnly: ['src/css/tailwind.css'],
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
