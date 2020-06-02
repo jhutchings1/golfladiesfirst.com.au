@@ -42,6 +42,16 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     product.options.find((option) => option.name.toLowerCase() === 'size')
       ?.values || [];
 
+  // Get all possible handedness
+  const handednessOptions =
+    product.options.find((option) => option.name.toLowerCase() === 'handness')
+      ?.values || [];
+
+  // Get all possible voucher values
+  const voucherOptions =
+    product.options.find((option) => option.name.toLowerCase() === 'price')
+      ?.values || [];
+
   // Format the data we get back from GraphQL for variants to be a little easier to work with
   // See comment in `prepare-variants-with-options.js`
   const variants = useMemo(() => prepareVariantsWithOptions(product.variants), [
@@ -59,8 +69,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     if (typeof newVar === 'object') availableColours.push(newVar.colour);
   }
 
-  // Keep variants in state, and set the default variant to be the first item
-  const [variant, setVariant] = useState(variants[0]);
+  // Keep variants in state, and set the default variant to be the first available item
+  const [variant, setVariant] = useState(
+    variants.find((v) => v.availableForSale === true) || variants[0]
+  );
 
   // Format the data we get back from GraphQL for images to be a little easier to work with
   // See comment in `prepare-variants-images.js`
@@ -73,6 +85,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   // Keep different sizes in state
   const [size, setSize] = useState(variant.size);
+
+  // Keep different handedness options in state
+  const [handedness, setHandedness] = useState(variant.handness);
+
+  // Keep different voucher values in state
+  const [voucherValue, setVoucherValue] = useState(variant.price);
 
   // Manage add to cart alerts in state
   const [addedToCartMessage, setAddedToCartMessage] = useState(null);
@@ -89,10 +107,24 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   // This handles adding the correct variant to the cart
   useEffect(() => {
-    // Try to find the variant with selected size and colour
-    const newVariant = variants.find((v) => {
-      return v.size === size && v.colour === colour;
-    });
+    let newVariant;
+
+    // Try to find the variant with selected size and colour (and handedness, if applicable)
+    if (handedness) {
+      newVariant = variants.find((v) => {
+        return (
+          v.size === size && v.colour === colour && v.handness === handedness
+        );
+      });
+    } else if (voucherValue) {
+      newVariant = variants.find((v) => {
+        return v.selectedOptions[0].value === voucherValue;
+      });
+    } else {
+      newVariant = variants.find((v) => {
+        return v.size === size && v.colour === colour;
+      });
+    }
 
     if (typeof newVariant === 'object') {
       if (variant.shopifyId !== newVariant.shopifyId) {
@@ -101,7 +133,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
           // If variant exists but isn't available for sale, autoselect first available size
           setSize(
             variants.find((v) => {
-              return v.colour === colour;
+              return (
+                v.colour === colour &&
+                v.handness === handedness &&
+                v.availableForSale === true
+              );
             }).size
           );
         }
@@ -110,16 +146,16 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       // If variant doesn't exist, set new variant to the first available size in the selected colour
       setVariant(
         variants.find((v) => {
-          return v.colour === colour;
+          return v.colour === colour && v.handness === handedness;
         })
       );
       setSize(
         variants.find((v) => {
-          return v.colour === colour; // Autoselects first available size in chosen colour. This should never fail because all colours in the list have sizes available
+          return v.colour === colour && v.handness === handedness; // Autoselects first available size in chosen colour. This should never fail because all colours in the list have sizes available
         }).size
       );
     }
-  }, [size, colour, variants, variant.shopifyId]);
+  }, [size, colour, handedness, variants, voucherValue, variant.shopifyId]);
 
   // If product doesn't have an image, we can use a placeholder
   const { placeholderImage } = useGraphQL();
@@ -193,6 +229,24 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   handleChange={(event) => setColour(event.target.value)}
                 />
               )}
+              {voucherOptions.length > 1 && (
+                <OptionPicker
+                  key="Value"
+                  name="Value"
+                  options={voucherOptions}
+                  selected={voucherValue}
+                  handleChange={(event) => setVoucherValue(event.target.value)}
+                />
+              )}
+              {handednessOptions.length > 1 && (
+                <OptionPicker
+                  key="Handedness"
+                  name="Handedness"
+                  options={handednessOptions}
+                  selected={handedness}
+                  handleChange={(event) => setHandedness(event.target.value)}
+                />
+              )}
               {sizes.length > 1 && (
                 <SizePicker
                   key="Size"
@@ -200,6 +254,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                   available={!variant.availableForSale}
                   options={sizes}
                   colour={colour}
+                  handedness={handedness}
                   selected={size}
                   variants={variants}
                   setSize={setSize}
