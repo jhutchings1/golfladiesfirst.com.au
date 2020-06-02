@@ -59,15 +59,15 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   ]);
 
   // Get list of colours that are actually available
-  const availableColours = [];
+  // const availableColours = [];
 
-  for (let i = 0; i < colours.length; i++) {
-    const newVar = variants.find((v) => {
-      return v.colour === colours[i] && v.availableForSale === true;
-    });
+  // for (let i = 0; i < colours.length; i++) {
+  //   const newVar = variants.find((v) => {
+  //     return v.colour === colours[i] && v.availableForSale === true;
+  //   });
 
-    if (typeof newVar === 'object') availableColours.push(newVar.colour);
-  }
+  //   if (typeof newVar === 'object') availableColours.push(newVar.colour);
+  // }
 
   // Keep variants in state, and set the default variant to be the first available item
   const [variant, setVariant] = useState(
@@ -91,6 +91,8 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   // Keep different voucher values in state
   const [voucherValue, setVoucherValue] = useState();
+
+  const [addToCartDisabled, setAddToCartDisabled] = useState(false);
 
   // Manage add to cart alerts in state
   const [addedToCartMessage, setAddedToCartMessage] = useState(null);
@@ -129,31 +131,35 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     if (typeof newVariant === 'object') {
       if (variant.shopifyId !== newVariant.shopifyId) {
         setVariant(newVariant);
+        setAddToCartDisabled(false);
         if (!newVariant.availableForSale) {
-          // If variant exists but isn't available for sale, autoselect first available size
-          setSize(
-            variants.find((v) => {
-              return (
-                v.colour === colour &&
-                v.handness === handedness &&
-                v.availableForSale === true
-              );
-            }).size
-          );
+          // If variant exists but availableForSale = false, autoselect first available size
+          // setSize(
+          //   variants.find((v) => {
+          //     return (
+          //       v.colour === colour &&
+          //       v.handness === handedness &&
+          //       v.availableForSale === true
+          //     );
+          //   }).size
+          // );
+          setAddToCartDisabled(true);
         }
       }
     } else {
-      // If variant doesn't exist, set new variant to the first available size in the selected colour
-      setVariant(
-        variants.find((v) => {
-          return v.colour === colour && v.handness === handedness;
-        })
-      );
-      setSize(
-        variants.find((v) => {
-          return v.colour === colour && v.handness === handedness; // Autoselects first available size in chosen colour. This should never fail because all colours in the list have sizes available
-        }).size
-      );
+      // If variant doesn't exist
+
+      // setVariant(
+      //   variants.find((v) => {
+      //     return v.colour === colour && v.handness === handedness;
+      //   })
+      // );
+      // setSize(
+      //   variants.find((v) => {
+      //     return v.colour === colour && v.handness === handedness; // Autoselects first available size in chosen colour. This should never fail because all colours in the list have sizes available
+      //   }).size
+      // );
+      setAddToCartDisabled(true);
     }
   }, [size, colour, handedness, variants, voucherValue, variant.shopifyId]);
 
@@ -220,11 +226,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               <dd className="mt-2 h2 text-primary">${variant.price}</dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
-              {availableColours.length > 1 && (
+              {colours.length > 1 && (
                 <OptionPicker
                   key="Colour"
                   name="Colour"
-                  options={availableColours}
+                  options={colours}
                   selected={colour}
                   handleChange={(event) => setColour(event.target.value)}
                 />
@@ -261,11 +267,19 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 />
               )}
             </div>
+            {addToCartDisabled && (
+              <p className="mt-2">
+                This combination of product options is currently unavailable.
+              </p>
+            )}
             <span className="inline-flex mt-6 shadow-sm">
               <button
                 onClick={handleAddToCart}
+                disabled={addToCartDisabled}
                 type="button"
-                className="inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-none bg-primary hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900"
+                className={`${
+                  addToCartDisabled ? 'bg-gray-900' : 'bg-primary'
+                } inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900`}
               >
                 Add to Cart
               </button>
