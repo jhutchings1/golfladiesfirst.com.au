@@ -51,7 +51,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   // Get list of colours that are actually available
   const availableColours = [];
 
-  for (let i = 0; i < colours.length; i++) {
+  for (let i = 0; i < colours.length; i += 1) {
     const newVar = variants.find((v) => {
       return v.colour === colours[i] && v.availableForSale === true;
     });
