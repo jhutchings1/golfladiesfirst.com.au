@@ -21,6 +21,10 @@
   --shadow-color: theme("colors.brand['blue-shadow']");
 }
 
+[data-reach-menu-item][data-selected] {
+  @apply bg-primary;
+}
+
 .h2 {
   @apply text-2xl font-bold leading-none uppercase;
 }

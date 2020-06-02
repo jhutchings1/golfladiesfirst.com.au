@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import {
+  Menu,
+  MenuButton,
+  MenuItems,
+  MenuPopover,
+  MenuLink,
+} from '@reach/menu-button';
 
 import { useGraphQL, useCartCount } from '../hooks';
 import { Logo } from './logo';
 import { MobileMenu } from './mobile-menu';
+import siteNavigation from '../data/site-navigation.json';
 
 const Header = () => {
   const {
@@ -60,54 +68,51 @@ const Header = () => {
                 {count} items
               </span>
             </Link>
-            <nav className="hidden mt-2 -mr-2 font-bold uppercase md:block">
-              <Link
-                to="/"
-                className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
-              >
-                Apparel{' '}
-                <svg
-                  className="w-5 h-5 -mr-1 text-gray-600"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
-              >
-                Brands
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
-              >
-                Accessories
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
-              >
-                Sale
-              </Link>
-              <Link
-                to="/"
-                className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
-              >
-                FAQ
-              </Link>
-              <Link
-                to="/contact/"
-                className="inline-flex items-center px-2 focus:outline-none focus:shadow-outline-primary"
-              >
-                Contact
-              </Link>
+            <nav className="hidden mt-2 -mx-2 space-x-1 md:block">
+              {siteNavigation.map((navItem) =>
+                navItem.submenu ? (
+                  <Menu key={navItem.id}>
+                    <MenuButton className="inline-flex items-center pl-2 pr-1 uppercase focus:outline-none focus:shadow-outline-primary">
+                      {navItem.label}
+                      <span aria-hidden>
+                        <svg
+                          className="w-5 h-5 -mr-1 text-gray-600"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                    </MenuButton>
+                    <MenuPopover className="z-20 p-0 mt-2 -mx-3 bg-white rounded shadow-lg outline-none">
+                      <MenuItems className="py-1 border-none rounded shadow-xs">
+                        {navItem.submenu.map((submenu) => (
+                          <MenuLink
+                            key={submenu.id}
+                            as={Link}
+                            to={submenu.slug}
+                            className="px-4 py-1 text-base leading-6 text-gray-700 hover:bg-primary focus:bg-primary"
+                          >
+                            {submenu.label}
+                          </MenuLink>
+                        ))}
+                      </MenuItems>
+                    </MenuPopover>
+                  </Menu>
+                ) : (
+                  <Link
+                    key={navItem.id}
+                    to={navItem.slug}
+                    className="inline-flex items-center px-2 uppercase focus:outline-none focus:shadow-outline-primary"
+                  >
+                    {navItem.label}
+                  </Link>
+                )
+              )}
             </nav>
           </div>
         </div>

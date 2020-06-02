@@ -1,0 +1,286 @@
+[
+  {
+    "id": "7ba94b3a-ea5d-4e49-b81f-d9b0b5a8a53c",
+    "label": "Apparel",
+    "submenu": [
+      {
+        "id": "5afdaae8-02ec-47cb-b8a2-9a950a66e862",
+        "label": "All",
+        "slug": "/collections/apparel/"
+      },
+      {
+        "id": "c31fe877-acf6-4f6b-9431-6b4a45f2847f",
+        "label": "Accessories",
+        "slug": "/collections/accessories/"
+      },
+      {
+        "id": "9c4a01ac-ec89-4366-8338-ae8909e0eb66",
+        "label": "Capris",
+        "slug": "/collections/capris/"
+      },
+      {
+        "id": "b03ca341-7e29-4850-a217-25bf55ad5162",
+        "label": "Dress",
+        "slug": "/collections/dress/"
+      },
+      {
+        "id": "149e2ac0-834b-4b1e-a114-2e96f0606a69",
+        "label": "Gloves",
+        "slug": "/collections/gloves/"
+      },
+      {
+        "id": "616e3c9e-b4d9-44c4-a7c0-7e097ba98db3",
+        "label": "Headwear",
+        "slug": "/collections/headwear/"
+      },
+      {
+        "id": "0d26eb6a-e62a-4ef0-8497-db1a12dd3944",
+        "label": "Outerwear",
+        "slug": "/collections/wind-rain/"
+      },
+      {
+        "id": "5eeb6f29-5b92-4697-b966-9ea69d9d8855",
+        "label": "Pants",
+        "slug": "/collections/pants/"
+      },
+      {
+        "id": "346b4c06-0b64-4765-a6ef-0ac10545b21a",
+        "label": "Shirts",
+        "slug": "/collections/shirts/"
+      },
+      {
+        "id": "f296b09b-4c64-4848-a2dd-d310b71f9dec",
+        "label": "Shoes & Socks",
+        "slug": "/collections/shoes-socks/"
+      },
+      {
+        "id": "c8268fa6-7ffe-4cf6-919b-cc5aa1550911",
+        "label": "Shorts",
+        "slug": "/collections/shorts/"
+      },
+      {
+        "id": "c86f8cc7-00cf-4726-a428-a4348638a642",
+        "label": "Skirts & Skorts",
+        "slug": "/collections/skirts-skorts/"
+      }
+    ]
+  },
+  {
+    "id": "583e2c08-56f7-44cf-ba8d-a2b704218a18",
+    "label": "Bags",
+    "submenu": [
+      {
+        "id": "772e6c5b-9c99-4cd1-a7bb-24f1e317d19d",
+        "label": "All",
+        "slug": "/collections/bags/"
+      },
+      {
+        "id": "464210ca-8e20-4f85-9c54-8fe597e24fa6",
+        "label": "Cart Bags",
+        "slug": "/collections/cart-bags/"
+      }
+    ]
+  },
+  {
+    "id": "6823e396-f9e8-4b69-ad4a-ff72d776a669",
+    "label": "Clubs",
+    "submenu": [
+      {
+        "id": "e15c22f5-1259-4a03-b50f-f47680c2ca6e",
+        "label": "All",
+        "slug": "/collections/clubs/"
+      },
+      {
+        "id": "59d833e7-1058-46d9-9784-4da5e26a3373",
+        "label": "Driver",
+        "slug": "/collections/drivers/"
+      },
+      {
+        "id": "2e4050f3-cd3a-4f6a-b514-f327a090a6cc",
+        "label": "Fairways",
+        "slug": "/collections/fairways/"
+      },
+      {
+        "id": "7e45ee95-fbc8-4a60-9127-7f9aba5738ae",
+        "label": "Hybrids",
+        "slug": "/collections/hybrids/"
+      },
+      {
+        "id": "8a0faf85-11dd-4761-9b51-4bc8ce5b4ac7",
+        "label": "Irons",
+        "slug": "/collections/irons/"
+      },
+      {
+        "id": "6df04cc8-fb6d-4d4b-be3f-7ad89c0c4fa5",
+        "label": "Package Sets",
+        "slug": "/collections/package-sets/"
+      },
+      {
+        "id": "e1ee48d5-3df6-4496-8543-c5b76c7f5d88",
+        "label": "Putters",
+        "slug": "/collections/putters/"
+      },
+      {
+        "id": "b316acec-04c6-434f-8e24-757cde3d9698",
+        "label": "Wedges",
+        "slug": "/collections/wedges/"
+      },
+      {
+        "id": "a68938ae-f27c-4cf2-b3af-0a42fba7bcb0",
+        "label": "Second Hand",
+        "slug": "/collections/second-hand/"
+      }
+    ]
+  },
+  {
+    "id": "1c3eb208-1085-4b5c-882b-91efc96f718d",
+    "label": "Brands",
+    "submenu": [
+      {
+        "id": "5a4183fb-85ac-4d9b-8f81-18d1aebb963a",
+        "label": "Annika",
+        "slug": "/collections/annika/"
+      },
+      {
+        "id": "2cc67e6a-3930-44dd-b565-1a678cd479f1",
+        "label": "Bermuda Sands",
+        "slug": "/collections/bermuda-sands-brand/"
+      },
+      {
+        "id": "fd420b1d-81e1-4bfd-839e-12eb4d589077",
+        "label": "Callaway",
+        "slug": "/collections//callaway/"
+      },
+      {
+        "id": "0d840eda-e767-420e-b4ec-636af092749b",
+        "label": "Corsican Golf",
+        "slug": "/collections/corsican-golf/"
+      },
+      {
+        "id": "73574ec7-d987-4af9-a32d-ec02400c772c",
+        "label": "Corsican Sale",
+        "slug": "/collections/corsican-sale/"
+      },
+      {
+        "id": "b4028e5c-6628-45a5-85c8-c6ecc1156806",
+        "label": "Daily Sports",
+        "slug": "/collections/daily-sports/"
+      },
+      {
+        "id": "29f012b9-0727-4dd2-953c-1da8a702197b",
+        "label": "Daphne's Headcovers",
+        "slug": "/collections/daphnes-headcovers-brand/"
+      },
+      {
+        "id": "10729d6b-ef8f-466e-8a97-ad63deaa4b04",
+        "label": "Ecco Shoes",
+        "slug": "/collections/ecco-shoes/"
+      },
+      {
+        "id": "31c84c12-4283-4dda-bcdf-5f6fd5fadda7",
+        "label": "Glove It",
+        "slug": "/collections/glove-it-brand/"
+      },
+      {
+        "id": "f26a1ec0-4a88-4314-9089-088c9a0957e0",
+        "label": "Greg Norman",
+        "slug": "/collections/greg-norman/"
+      },
+      {
+        "id": "cf573835-0102-4723-a30b-e238e188df99",
+        "label": "Fit39 Gloves",
+        "slug": "/collections/fit39-gloves-brand/"
+      },
+      {
+        "id": "c7e24444-40a5-422d-ba70-a14bb01f8093",
+        "label": "Jamie Sadock",
+        "slug": "/collections/jamie-sadock-brand/"
+      },
+      {
+        "id": "c28d80bd-0834-47bc-962c-d0bcaa8959b1",
+        "label": "Navika",
+        "slug": "/collections/navika-brand/"
+      },
+      {
+        "id": "5fce2a34-79f7-4635-856b-1be6502e72bb",
+        "label": "Mega Cool Sunshawls",
+        "slug": "/collections/mega-cool-sunshawls/"
+      },
+      {
+        "id": "dafcec53-3361-49d6-b1a7-5d8e119e10c6",
+        "label": "Nivo",
+        "slug": "/collections/nivo/"
+      },
+      {
+        "id": "6133924b-9e4c-401b-87a1-24bdae7c24e8",
+        "label": "Nivo Sale",
+        "slug": "/collections/nivo-sale/"
+      },
+      {
+        "id": "fef6f435-ec71-4a12-9db3-f11fbcfaebf3",
+        "label": "Other Suppliers",
+        "slug": "/collections/other-suppliers-brand/"
+      },
+      {
+        "id": "6d887365-2624-445e-b380-1bd4fa54ff37",
+        "label": "Ping",
+        "slug": "/collections/ping/"
+      },
+      {
+        "id": "e8441f44-dbb4-461b-99e9-e6a7cf25867a",
+        "label": "ProQuip",
+        "slug": "/collections/proquip-brand/"
+      },
+      {
+        "id": "f65c038e-9819-427f-ac56-6cd071a2cd0c",
+        "label": "Radicool",
+        "slug": "/collections/radicool/"
+      },
+      {
+        "id": "873de065-1be1-4116-ba16-51be61d7affd",
+        "label": "Skechers Shoes",
+        "slug": "/collections/skechers-shoes/"
+      },
+      {
+        "id": "33190c70-e626-4dbc-990f-99b253590838",
+        "label": "Sporte Leisure",
+        "slug": "/collections/sporte-leisure/"
+      },
+      {
+        "id": "c8d9797c-0916-407d-8112-c952eaa4f642",
+        "label": "Sweet Sandals",
+        "slug": "/collections/sweet-sandals-brand/"
+      },
+      {
+        "id": "e097b41f-2c75-4cb6-8894-11d62a5fb128",
+        "label": "Tour Edge",
+        "slug": "/collections/tour-edge/"
+      },
+      {
+        "id": "6a5d1b20-2755-4e92-9fd0-5c3e4d39c7ff",
+        "label": "Wow! Socks",
+        "slug": "/collections/wow-socks/"
+      }
+    ]
+  },
+  {
+    "id": "378106d5-b3ae-449c-a922-38e04c52c349",
+    "label": "Accessories",
+    "slug": "/collections/accessories/"
+  },
+  {
+    "id": "99962559-0068-4ac1-b4b9-1c8969240726",
+    "label": "Sale",
+    "slug": "/collections/clearance-items/"
+  },
+  {
+    "id": "4d2139ca-dbb9-45fc-bf1c-b2ff3bdcaaaa",
+    "label": "FAQ",
+    "slug": "/faq/"
+  },
+  {
+    "id": "5e75c79f-9513-4f55-999a-0b2abd8de815",
+    "label": "Contact",
+    "slug": "/contact/"
+  }
+]
