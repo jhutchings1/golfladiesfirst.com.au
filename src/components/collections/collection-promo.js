@@ -18,7 +18,7 @@ export function CollectionPromo() {
               />
             </div>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-white bg-transparent-black-50">
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-white bg-black bg-opacity-50">
             <h2 className="h2">
               <span className="text-4xl">Shop ladies &amp; </span>
               <br />
@@ -43,7 +43,7 @@ export function CollectionPromo() {
               />
             </div>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-white bg-transparent-black-50">
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-white bg-black bg-opacity-50">
             <h2 className="text-2xl font-bold leading-none text-center uppercase">
               <span className="text-4xl">Shop mens &amp; </span>
               <br />

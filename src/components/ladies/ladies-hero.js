@@ -17,7 +17,7 @@ export function LadiesHero() {
               className="w-full h-full"
             />
           </div>
-          <div className="relative flex flex-col py-12 bg-transparent-white-50">
+          <div className="relative flex flex-col py-12 bg-white bg-opacity-50">
             <div className="flex flex-col items-center justify-center md:w-1/2">
               <Copy />
             </div>

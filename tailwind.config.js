@@ -18,16 +18,6 @@ module.exports = {
         'outline-primary': '0 0 0 3px var(--shadow-color)',
       },
       colors: {
-        'transparent-black': {
-          '25': 'hsla(0, 0%, 0%, 0.25)',
-          '50': 'hsla(0, 0%, 0%, 0.50)',
-          '75': 'hsla(0, 0%, 0%, 0.75)',
-        },
-        'transparent-white': {
-          '25': 'hsla(0, 100%, 100%, 0.25)',
-          '50': 'hsla(0, 100%, 100%, 0.50)',
-          '75': 'hsla(0, 100%, 100%, 0.75)',
-        },
         black: '#2c2c2c',
         brand: {
           pink: '#e2006d',

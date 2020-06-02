@@ -14,7 +14,7 @@ export function CollectionCard({ children, image, to, width }) {
       <div className="absolute inset-0">
         <GatsbyImage fluid={image.childImageSharp.fluid} className="h-full" />
       </div>
-      <div className="relative flex w-full h-96 bg-transparent-black-25">
+      <div className="relative flex w-full bg-black bg-opacity-25 h-96">
         <div className="flex items-end justify-center w-full py-6 text-center">
           {children}
         </div>
