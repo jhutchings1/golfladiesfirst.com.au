@@ -11,7 +11,7 @@ export function ProductControls({
   setItemsToShow,
 }) {
   return (
-    <div className="flex items-center justify-between px-4 pt-12 bg-white border-t border-gray-200 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-between w-full px-4 pt-12 mx-auto bg-white border-t border-gray-200 sm:px-6 lg:px-8 max-w-7xl">
       <div className="flex justify-between flex-1 sm:hidden">
         <button
           type="button"
@@ -29,7 +29,7 @@ export function ProductControls({
               d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
               clipRule="evenodd"
             />
-          </svg>{' '}
+          </svg>
           Previous
         </button>
         <button

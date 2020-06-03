@@ -21,14 +21,16 @@ export default function CollectionPageTemplate({ data }) {
   return (
     <Layout>
       <SEO title={data.shopifyCollection.title} />
-      <article className="px-4 sm:px-6 lg:px-8">
-        <h1 className="mt-24 text-center h2">{data.shopifyCollection.title}</h1>
-        <div
-          className="max-w-2xl mx-auto mt-6 text-center"
-          dangerouslySetInnerHTML={{
-            __html: data.shopifyCollection.descriptionHtml,
-          }}
-        />
+      <article className="px-4 bg-white sm:px-6 lg:px-8">
+        <div className="py-24">
+          <h1 className="text-center h2">{data.shopifyCollection.title}</h1>
+          <div
+            className="max-w-2xl mx-auto mt-6 text-center"
+            dangerouslySetInnerHTML={{
+              __html: data.shopifyCollection.descriptionHtml,
+            }}
+          />
+        </div>
         <ProductControls
           index={index}
           setIndex={setIndex}
