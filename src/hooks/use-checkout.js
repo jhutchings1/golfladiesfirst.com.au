@@ -5,7 +5,5 @@ export function useCheckout() {
     store: { checkout },
   } = useStoreContext();
 
-  return () => {
-    window.open(checkout.webUrl);
-  };
+  return checkout.webUrl;
 }

@@ -82,6 +82,9 @@ export function useGraphQL() {
                 amount
                 currencyCode
               }
+              maxVariantPrice {
+                amount
+              }
             }
             variants {
               shopifyId
@@ -109,6 +112,9 @@ export function useGraphQL() {
               minVariantPrice {
                 amount
                 currencyCode
+              }
+              maxVariantPrice {
+                amount
               }
             }
             variants {
