@@ -102,7 +102,8 @@ export function AddToCartAlert({
                     </h2>
                     <dl className="mt-1 text-gray-600">
                       {variant.selectedOptions.map((option, index) =>
-                        option.name === 'Title' ? null : (
+                        option.name === 'Title' ||
+                        option.name === 'Price' ? null : (
                           <div key={index}>
                             <dt className="inline">{option.name}: </dt>
                             <dd className="inline">{option.value}</dd>
