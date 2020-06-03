@@ -3,15 +3,19 @@ import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 
 import { ProductControls } from '../components/product-controls';
-
 import { Layout, SEO, Tile } from '../components';
 
-export default function CollectionPageTemplate({ data }) {
-  const { products } = data.shopifyCollection;
+export default function CollectionPageTemplate({
+  data: { shopifyCollection },
+}) {
+  const { products } = shopifyCollection;
 
   const [prods, setProds] = useState(null);
+
   const [index, setIndex] = useState(0);
+
   const [itemsToShow, setItemsToShow] = useState(8);
+
   useEffect(() => {
     setProds(
       products.slice(index * itemsToShow, index * itemsToShow + itemsToShow)
@@ -20,14 +24,14 @@ export default function CollectionPageTemplate({ data }) {
 
   return (
     <Layout>
-      <SEO title={data.shopifyCollection.title} />
+      <SEO title={shopifyCollection.title} />
       <article className="px-4 bg-white sm:px-6 lg:px-8">
         <div className="py-24">
-          <h1 className="text-center h2">{data.shopifyCollection.title}</h1>
+          <h1 className="text-center h2">{shopifyCollection.title}</h1>
           <div
             className="max-w-2xl mx-auto mt-6 text-center"
             dangerouslySetInnerHTML={{
-              __html: data.shopifyCollection.descriptionHtml,
+              __html: shopifyCollection.descriptionHtml,
             }}
           />
         </div>
@@ -57,6 +61,12 @@ export default function CollectionPageTemplate({ data }) {
             : Array(itemsToShow)
                 .fill('')
                 .map((_, i) => <div key={i}>Loading...</div>)}
+          {prods && prods.length === 0 && (
+            <p className="text-center md:col-span-2 lg:col-span-4">
+              Sorry, no products were found in the {shopifyCollection.title}{' '}
+              collection.
+            </p>
+          )}
         </div>
       </article>
     </Layout>
