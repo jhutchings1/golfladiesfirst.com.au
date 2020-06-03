@@ -27,7 +27,7 @@ export function Layout({ children, hasHero, theme = '' }) {
       <div className="flex flex-col flex-1">
         {hasHero && <Hero />}
         <Header />
-        <main className="flex-1 bg-gray-50">{children}</main>
+        <main className="flex-1 bg-white">{children}</main>
         <FixedButtons theme={theme} />
         <Footer />
       </div>
