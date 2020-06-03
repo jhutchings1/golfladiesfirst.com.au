@@ -10,11 +10,6 @@
           "slug": "/collections/apparel/"
         },
         {
-          "id": "c31fe877-acf6-4f6b-9431-6b4a45f2847f",
-          "label": "Accessories",
-          "slug": "/collections/accessories/"
-        },
-        {
           "id": "9c4a01ac-ec89-4366-8338-ae8909e0eb66",
           "label": "Capris",
           "slug": "/collections/capris/"
@@ -298,14 +293,14 @@
     "slug": "/lessons/"
   },
   {
-    "id": "17de9f72-c185-4466-bdd8-7cbcf5855320",
-    "label": "Testimonials",
-    "slug": "/testimonials/"
-  },
-  {
     "id": "4d2139ca-dbb9-45fc-bf1c-b2ff3bdcaaaa",
     "label": "FAQ",
     "slug": "/faq/"
+  },
+  {
+    "id": "5e75c79f-9513-4f55-999a-0b2abd8de811",
+    "label": "About Us",
+    "slug": "/about/"
   },
   {
     "id": "5e75c79f-9513-4f55-999a-0b2abd8de815",

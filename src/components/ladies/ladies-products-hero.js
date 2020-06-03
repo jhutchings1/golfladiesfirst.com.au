@@ -33,28 +33,6 @@ export function LadiesProductsHero() {
               <p className="uppercase">Discount applied at checkout</p>
             </div>
           </div>
-          <div className="w-full mt-auto ml-auto overflow-hidden md:inline-flex md:w-1/2">
-            <Link
-              to="/products/ladies/"
-              className="w-full md:w-1/2 bg-brand-pink focus:outline-none focus:shadow-outline-primary group focus:bg-pink-500"
-            >
-              <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-pink group-focus:bg-pink-500">
-                <h3 className="px-12 py-4 text-sm font-bold tracking-wider text-white uppercase whitespace-no-wrap transform md:skew-x-12">
-                  Shop Ladies
-                </h3>
-              </span>
-            </Link>
-            <Link
-              to="/products/mens/"
-              className="w-full md:w-1/2 bg-brand-blue focus:outline-none focus:shadow-outline-primary group focus:bg-blue-900"
-            >
-              <span className="flex items-center justify-center transform md:-skew-x-12 bg-brand-blue group-focus:bg-blue-900">
-                <h3 className="px-12 py-4 text-sm font-bold tracking-wider text-white uppercase whitespace-no-wrap transform md:skew-x-12">
-                  Shop Mens
-                </h3>
-              </span>
-            </Link>
-          </div>
         </div>
       </div>
     </article>
