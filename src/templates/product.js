@@ -37,7 +37,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   // Get all possible handedness
   const handednessOptions =
-    product.options.find((option) => option.name.toLowerCase() === 'handness')
+    product.options.find((option) => option.name.toLowerCase() === 'handedness')
       ?.values || [];
 
   // Get all possible voucher values
@@ -69,7 +69,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const [size, setSize] = useState(variant.size);
 
   // Keep different handedness options in state
-  const [handedness, setHandedness] = useState(variant.handness);
+  const [handedness, setHandedness] = useState(variant.handedness);
 
   // Keep different voucher values in state
   const [voucherValue, setVoucherValue] = useState();
@@ -97,7 +97,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     if (handedness) {
       newVariant = variants.find((v) => {
         return (
-          v.size === size && v.colour === colour && v.handness === handedness
+          v.size === size && v.colour === colour && v.handedness === handedness
         );
       });
     } else if (voucherValue) {
