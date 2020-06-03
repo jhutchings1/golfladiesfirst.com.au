@@ -37,7 +37,13 @@ export function Tile({ title, slug, price, image, constantPrice, available }) {
         <p className="mt-3 text-base leading-6 text-gray-500">
           {!constantPrice && `Starting from: `}
           <span className="font-bold text-primary">
-            {available ? `$${price.toFixed(2)}` : 'Sold Out'}
+            {available ? (
+              <>
+                <small className="font-normal">AUD</small> ${price.toFixed(2)}
+              </>
+            ) : (
+              'Sold Out'
+            )}
           </span>
         </p>
       </div>

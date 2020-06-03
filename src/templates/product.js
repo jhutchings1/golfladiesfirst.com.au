@@ -182,7 +182,9 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             <h1 className="font-normal h2">{product.title}</h1>
             <dl>
               <dt className="sr-only">Price:</dt>
-              <dd className="mt-2 h2 text-primary">${variant.price}</dd>
+              <dd className="mt-2 h2 text-primary">
+                <small className="font-normal">AUD</small> ${variant.price}
+              </dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
               {colours.length > 1 && (

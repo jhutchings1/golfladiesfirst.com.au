@@ -28,7 +28,9 @@ export function Cart() {
             <dl className="grid row-gap-3">
               <div className="flex justify-between">
                 <dt>Subtotal:</dt>
-                <dd>{total}</dd>
+                <dd>
+                  <small className="font-normal">AUD</small> {total}
+                </dd>
               </div>
               <div className="flex justify-between">
                 <dt>Shipping:</dt>
@@ -36,7 +38,9 @@ export function Cart() {
               </div>
               <div className="flex justify-between">
                 <dt>Tax: </dt>
-                <dd>{tax}</dd>
+                <dd>
+                  <small className="font-normal">AUD</small> {tax}
+                </dd>
               </div>
             </dl>
 
@@ -44,17 +48,18 @@ export function Cart() {
             <dl className="font-medium">
               <div className="flex justify-between">
                 <dt>Estimated Total:</dt>
-                <dd>{total}</dd>
+                <dd>
+                  <small className="font-normal">AUD</small> {total}
+                </dd>
               </div>
             </dl>
             <span className="inline-flex w-full mt-6 shadow-sm">
-              <button
-                type="button"
-                onClick={checkout}
+              <a
+                href={checkout}
                 className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900"
               >
                 Checkout
-              </button>
+              </a>
             </span>
           </div>
         </div>

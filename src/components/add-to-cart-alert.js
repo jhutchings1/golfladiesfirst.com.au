@@ -112,7 +112,11 @@ export function AddToCartAlert({
                       )}
                     </dl>
                     <div>
-                      1x <span className="font-bold">${variant.price}</span>
+                      1x{' '}
+                      <span className="font-bold">
+                        <small className="font-normal">AUD</small> $
+                        {variant.price}{' '}
+                      </span>
                     </div>
                   </div>
                 </div>
