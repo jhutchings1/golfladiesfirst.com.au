@@ -45,6 +45,7 @@ export function CollectionLatest() {
                 product.priceRange.minVariantPrice.amount ===
                 product.priceRange.maxVariantPrice.amount
               }
+              available={product.availableForSale}
             />
           ))}
         </Carousel>

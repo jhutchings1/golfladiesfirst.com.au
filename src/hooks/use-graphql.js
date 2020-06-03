@@ -77,6 +77,7 @@ export function useGraphQL() {
           nodes {
             title
             handle
+            availableForSale
             productType
             tags
             images {
@@ -107,6 +108,7 @@ export function useGraphQL() {
           nodes {
             title
             handle
+            availableForSale
             images {
               originalSrc
             }

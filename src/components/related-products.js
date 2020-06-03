@@ -44,6 +44,7 @@ export function RelatedProducts({
                 prod.priceRange.minVariantPrice.amount ===
                 prod.priceRange.maxVariantPrice.amount
               }
+              available={prod.availableForSale}
             />
           </li>
         ))}

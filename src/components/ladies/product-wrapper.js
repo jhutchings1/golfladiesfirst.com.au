@@ -36,6 +36,7 @@ export function ProductWrapper() {
                     product.priceRange.minVariantPrice.amount ===
                     product.priceRange.maxVariantPrice.amount
                   }
+                  available={product.availableForSale}
                 />
               ))
             : Array(itemsToShow)
