@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { useGraphQL, useLazyLoad } from '../hooks';
 import { resizeShopifyImage } from '../utilities';
 
-export function Tile({ title, slug, price, image, constantPrice }) {
+export function Tile({ title, slug, price, image, constantPrice, available }) {
   const { placeholderImage } = useGraphQL();
 
   const imageSrc = image
@@ -18,7 +18,9 @@ export function Tile({ title, slug, price, image, constantPrice }) {
     <Link
       ref={ref}
       to={`/products/${slug}`}
-      className="relative flex flex-col w-full max-w-sm pb-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white h-96 group focus:outline-none focus:shadow-outline-primary focus:z-10"
+      className={`${
+        !available && 'opacity-50'
+      } relative flex flex-col w-full max-w-sm pb-3 mx-auto overflow-hidden transition duration-150 ease-in-out transform bg-white h-96 group focus:outline-none focus:shadow-outline-primary focus:z-10`}
     >
       <div className="relative h-64">
         <img
@@ -34,7 +36,9 @@ export function Tile({ title, slug, price, image, constantPrice }) {
         <h3 className="mt-2 line-clamp">{title}</h3>
         <p className="mt-3 text-base leading-6 text-gray-500">
           {!constantPrice && `Starting from: `}
-          <span className="font-bold text-primary">${price.toFixed(2)}</span>
+          <span className="font-bold text-primary">
+            {available ? `$${price.toFixed(2)}` : 'Sold Out'}
+          </span>
         </p>
       </div>
     </Link>
@@ -47,4 +51,5 @@ Tile.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
   constantPrice: PropTypes.bool,
+  available: PropTypes.bool,
 };

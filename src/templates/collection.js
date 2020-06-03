@@ -51,6 +51,7 @@ export default function CollectionPageTemplate({ data }) {
                     product.priceRange.minVariantPrice.amount ===
                     product.priceRange.maxVariantPrice.amount
                   }
+                  available={product.availableForSale}
                 />
               ))
             : Array(itemsToShow)
@@ -77,6 +78,7 @@ export const query = graphql`
       products {
         title
         handle
+        availableForSale
         priceRange {
           minVariantPrice {
             amount
