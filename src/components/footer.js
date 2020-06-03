@@ -32,46 +32,108 @@ export function Footer() {
             </h1>
           </Link>
           <nav className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
-            <p className="mt-3 first:mt-0">
-              <Link
-                to="/products/ladies/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-              >
-                Shop Ladies
-              </Link>
-            </p>
-            <p className="mt-3 first:mt-0">
-              <Link
-                to="/products/mens/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-              >
-                Shop Mens
-              </Link>
-            </p>
-            <p className="mt-3 first:mt-0">
-              <Link
-                to="/faq/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-              >
-                FAQ
-              </Link>
-            </p>
-            <p className="mt-3 first:mt-0">
-              <Link
-                to="/contact/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-              >
-                Contact
-              </Link>
-            </p>
-            <p className="mt-3 first:mt-0">
-              <Link
-                to="/privacy-policy/"
-                className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-              >
-                Privacy Policy
-              </Link>
-            </p>
+            <div className="flex flex-row">
+              <div className="w-1/2 mr-24">
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/products/ladies/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Shop Ladies
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/products/mens/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Shop Mens
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/collections/clearance-items/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Sale
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/collections/clearance-items/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Brands
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/collections/accessories/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Accessories
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/collections/gift-certificate/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Gift Vouchers
+                  </Link>
+                </p>
+              </div>
+              <div className="w-1/2">
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/collections/gift-certificate/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    About Us
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/lessons/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Lessons
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/testimonials/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Testimonials
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/faq/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    FAQ
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/contact/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Contact
+                  </Link>
+                </p>
+                <p className="mt-3 first:mt-0">
+                  <Link
+                    to="/privacy-policy/"
+                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Privacy Policy
+                  </Link>
+                </p>
+              </div>
+            </div>
           </nav>
           <dl className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
             <div className="mt-3 first:mt-0">
