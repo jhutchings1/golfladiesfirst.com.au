@@ -1,11 +1,23 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
+
+import { ProductControls } from '../components/product-controls';
 
 import { Layout, SEO, Tile } from '../components';
 
 export default function CollectionPageTemplate({ data }) {
   const { products } = data.shopifyCollection;
+
+  const [prods, setProds] = useState(null);
+  const [index, setIndex] = useState(0);
+  const [itemsToShow, setItemsToShow] = useState(8);
+  useEffect(() => {
+    setProds(
+      products.slice(index * itemsToShow, index * itemsToShow + itemsToShow)
+    );
+  }, [products, index, itemsToShow]);
+
   return (
     <Layout>
       <SEO title={data.shopifyCollection.title} />
@@ -17,16 +29,28 @@ export default function CollectionPageTemplate({ data }) {
             __html: data.shopifyCollection.descriptionHtml,
           }}
         />
+        <ProductControls
+          index={index}
+          setIndex={setIndex}
+          products={products}
+          itemsToShow={itemsToShow}
+          setItemsToShow={setItemsToShow}
+        />
         <div className="grid w-full max-w-6xl row-gap-6 col-gap-12 py-12 mx-auto md:grid-cols-2 lg:grid-cols-4 sm:py-16">
-          {products.map((product) => (
-            <Tile
-              key={product.handle}
-              slug={product.handle}
-              title={product.title}
-              price={Number(product.priceRange.minVariantPrice.amount)}
-              image={product.images[0]}
-            />
-          ))}
+          {prods
+            ? prods.map((product) => (
+                <Tile
+                  key={product.handle}
+                  slug={product.handle}
+                  title={product.title}
+                  price={Number(product.priceRange.minVariantPrice.amount)}
+                  image={product.images[0]}
+                />
+              ))
+            : Array(itemsToShow)
+                .fill('')
+                .map((_, i) => <div key={i}>Loading...</div>)}
+          }
         </div>
       </article>
     </Layout>
