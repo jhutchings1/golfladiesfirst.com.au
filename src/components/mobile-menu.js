@@ -151,7 +151,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
                 </Accordion>
               </nav>
             </div>
-            <div className="flex items-start justify-between flex-shrink-0 p-4 border-t border-gray-200">
+            <div className="flex items-end justify-between flex-shrink-0 p-4 border-t border-gray-200">
               <div className="text-gray-500">
                 &copy; {title} {new Date().getFullYear()}
               </div>
