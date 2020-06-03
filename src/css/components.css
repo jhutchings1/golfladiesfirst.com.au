@@ -4,9 +4,9 @@
  */
 
 :root {
-  --brand-color: theme("colors.brand.pink");
-  --brand-color-light: theme("colors.brand['pink-light']");
-  --shadow-color: theme("colors.brand['pink-shadow']");
+  --brand-color: theme("colors.black");
+  --brand-color-light: theme("colors.gray.600");
+  --shadow-color: theme("colors.brand['gray-shadow']");
 }
 
 [data-theme="ladies"] {

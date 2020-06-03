@@ -7,7 +7,7 @@ import { Hero } from './hero';
 import { FixedButtons } from './fixed-buttons';
 import { Footer } from './footer';
 
-export function Layout({ children, hasHero, theme = 'ladies' }) {
+export function Layout({ children, hasHero, theme = '' }) {
   // Set theme
   useEffect(() => {
     // Check if window object exists

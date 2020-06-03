@@ -1,6 +1,12 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const tailwindcssAspectRatio = require('tailwindcss-aspect-ratio');
 const tailwindUI = require('@tailwindcss/ui');
+const hexRgb = require('hex-rgb');
+
+function rgba(hex, alpha) {
+  const { red, green, blue } = hexRgb(hex);
+  return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+}
 
 module.exports = {
   purge: ['./src/**/*.js'],
@@ -20,6 +26,7 @@ module.exports = {
       colors: {
         black: '#2c2c2c',
         brand: {
+          'gray-shadow': `${rgba(defaultTheme.colors.gray[400], 0.45)}`,
           pink: '#e2006d',
           'pink-light': '#fab6d7',
           'pink-shadow': 'hsla(331, 100%, 63%, 0.5)',
