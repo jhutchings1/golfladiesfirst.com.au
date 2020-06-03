@@ -31,7 +31,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setIsModalOpen((prevState) => !prevState)}
-              className="mr-2 md:hidden focus:outline-none focus:shadow-outline-primary"
+              className="p-1 mr-2 -ml-1 rounded md:hidden focus:outline-none focus:shadow-outline-primary focus:bg-gray-50"
             >
               <div className="sr-only">Menu</div>
               <svg
@@ -48,7 +48,7 @@ const Header = () => {
             </button>
             <Link
               to="/"
-              className="focus:outline-none focus:shadow-outline-primary"
+              className="rounded-lg focus:outline-none focus:bg-gray-50 focus:shadow-outline-primary"
             >
               <h1>
                 <span className="sr-only">{title}</span>
@@ -59,7 +59,7 @@ const Header = () => {
           <div className="flex flex-col items-end">
             <Link
               to="/cart"
-              className="flex items-center focus:outline-none focus:shadow-outline-primary"
+              className="flex items-center px-2 py-1 -mr-2 rounded focus:outline-none focus:bg-gray-50 focus:shadow-outline-primary"
             >
               <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5">
                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
@@ -72,7 +72,7 @@ const Header = () => {
               {siteNavigation.map((navItem) =>
                 navItem.submenu ? (
                   <Menu key={navItem.id}>
-                    <MenuButton className="inline-flex items-center pl-2 pr-1 mt-2 ml-1 uppercase focus:outline-none focus:shadow-outline-primary first:ml-0">
+                    <MenuButton className="inline-flex items-center pl-2 pr-1 mt-2 ml-1 uppercase rounded focus:outline-none focus:shadow-outline-primary first:ml-0 focus:bg-gray-50">
                       {navItem.label}
                       <span aria-hidden>
                         <svg
@@ -123,7 +123,7 @@ const Header = () => {
                   <Link
                     key={navItem.id}
                     to={navItem.slug}
-                    className="inline-flex items-center px-2 mt-2 ml-1 uppercase focus:outline-none focus:shadow-outline-primary first:ml-0"
+                    className="inline-flex items-center px-2 mt-2 ml-1 uppercase rounded focus:outline-none focus:shadow-outline-primary first:ml-0 focus:bg-gray-50"
                   >
                     {navItem.label}
                   </Link>
