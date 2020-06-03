@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
 import { Logo } from './logo';
+import footerNavigation from '../data/footer-navigation.json';
 
 export function Footer() {
   const {
@@ -22,119 +23,49 @@ export function Footer() {
     <footer className="bg-white">
       <div className="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex flex-col items-start py-12 mx-auto md:flex-row md:justify-between">
-          <Link
-            to="/"
-            className="flex my-auto focus:outline-none focus:shadow-outline-primary"
-          >
-            <h1 className="text-xl font-semibold leading-none text-gray-900">
-              <span className="sr-only">{title}</span>
-              <Logo className="h-24 text-primary" />
-            </h1>
-          </Link>
-          <nav className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
-            <div className="flex flex-row">
-              <div className="w-1/2 mr-24">
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/products/ladies/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Shop Ladies
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/products/mens/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Shop Mens
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/collections/clearance-items/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Sale
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/collections/clearance-items/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Brands
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/collections/accessories/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Accessories
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/collections/gift-certificate/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Gift Vouchers
-                  </Link>
-                </p>
+          <div className="flex flex-col w-full sm:flex-row">
+            <Link
+              to="/"
+              className="flex my-auto rounded-lg focus:outline-none focus:bg-gray-50 focus:shadow-outline-primary"
+            >
+              <h1 className="text-xl font-semibold leading-none text-gray-900">
+                <span className="sr-only">{title}</span>
+                <Logo className="h-24 text-primary" />
+              </h1>
+            </Link>
+            <nav className="flex-1 w-full mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
+              <div className="grid justify-center w-full grid-cols-2">
+                <div className="flex sm:justify-center">
+                  <ul>
+                    {footerNavigation.col1.map((navItem) => (
+                      <li key={navItem.id} className="mt-3 first:mt-0">
+                        <Link
+                          to={navItem.slug}
+                          className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:text-primary focus:underline"
+                        >
+                          {navItem.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex sm:justify-center">
+                  <ul>
+                    {footerNavigation.col2.map((navItem) => (
+                      <li key={navItem.id} className="mt-3 first:mt-0">
+                        <Link
+                          to={navItem.slug}
+                          className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:text-primary focus:underline"
+                        >
+                          {navItem.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div className="w-1/2">
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/collections/gift-certificate/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    About Us
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/lessons/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Lessons
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/testimonials/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Testimonials
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/faq/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    FAQ
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/contact/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Contact
-                  </Link>
-                </p>
-                <p className="mt-3 first:mt-0">
-                  <Link
-                    to="/privacy-policy/"
-                    className="font-bold text-gray-600 transition duration-150 ease-in-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
-                  >
-                    Privacy Policy
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </nav>
+            </nav>
+          </div>
           <dl className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
             <div className="mt-3 first:mt-0">
               <dt className="sr-only">Address</dt>
@@ -185,23 +116,14 @@ export function Footer() {
                   <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <div className="ml-3">
-                  {phone.map((p, i) => (
-                    <Fragment key={i}>
-                      {i === phone.length - 1 && (
-                        <span aria-hidden className="mx-3">
-                          |
-                        </span>
-                      )}
-                      <span>
-                        {p.name}:{' '}
-                        <a
-                          href={`tel:${p.numberFormatted}`}
-                          className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:shadow-outline-primary"
-                        >
-                          {p.numberDisplay}
-                        </a>
-                      </span>
-                    </Fragment>
+                  {phone.map((p) => (
+                    <a
+                      key={p.numberFormatted}
+                      href={`tel:${p.numberFormatted}`}
+                      className="inline-block text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:text-primary focus:underline"
+                    >
+                      {p.name}: {p.numberDisplay}
+                    </a>
                   ))}
                 </div>
               </dd>
@@ -225,7 +147,7 @@ export function Footer() {
                 <span className="ml-3">
                   <a
                     href={`mailto:${email}`}
-                    className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:shadow-outline-primary"
+                    className="text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:text-primary focus:underline"
                   >
                     {email}
                   </a>
@@ -239,7 +161,7 @@ export function Footer() {
             <div className="flex justify-center md:order-2">
               <a
                 href={facebook}
-                className="text-gray-400 transition duration-150 ease-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                className="text-gray-400 transition duration-150 ease-out hover:text-primary focus:outline-none focus:text-primary"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -256,7 +178,7 @@ export function Footer() {
               </a>
               <a
                 href={instagram}
-                className="ml-6 text-gray-400 transition duration-150 ease-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                className="ml-6 text-gray-400 transition duration-150 ease-out hover:text-primary focus:outline-none focus:text-primary"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -277,7 +199,7 @@ export function Footer() {
                 Website by{' '}
                 <a
                   href="https://www.phirannodesigns.com.au"
-                  className="text-gray-900 transition duration-150 ease-out hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  className="text-gray-900 transition duration-150 ease-out hover:text-primary focus:outline-none focus:text-primary focus:underline"
                 >
                   Phiranno Designs
                 </a>
