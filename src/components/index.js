@@ -1,4 +1,4 @@
-export * from './alert';
+export * from './add-to-cart-alert';
 export * from './brands-we-love';
 export * from './contact';
 export * from './fixed-buttons';
@@ -10,9 +10,9 @@ export * from './map';
 export * from './newsletter';
 export * from './option-picker';
 export * from './our-story';
+export * from './related-products';
 export * from './seo';
 export * from './size-picker';
 export * from './spinner';
 export * from './thumbnail';
 export * from './tile';
-export * from './related-products';

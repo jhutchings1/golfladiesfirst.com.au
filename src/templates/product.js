@@ -10,7 +10,7 @@ import {
 import {
   Layout,
   SEO,
-  Alert,
+  AddToCartAlert,
   OptionPicker,
   SizePicker,
   Thumbnail,
@@ -77,7 +77,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const [addToCartDisabled, setAddToCartDisabled] = useState(false);
 
   // Manage add to cart alerts in state
-  const [addedToCartMessage, setAddedToCartMessage] = useState(null);
+  const [isAlertShown, setIsAlertShown] = useState(false);
 
   // Use a custom hook for adding items to cart
   const addItemToCart = useAddItemToCart();
@@ -86,7 +86,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   // Note: we are hard coding the number of items to be added to cart as 1, we can add another useState instance to address this in the future if we need to
   function handleAddToCart() {
     addItemToCart(variant.shopifyId, 1);
-    setAddedToCartMessage('Added to your cart!');
+    setIsAlertShown(true);
   }
 
   // This handles adding the correct variant to the cart
@@ -142,12 +142,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
       <SEO title={product.title} />
       <article className="relative px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-          {addedToCartMessage && (
-            <Alert
-              message={addedToCartMessage}
-              dismiss={() => setAddedToCartMessage(null)}
-            />
-          )}
+          <AddToCartAlert
+            title={product.title}
+            variant={variant}
+            isAlertShown={isAlertShown}
+            setIsAlertShown={setIsAlertShown}
+          />
           <div className="grid gap-6 mt-2">
             <div
               ref={ref}

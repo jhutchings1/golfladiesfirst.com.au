@@ -53,6 +53,11 @@ export function useGraphQL() {
         }
         placeholderImage: file(relativePath: { eq: "placeholder/shoe.png" }) {
           publicURL
+          addToCartAlert: childImageSharp {
+            fixed(width: 96) {
+              src
+            }
+          }
         }
         allShopifyProductVariant {
           nodes {
