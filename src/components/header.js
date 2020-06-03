@@ -72,7 +72,7 @@ const Header = () => {
               {siteNavigation.map((navItem) =>
                 navItem.submenu ? (
                   <Menu key={navItem.id}>
-                    <MenuButton className="inline-flex items-center pl-2 pr-1 mt-2 uppercase focus:outline-none focus:shadow-outline-primary">
+                    <MenuButton className="inline-flex items-center pl-2 pr-1 mt-2 ml-1 uppercase focus:outline-none focus:shadow-outline-primary first:ml-0">
                       {navItem.label}
                       <span aria-hidden>
                         <svg
@@ -123,7 +123,7 @@ const Header = () => {
                   <Link
                     key={navItem.id}
                     to={navItem.slug}
-                    className="inline-flex items-center px-2 mt-2 uppercase focus:outline-none focus:shadow-outline-primary"
+                    className="inline-flex items-center px-2 mt-2 ml-1 uppercase focus:outline-none focus:shadow-outline-primary first:ml-0"
                   >
                     {navItem.label}
                   </Link>
