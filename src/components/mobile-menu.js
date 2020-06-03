@@ -87,7 +87,7 @@ export function MobileMenu({ isModalOpen, setIsModalOpen }) {
               <div className="flex items-center flex-shrink-0 px-4">
                 <Link
                   to="/"
-                  className="focus:outline-none focus:shadow-outline-primary"
+                  className="rounded-lg focus:outline-none focus:shadow-outline-primary focus:bg-gray-50"
                 >
                   <h1>
                     <span className="sr-only">{title}</span>
