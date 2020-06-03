@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 function Ladies() {
   return (
-    <div className="sticky inset-x-0 bottom-0 z-20 hidden w-full pointer-events-none md:justify-end md:flex">
+    <div className="sticky inset-x-0 bottom-0 z-20 hidden w-full mx-auto pointer-events-none max-w-7xl md:justify-end md:flex">
       <div className="flex overflow-hidden pointer-events-auto">
         <a
           href="#top"
@@ -33,7 +33,7 @@ function Ladies() {
 
 function Mens() {
   return (
-    <div className="sticky inset-x-0 bottom-0 z-20 hidden w-full pointer-events-none md:justify-end md:flex">
+    <div className="sticky inset-x-0 bottom-0 z-20 hidden w-full mx-auto pointer-events-none max-w-7xl md:justify-end md:flex">
       <div className="flex overflow-hidden pointer-events-auto">
         <Link
           to="/products/ladies/"
