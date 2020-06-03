@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { useGraphQL, useLazyLoad } from '../hooks';
 import { resizeShopifyImage } from '../utilities';
 
-export function Tile({ title, slug, price, image }) {
+export function Tile({ title, slug, price, image, constantPrice }) {
   const { placeholderImage } = useGraphQL();
 
   const imageSrc = image
@@ -14,7 +14,6 @@ export function Tile({ title, slug, price, image }) {
     : placeholderImage.publicURL;
 
   const { ref, imgRef, isImgLoaded, handleImgLoaded, Spinner } = useLazyLoad();
-
   return (
     <Link
       ref={ref}
@@ -34,7 +33,7 @@ export function Tile({ title, slug, price, image }) {
       <div className="p-6">
         <h3 className="mt-2 line-clamp">{title}</h3>
         <p className="mt-3 text-base leading-6 text-gray-500">
-          Starting from:{' '}
+          {!constantPrice && `Starting from: `}
           <span className="font-bold text-primary">${price.toFixed(2)}</span>
         </p>
       </div>
@@ -47,4 +46,5 @@ Tile.propTypes = {
   price: PropTypes.number,
   slug: PropTypes.string,
   title: PropTypes.string,
+  constantPrice: PropTypes.bool,
 };

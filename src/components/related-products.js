@@ -40,6 +40,10 @@ export function RelatedProducts({
               slug={prod.handle}
               price={Number(prod.priceRange.minVariantPrice.amount)}
               image={prod.images[0]}
+              constantPrice={
+                prod.priceRange.minVariantPrice.amount ===
+                prod.priceRange.maxVariantPrice.amount
+              }
             />
           </li>
         ))}

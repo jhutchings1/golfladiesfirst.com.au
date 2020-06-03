@@ -283,6 +283,7 @@ export const ProductPageQuery = graphql`
     shopifyProduct(id: { eq: $productId }) {
       id
       title
+
       descriptionHtml
       options {
         name

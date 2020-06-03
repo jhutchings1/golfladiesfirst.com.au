@@ -41,6 +41,10 @@ export function CollectionLatest() {
               title={product.title}
               price={Number(product.priceRange.minVariantPrice.amount)}
               image={product.images[0]}
+              constantPrice={
+                product.priceRange.minVariantPrice.amount ===
+                product.priceRange.maxVariantPrice.amount
+              }
             />
           ))}
         </Carousel>

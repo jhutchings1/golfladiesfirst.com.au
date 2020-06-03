@@ -45,12 +45,15 @@ export default function CollectionPageTemplate({ data }) {
                   title={product.title}
                   price={Number(product.priceRange.minVariantPrice.amount)}
                   image={product.images[0]}
+                  constantPrice={
+                    product.priceRange.minVariantPrice.amount ===
+                    product.priceRange.maxVariantPrice.amount
+                  }
                 />
               ))
             : Array(itemsToShow)
                 .fill('')
                 .map((_, i) => <div key={i}>Loading...</div>)}
-          }
         </div>
       </article>
     </Layout>
@@ -74,6 +77,9 @@ export const query = graphql`
         handle
         priceRange {
           minVariantPrice {
+            amount
+          }
+          maxVariantPrice {
             amount
           }
         }
