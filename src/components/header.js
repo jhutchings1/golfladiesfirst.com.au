@@ -24,7 +24,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <header className="sticky z-10 bg-white border-b border-gray-50 top-8">
+    <header className="sticky z-30 bg-white border-b border-gray-50 top-8">
       <div className="w-full px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
