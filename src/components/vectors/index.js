@@ -1,6 +1,4 @@
 export * from './after-pay';
-export * from './afterpay-landscape';
-export * from './afterpay';
 export * from './apple-pay';
 export * from './email';
 export * from './facebook';
