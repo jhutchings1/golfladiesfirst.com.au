@@ -62,7 +62,7 @@ export function NewsletterSignup() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-primary-light active:bg-gray-900 focus:shadow-outline-primary disabled:opacity-50 disabled:cursor-wait"
+                className="relative inline-flex items-center justify-center px-12 py-3 -ml-px text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent hover:bg-gray-700 focus:outline-none focus:border-primary-light active:bg-gray-900 focus:bg-gray-600 focus:shadow-outline-primary disabled:opacity-50 disabled:cursor-wait"
               >
                 <span className="">Join</span>
               </button>
