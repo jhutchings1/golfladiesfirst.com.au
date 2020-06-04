@@ -1,10 +1,16 @@
 import React from 'react';
 import GatsbyImage from 'gatsby-image';
+import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
 
 export function OurStory() {
-  const { heroImage } = useGraphQL();
+  const {
+    heroImage,
+    site: {
+      siteMetadata: { title },
+    },
+  } = useGraphQL();
   return (
     <article className="relative bg-white">
       <div className="grid w-full gap-4 pb-16 mx-auto xl:pt-16 lg:grid-cols-2 max-w-7xl">
@@ -26,7 +32,7 @@ export function OurStory() {
                 <div className="h-full transform -skew-x-12 bg-brand-blue" />
               </div>
             </div>
-            <div className="grid gap-2 mt-5 text-gray-700">
+            <div className="mt-5 space-y-2 text-gray-700">
               <p>
                 Golf Ladies First — A one-stop ladies’ golf shop where you can
                 be covered in golf from head to toe by a friendly, welcoming,
@@ -55,6 +61,17 @@ export function OurStory() {
                 play impressive golf — looking and feeling great is the key to
                 great golf!
               </p>
+              <span>
+                <span className="inline-flex mt-6 shadow-sm">
+                  <Link
+                    to="/about/"
+                    aria-label={`Read more about ${title}`}
+                    className="inline-block px-8 py-2 text-sm font-bold tracking-wider text-center text-white uppercase transition duration-150 ease-in-out border border-primary bg-primary hover:bg-white hover:text-primary focus:outline-none focus:shadow-outline-primary"
+                  >
+                    Read more
+                  </Link>
+                </span>
+              </span>
             </div>
           </div>
         </div>
