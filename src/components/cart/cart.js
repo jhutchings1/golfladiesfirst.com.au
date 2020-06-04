@@ -1,68 +1,90 @@
 import React from 'react';
 
-import { useCartItems, useCartTotals, useCheckout } from '../../hooks';
+import {
+  useCartItems,
+  useCartTotals,
+  useCheckout,
+  useGraphQL,
+} from '../../hooks';
 import { LineItem } from './line-item';
+import { AfterPay, ApplePay, Mastercard, PayPal, Visa } from '../vectors';
+import { RelatedProducts } from '../related-products';
 
 export function Cart() {
   const lineItems = useCartItems();
   const { tax, total } = useCartTotals();
   const checkout = useCheckout();
+
+  const {
+    allShopifyProduct: { nodes: products },
+  } = useGraphQL();
+
+  const lineItemTitles = lineItems.map((lineItem) => lineItem.title) || [];
+
   return (
     <div className="relative pt-16 pb-20">
       <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
         Cart
       </h1>
       <div className="mt-3 sm:mt-4">
-        {lineItems.map((item) => (
-          <React.Fragment key={item.id}>
-            <LineItem key={item.id} item={item} />
-            <hr className="my-4" />
-          </React.Fragment>
-        ))}
-        <div className="flex">
-          <div className="w-full px-4 py-6 bg-gray-100 rounded-md shadow sm:max-w-xs sm:ml-auto">
-            <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Cart Summary
-            </h3>
-            <hr className="my-3" />
-            <dl className="grid row-gap-3">
-              <div className="flex justify-between">
-                <dt>Subtotal:</dt>
-                <dd>
-                  <small className="font-normal">AUD</small> {total}
-                </dd>
-              </div>
-              <div className="flex justify-between">
-                <dt>Shipping:</dt>
-                <dd> - </dd>
-              </div>
-              <div className="flex justify-between">
-                <dt>Tax: </dt>
-                <dd>
-                  <small className="font-normal">AUD</small> {tax}
-                </dd>
-              </div>
-            </dl>
-
-            <hr className="my-3" />
+        <table className="w-full">
+          <thead>
+            <tr>
+              <th className="text-base font-medium leading-6 text-left text-gray-900 uppercase transition duration-150 ease-in-out hover:text-gray-700">
+                Product
+              </th>
+              <th className="hidden pl-12 text-base font-medium leading-6 text-right text-gray-900 uppercase transition duration-150 ease-in-out hover:text-gray-700 lg:table-cell">
+                Price
+              </th>
+              <th className="hidden pl-12 text-base font-medium leading-6 text-right text-gray-900 uppercase transition duration-150 ease-in-out hover:text-gray-700 lg:table-cell">
+                Quantity
+              </th>
+              <th className="pl-12 text-base font-medium leading-6 text-right text-gray-900 uppercase transition duration-150 ease-in-out hover:text-gray-700">
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {lineItems.map((item) => (
+              <LineItem key={item.id} item={item} />
+            ))}
+          </tbody>
+        </table>
+        <hr className="my-3" />
+        <div className="flex flex-wrap-reverse mt-12">
+          <div className="flex items-start justify-center w-full mt-12 space-x-2 md:mt-0 md:w-1/2">
+            <ApplePay className="h-8" />
+            <Mastercard className="h-8" />
+            <PayPal className="h-8" />
+            <Visa className="h-8" />
+            <AfterPay className="h-8" />
+          </div>
+          <div className="w-full px-4 md:w-1/2">
             <dl className="font-medium">
               <div className="flex justify-between">
-                <dt>Estimated Total:</dt>
-                <dd>
-                  <small className="font-normal">AUD</small> {total}
-                </dd>
+                <dt>Subtotal:</dt>
+                <dd>{total}</dd>
               </div>
             </dl>
-            <span className="inline-flex w-full mt-6 shadow-sm">
+            <p className="text-right">
+              <small>Taxes and shipping are calculated at checkout</small>
+            </p>
+            <span className="flex w-full mt-4 rounded-none shadow-sm">
               <a
                 href={checkout}
-                className="inline-flex items-center justify-center w-full px-6 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900"
+                className="flex items-center justify-center w-full px-4 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray active:bg-gray-900"
               >
                 Checkout
               </a>
             </span>
           </div>
         </div>
+        <RelatedProducts
+          product={{
+            title: lineItemTitles.toString(),
+          }}
+          products={products}
+        />
       </div>
     </div>
   );
