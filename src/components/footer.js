@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
@@ -22,8 +22,8 @@ export function Footer() {
   return (
     <footer className="bg-white">
       <div className="w-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start py-12 mx-auto md:flex-row md:justify-between">
-          <div className="flex flex-col w-full sm:flex-row">
+        <div className="grid items-start py-12 mx-auto md:grid-cols-5 md:justify-between">
+          <div className="flex flex-col md:flex-row md:col-span-3">
             <Link
               to="/"
               className="flex my-auto rounded-lg focus:outline-none focus:bg-gray-50 focus:shadow-outline-primary"
@@ -35,7 +35,7 @@ export function Footer() {
             </Link>
             <nav className="flex-1 w-full mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
               <div className="grid justify-center w-full grid-cols-2">
-                <div className="flex sm:justify-center">
+                <div className="flex md:justify-center">
                   <ul>
                     {footerNavigation.col1.map((navItem) => (
                       <li key={navItem.id} className="mt-3 first:mt-0">
@@ -49,7 +49,7 @@ export function Footer() {
                     ))}
                   </ul>
                 </div>
-                <div className="flex sm:justify-center">
+                <div className="flex md:justify-center">
                   <ul>
                     {footerNavigation.col2.map((navItem) => (
                       <li key={navItem.id} className="mt-3 first:mt-0">
@@ -66,7 +66,7 @@ export function Footer() {
               </div>
             </nav>
           </div>
-          <dl className="mt-6 text-base leading-6 text-gray-500 md:ml-12 md:mt-0">
+          <dl className="w-full mt-6 text-base leading-6 text-gray-500 md:col-span-2 md:mt-0">
             <div className="mt-3 first:mt-0">
               <dt className="sr-only">Address</dt>
               <dd className="flex group">
@@ -157,7 +157,7 @@ export function Footer() {
           </dl>
         </div>
         <div className="mt-8 bg-white border-t border-gray-200">
-          <div className="py-12 mx-auto sm:px-6 md:flex md:items-center md:justify-between">
+          <div className="py-12 mx-auto md:px-6 md:flex md:items-center md:justify-between">
             <div className="flex justify-center md:order-2">
               <a
                 href={facebook}
