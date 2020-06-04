@@ -12,7 +12,7 @@ export function Team() {
           fluid={heroImage.childImageSharp.fluid}
           className="h-full relative z-10"
         />
-        <div className="mb-8 mx-12 -mt-24 md:-mt-48 p-6 relative z-20 bg-white">
+        <div className="mb-8 mx-3 sm:mx-12 -mt-24 md:-mt-48 p-6 relative z-20 bg-white">
           <div className="border border-gray-700 p-8">
             <h2 className="h2 text-center">This is the team write-up</h2>
             <br />
