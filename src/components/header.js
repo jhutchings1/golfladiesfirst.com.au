@@ -88,7 +88,7 @@ const Header = () => {
                         </svg>
                       </span>
                     </MenuButton>
-                    <MenuPopover className="z-20 p-0 mt-2 -mx-3 bg-white rounded shadow-lg outline-none">
+                    <MenuPopover className="z-30 p-0 mt-2 -mx-3 bg-white rounded shadow-lg outline-none">
                       <div className="flex py-1 rounded shadow-xs">
                         <MenuItems className="py-0 border-none">
                           {navItem.submenu.col1.map((submenu) => (
