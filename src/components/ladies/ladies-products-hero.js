@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
 import { useGraphQL } from '../../hooks';

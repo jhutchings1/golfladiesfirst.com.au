@@ -12,7 +12,7 @@ import { RelatedProducts } from '../related-products';
 
 export function Cart() {
   const lineItems = useCartItems();
-  const { tax, total } = useCartTotals();
+  const { total } = useCartTotals();
   const checkout = useCheckout();
 
   const {
@@ -66,7 +66,7 @@ export function Cart() {
                 <dd>{total}</dd>
               </div>
             </dl>
-            <p className="text-right">
+            <p className="text-center">
               <small>Taxes and shipping are calculated at checkout</small>
             </p>
             <span className="flex w-full mt-4 rounded-none shadow-sm">
