@@ -6,7 +6,7 @@ export * from './instagram-feed';
 export * from './layout';
 export * from './logo';
 export * from './map';
-export * from './newsletter';
+export * from './newsletter-signup';
 export * from './option-picker';
 export * from './our-story';
 export * from './related-products';
