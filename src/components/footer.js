@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'gatsby';
 
 import { useGraphQL } from '../hooks';
@@ -116,14 +116,16 @@ export function Footer() {
                   <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <div className="ml-3">
-                  {phone.map((p) => (
-                    <a
-                      key={p.numberFormatted}
-                      href={`tel:${p.numberFormatted}`}
-                      className="inline-block text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:text-primary focus:underline"
-                    >
-                      {p.name}: {p.numberDisplay}
-                    </a>
+                  {phone.map((p, i) => (
+                    <Fragment key={p.numberFormatted}>
+                      <a
+                        href={`tel:${p.numberFormatted}`}
+                        className="inline-block text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 hover:underline focus:outline-none focus:text-primary focus:underline"
+                      >
+                        {p.name}: {p.numberDisplay}
+                      </a>
+                      {i !== phone.length - 1 && ' | '}
+                    </Fragment>
                   ))}
                 </div>
               </dd>
