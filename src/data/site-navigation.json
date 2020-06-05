@@ -65,79 +65,6 @@
     }
   },
   {
-    "id": "583e2c08-56f7-44cf-ba8d-a2b704218a18",
-    "label": "Bags",
-    "submenu": {
-      "col1": [
-        {
-          "id": "772e6c5b-9c99-4cd1-a7bb-24f1e317d19d",
-          "label": "All",
-          "slug": "/collections/bags/"
-        },
-        {
-          "id": "464210ca-8e20-4f85-9c54-8fe597e24fa6",
-          "label": "Cart Bags",
-          "slug": "/collections/cart-bags/"
-        }
-      ]
-    }
-  },
-  {
-    "id": "6823e396-f9e8-4b69-ad4a-ff72d776a669",
-    "label": "Clubs",
-    "submenu": {
-      "col1": [
-        {
-          "id": "e15c22f5-1259-4a03-b50f-f47680c2ca6e",
-          "label": "All",
-          "slug": "/collections/clubs/"
-        },
-        {
-          "id": "59d833e7-1058-46d9-9784-4da5e26a3373",
-          "label": "Driver",
-          "slug": "/collections/drivers/"
-        },
-        {
-          "id": "2e4050f3-cd3a-4f6a-b514-f327a090a6cc",
-          "label": "Fairways",
-          "slug": "/collections/fairways/"
-        },
-        {
-          "id": "7e45ee95-fbc8-4a60-9127-7f9aba5738ae",
-          "label": "Hybrids",
-          "slug": "/collections/hybrids/"
-        },
-        {
-          "id": "8a0faf85-11dd-4761-9b51-4bc8ce5b4ac7",
-          "label": "Irons",
-          "slug": "/collections/irons/"
-        }
-      ],
-      "col2": [
-        {
-          "id": "6df04cc8-fb6d-4d4b-be3f-7ad89c0c4fa5",
-          "label": "Package Sets",
-          "slug": "/collections/package-sets/"
-        },
-        {
-          "id": "e1ee48d5-3df6-4496-8543-c5b76c7f5d88",
-          "label": "Putters",
-          "slug": "/collections/putters/"
-        },
-        {
-          "id": "b316acec-04c6-434f-8e24-757cde3d9698",
-          "label": "Wedges",
-          "slug": "/collections/wedges/"
-        },
-        {
-          "id": "a68938ae-f27c-4cf2-b3af-0a42fba7bcb0",
-          "label": "Second Hand",
-          "slug": "/collections/second-hand/"
-        }
-      ]
-    }
-  },
-  {
     "id": "1c3eb208-1085-4b5c-882b-91efc96f718d",
     "label": "Brands",
     "submenu": {
@@ -286,16 +213,6 @@
     "id": "ae3c2a1c-fdde-4b7a-95eb-95e919a2a16a",
     "label": "Gift Vouchers",
     "slug": "/collections/gift-certificate/"
-  },
-  {
-    "id": "5c6aa589-a8f3-4b6e-afdf-99854629d61f",
-    "label": "Lessons",
-    "slug": "/lessons/"
-  },
-  {
-    "id": "4d2139ca-dbb9-45fc-bf1c-b2ff3bdcaaaa",
-    "label": "FAQ",
-    "slug": "/faq/"
   },
   {
     "id": "5e75c79f-9513-4f55-999a-0b2abd8de811",
