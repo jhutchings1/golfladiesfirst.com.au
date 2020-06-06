@@ -28,14 +28,14 @@
           "id": "616e3c9e-b4d9-44c4-a7c0-7e097ba98db3",
           "label": "Headwear",
           "slug": "/collections/headwear/"
-        }
-      ],
-      "col2": [
+        },
         {
           "id": "0d26eb6a-e62a-4ef0-8497-db1a12dd3944",
           "label": "Outerwear",
           "slug": "/collections/wind-rain/"
-        },
+        }
+      ],
+      "col2": [
         {
           "id": "5eeb6f29-5b92-4697-b966-9ea69d9d8855",
           "label": "Pants",
@@ -208,6 +208,11 @@
     "id": "99962559-0068-4ac1-b4b9-1c8969240726",
     "label": "Sale",
     "slug": "/collections/clearance-items/"
+  },
+  {
+    "id": "7696997a-8d0a-4cc7-90ac-3308f5d373de",
+    "label": "All Products",
+    "slug": "/products/"
   },
   {
     "id": "ae3c2a1c-fdde-4b7a-95eb-95e919a2a16a",
