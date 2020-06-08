@@ -17,17 +17,20 @@ export function ProductWrapper() {
 
   const loader = useRef(loadItems);
 
-  const observer = useRef(
-    new IntersectionObserver(
+  const observer = useRef();
+
+  const [element, setElement] = useState(null);
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           loader.current();
         }
       },
       { threshold: 1 }
-    )
-  );
-  const [element, setElement] = useState(null);
+    );
+  }, []);
 
   useEffect(() => {
     loader.current = loadItems;
