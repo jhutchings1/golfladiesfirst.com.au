@@ -162,6 +162,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const imgResult = useRef(null);
 
   function handleMouse(e) {
+    // Return early if refs have an empty value
+    if (imgLens.current === null || imgResult.current === null) {
+      return null;
+    }
+
     let x;
     let y;
 
