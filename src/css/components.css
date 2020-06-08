@@ -37,36 +37,39 @@
 }
 
 .prose {
-  @apply text-base leading-relaxed text-gray-600;
+  @apply text-base leading-relaxed text-gray-600 font-sans !important;
 
   & h1 {
-    @apply text-4xl leading-10 font-extrabold text-gray-900;
+    @apply text-4xl leading-10 font-extrabold text-gray-900 !important;
   }
   & h2 {
-    @apply text-lg font-semibold leading-7 text-gray-900;
+    @apply text-lg font-semibold leading-7 text-gray-900 !important;
+  }
+  & > ul {
+    @apply pl-5 !important;
   }
   & ul {
-    @apply list-disc;
+    @apply list-disc !important;
   }
   & a {
-    @apply underline text-gray-900;
+    @apply underline text-gray-900 !important;
   }
   & * + h2 {
-    @apply mt-8;
+    @apply mt-8 !important;
   }
   & * + ol {
-    @apply mt-4;
+    @apply mt-4 !important;
   }
   & * + ul {
-    @apply mt-4;
+    @apply mt-4 !important;
   }
   & * + li {
-    @apply mt-3;
+    @apply mt-3 !important;
   }
   & * + p {
-    @apply mt-4;
+    @apply mt-4 !important;
   }
   & h2 + p {
-    @apply mt-2;
+    @apply mt-2 !important;
   }
 }
