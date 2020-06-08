@@ -146,12 +146,15 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     const event = e || window.event;
     /* Get the x and y positions of the image: */
     const a = imgRef.current.getBoundingClientRect();
+
     /* Calculate the cursor's x and y coordinates, relative to the image: */
     x = event.pageX - a.left;
     y = event.pageY - a.top;
+
     /* Consider any page scrolling: */
     x -= window.pageXOffset;
     y -= window.pageYOffset;
+
     return { x, y };
   }
 
@@ -170,6 +173,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     /* Calculate the position of the lens: */
     x = pos.x - imgLens.current.offsetWidth / 2;
     y = pos.y - imgLens.current.offsetHeight / 2;
+
     /* Prevent the lens from being positioned outside the image: */
     if (x > imgRef.current.width - imgLens.current.offsetWidth) {
       x = imgRef.current.width - imgLens.current.offsetWidth;
@@ -183,9 +187,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     if (y < 0) {
       y = 0;
     }
+
     /* Set the position of the imgLens.current: */
     imgLens.current.style.left = `${x}px`;
     imgLens.current.style.top = `${y}px`;
+
     /* Display what the lens "sees": */
     imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
 
