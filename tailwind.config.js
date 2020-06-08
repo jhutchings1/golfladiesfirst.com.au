@@ -23,6 +23,10 @@ module.exports = {
         ...tailwindUI.boxShadow,
         'outline-primary': '0 0 0 3px var(--shadow-color)',
       },
+      cursor: {
+        ...defaultTheme.cursor,
+        'zoom-in': 'zoom-in',
+      },
       colors: {
         black: '#2c2c2c',
         brand: {
