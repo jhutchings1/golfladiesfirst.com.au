@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 export function Input({
-  name,
-  label,
-  type = 'text',
-  isFullWidth,
-  value,
   handleChange,
+  isFullWidth,
+  label,
+  name,
+  required = true,
+  type = 'text',
+  value,
 }) {
   return (
     <div className={isFullWidth ? 'sm:col-span-2' : ''}>
@@ -23,6 +24,7 @@ export function Input({
           name={name}
           type={type}
           value={value}
+          required={required}
           onChange={handleChange}
           className="block w-full px-4 py-3 transition duration-150 ease-in-out rounded-none form-input focus:outline-none focus:shadow-outline-primary focus:border-primary-light"
         />
@@ -36,6 +38,7 @@ Input.propTypes = {
   isFullWidth: PropTypes.bool,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  required: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.PropTypes.string.isRequired,
 };
