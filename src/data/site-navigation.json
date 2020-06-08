@@ -1,5 +1,10 @@
 [
   {
+    "id": "df8b6a6b-f2ea-46a7-80c2-5e7e0d6c291a",
+    "label": "Home",
+    "slug": "/"
+  },
+  {
     "id": "7ba94b3a-ea5d-4e49-b81f-d9b0b5a8a53c",
     "label": "Apparel",
     "submenu": {
@@ -208,11 +213,6 @@
     "id": "99962559-0068-4ac1-b4b9-1c8969240726",
     "label": "Sale",
     "slug": "/collections/clearance-items/"
-  },
-  {
-    "id": "7696997a-8d0a-4cc7-90ac-3308f5d373de",
-    "label": "All Products",
-    "slug": "/products/"
   },
   {
     "id": "ae3c2a1c-fdde-4b7a-95eb-95e919a2a16a",

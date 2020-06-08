@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
@@ -79,6 +79,9 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   // Manage add to cart alerts in state
   const [isAlertShown, setIsAlertShown] = useState(false);
 
+  // Manage product zoom state
+  const [isZooming, setIsZooming] = useState(false);
+
   // Use a custom hook for adding items to cart
   const addItemToCart = useAddItemToCart();
 
@@ -137,6 +140,62 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     }
   }, [variant, imgSrc, imgRef]);
 
+  function getCursorPos(e) {
+    let x = 0;
+    let y = 0;
+    const event = e || window.event;
+    /* Get the x and y positions of the image: */
+    const a = imgRef.current.getBoundingClientRect();
+    /* Calculate the cursor's x and y coordinates, relative to the image: */
+    x = event.pageX - a.left;
+    y = event.pageY - a.top;
+    /* Consider any page scrolling: */
+    x -= window.pageXOffset;
+    y -= window.pageYOffset;
+    return { x, y };
+  }
+
+  const imgLens = useRef(null);
+  const imgResult = useRef(null);
+
+  function handleMouse(e) {
+    let x;
+    let y;
+
+    const pos = getCursorPos(e);
+
+    const cx = imgResult.current.offsetWidth / imgLens.current.offsetWidth;
+    const cy = imgResult.current.offsetHeight / imgLens.current.offsetHeight;
+
+    /* Calculate the position of the lens: */
+    x = pos.x - imgLens.current.offsetWidth / 2;
+    y = pos.y - imgLens.current.offsetHeight / 2;
+    /* Prevent the lens from being positioned outside the image: */
+    if (x > imgRef.current.width - imgLens.current.offsetWidth) {
+      x = imgRef.current.width - imgLens.current.offsetWidth;
+    }
+    if (x < 0) {
+      x = 0;
+    }
+    if (y > imgRef.current.height - imgLens.current.offsetHeight) {
+      y = imgRef.current.height - imgLens.current.offsetHeight;
+    }
+    if (y < 0) {
+      y = 0;
+    }
+    /* Set the position of the imgLens.current: */
+    imgLens.current.style.left = `${x}px`;
+    imgLens.current.style.top = `${y}px`;
+    /* Display what the lens "sees": */
+    imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
+
+    /* Set background properties for the imgResult DIV */
+    imgResult.current.style.backgroundImage = `url('${imgRef.current.src}')`;
+    imgResult.current.style.backgroundSize = `${imgRef.current.width * cx}px ${
+      imgRef.current.height * cy
+    }px`;
+  }
+
   return (
     <Layout>
       <SEO title={product.title} />
@@ -148,11 +207,21 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             isAlertShown={isAlertShown}
             setIsAlertShown={setIsAlertShown}
           />
-          <div className="grid gap-6 mt-2">
+          <div
+            className="grid gap-6 mt-2 relative"
+            onMouseMove={handleMouse}
+            onMouseEnter={() => {
+              setIsZooming(true);
+            }}
+            onMouseLeave={() => {
+              setIsZooming(false);
+            }}
+          >
             <div
               ref={ref}
               className="relative h-0 overflow-hidden bg-white aspect-ratio-square"
             >
+              {/* This is the actual main image */}
               <img
                 ref={imgRef}
                 data-src={imgSrc}
@@ -160,10 +229,21 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 alt=""
                 width={592}
                 height={592}
-                className="absolute inset-0 object-contain h-full mx-auto duration-500 ease-in-out transform hover:scale-110"
+                className="absolute inset-0 object-contain h-full mx-auto"
               />
               {!isImgLoaded && <Spinner />}
             </div>
+
+            {/* This div is the lens */}
+            <div
+              ref={imgLens}
+              className={
+                isZooming
+                  ? `absolute border-2 border-gray-500 w-24 h-24`
+                  : 'hidden'
+              }
+            />
+
             {images.length > 1 && (
               <div className="grid grid-cols-3 gap-6">
                 {images.map((img) => (
@@ -178,7 +258,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               </div>
             )}
           </div>
-          <div className="mt-12">
+          {/* This is the magnified image */}
+          <div
+            ref={imgResult}
+            className={isZooming ? `border w-96 h-96` : 'hidden'}
+          />
+          <div className={isZooming ? 'hidden' : `mt-12`}>
             <h1 className="font-normal h2">{product.title}</h1>
             <dl>
               <dt className="sr-only">Price:</dt>

@@ -38,11 +38,6 @@
       "slug": "/about/"
     },
     {
-      "id": "97aad566-ecb2-4e9a-a572-cfc518546f73",
-      "label": "Lessons",
-      "slug": "/lessons/"
-    },
-    {
       "id": "447d4fd1-85cd-4fdf-b796-fffcdceba8e6",
       "label": "Testimonials",
       "slug": "/testimonials/"
@@ -56,6 +51,11 @@
       "id": "28b16f49-7974-4572-b69a-d24565e2f4d7",
       "label": "Contact",
       "slug": "/contact/"
+    },
+    {
+      "id": "6ba45104-676b-4d9a-89c7-667a8c0e5e99",
+      "label": "Refund Policy",
+      "slug": "/refund-policy/"
     },
     {
       "id": "f5f4363f-4993-4f68-91f2-e94e10029ee2",
