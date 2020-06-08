@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
 
-import { ProductControls } from '../components/product-controls';
 import { Layout, SEO, Tile } from '../components';
 
 export default function CollectionPageTemplate({
@@ -15,6 +14,47 @@ export default function CollectionPageTemplate({
   const [index, setIndex] = useState(0);
 
   const [itemsToShow, setItemsToShow] = useState(8);
+
+  const [finishedLoading, setFinishedLoading] = useState(false);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function loadItems() {
+    setItemsToShow(itemsToShow + 8);
+    if (itemsToShow >= products.length) setFinishedLoading(true);
+  }
+
+  const loader = useRef(loadItems);
+
+  const observer = useRef(
+    new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loader.current();
+        }
+      },
+      { threshold: 1 }
+    )
+  );
+  const [element, setElement] = useState(null);
+
+  useEffect(() => {
+    loader.current = loadItems;
+  }, [loadItems]);
+
+  useEffect(() => {
+    const currentElement = element;
+    const currentObserver = observer.current;
+
+    if (currentElement) {
+      currentObserver.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) {
+        currentObserver.unobserve(currentElement);
+      }
+    };
+  }, [element]);
 
   useEffect(() => {
     setProds(
@@ -35,13 +75,13 @@ export default function CollectionPageTemplate({
             }}
           />
         </div>
-        <ProductControls
+        {/* <ProductControls
           index={index}
           setIndex={setIndex}
           products={products}
           itemsToShow={itemsToShow}
           setItemsToShow={setItemsToShow}
-        />
+        /> */}
         <div className="grid w-full max-w-6xl row-gap-6 col-gap-12 py-12 mx-auto md:grid-cols-2 lg:grid-cols-4 sm:py-16">
           {prods
             ? prods.map((product) => (
@@ -66,6 +106,12 @@ export default function CollectionPageTemplate({
               Sorry, no products were found in the {shopifyCollection.title}{' '}
               collection.
             </p>
+          )}
+        </div>
+        {/* Intersection observer is watching this div */}
+        <div ref={setElement}>
+          {!finishedLoading && (
+            <p className="text-center">Scroll down to load more...</p>
           )}
         </div>
       </article>
