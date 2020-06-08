@@ -35,6 +35,13 @@ export function useGraphQL() {
             }
           }
         }
+        heroImage1: file(relativePath: { eq: "hero-1.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920, quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
         ladiesHats: file(relativePath: { eq: "collections/ladies-hats.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 506) {
