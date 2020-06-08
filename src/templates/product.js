@@ -56,6 +56,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     variants.find((v) => v.availableForSale === true) || variants[0]
   );
 
+  // Check if product is on sale
+  const onSale =
+    variant.priceV2.currencyCode === variant.compareAtPriceV2.currencyCode;
+
   // Format the data we get back from GraphQL for images to be a little easier to work with
   // See comment in `prepare-variants-images.js`
   const images = useMemo(() => prepareVariantsImages(variants, 'colour'), [
@@ -150,9 +154,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     /* Calculate the cursor's x and y coordinates, relative to the image: */
     x = event.pageX - a.left;
     y = event.pageY - a.top;
+
     /* Consider any page scrolling: */
     x -= window.pageXOffset;
     y -= window.pageYOffset;
+
     return { x, y };
   }
 
@@ -160,6 +166,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const imgResult = useRef(null);
 
   function handleMouse(e) {
+    // Return early if refs have an empty value
+    if (imgLens.current === null || imgResult.current === null) {
+      return null;
+    }
+
     let x;
     let y;
 
@@ -171,6 +182,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     /* Calculate the position of the lens: */
     x = pos.x - imgLens.current.offsetWidth / 2;
     y = pos.y - imgLens.current.offsetHeight / 2;
+
     /* Prevent the lens from being positioned outside the image: */
     if (x > imgRef.current.width - imgLens.current.offsetWidth) {
       x = imgRef.current.width - imgLens.current.offsetWidth;
@@ -184,6 +196,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     if (y < 0) {
       y = 0;
     }
+
     /* Set the position of the imgLens.current: */
     imgLens.current.style.left = `${x}px`;
     imgLens.current.style.top = `${y}px`;
@@ -210,14 +223,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             setIsAlertShown={setIsAlertShown}
           />
           <div
-            className="grid gap-6 mt-2 relative"
+            className="relative grid gap-6 mt-2"
             onMouseMove={handleMouse}
-            onMouseEnter={() => {
-              setIsZooming(true);
-            }}
-            onMouseLeave={() => {
-              setIsZooming(false);
-            }}
+            onMouseEnter={() => setIsZooming(true)}
+            onMouseLeave={() => setIsZooming(false)}
           >
             <div
               ref={ref}
@@ -237,14 +246,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             </div>
 
             {/* This div is the lens */}
-            <div
-              ref={imgLens}
-              className={
-                isZooming
-                  ? `absolute border-2 border-gray-500 w-24 h-24`
-                  : 'hidden'
-              }
-            />
+            {isZooming && (
+              <div
+                ref={imgLens}
+                className="absolute w-24 h-24 bg-white bg-opacity-25 shadow cursor-zoom-in"
+              />
+            )}
 
             {images.length > 1 && (
               <div className="grid grid-cols-3 gap-6">
@@ -260,17 +267,32 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               </div>
             )}
           </div>
-          {/* This is the magnified image */}
-          <div
-            ref={imgResult}
-            className={isZooming ? `border w-96 h-96` : 'hidden'}
-          />
-          <div className={isZooming ? 'hidden' : `mt-12`}>
-            <h1 className="font-normal h2">{product.title}</h1>
+          <div className="relative">
+            {/* This is the magnified image */}
+            {isZooming && (
+              <div
+                aria-hidden
+                className="absolute inset-x-0 top-0 z-10 h-0 aspect-ratio-square"
+              >
+                <div
+                  ref={imgResult}
+                  className="absolute inset-0 top-0 shadow"
+                />
+              </div>
+            )}
+            <h1 className="mt-12 font-normal h2">{product.title}</h1>
             <dl>
               <dt className="sr-only">Price:</dt>
               <dd className="mt-2 h2 text-primary">
-                <small className="font-normal">AUD</small> ${variant.price}
+                {onSale && (
+                  <span className="line-through">
+                    ${Number(variant.compareAtPriceV2.amount).toFixed(2)}
+                  </span>
+                )}{' '}
+                ${Number(variant.priceV2.amount).toFixed(2)}
+                <small className="font-normal">
+                  {variant.priceV2.currencyCode}
+                </small>{' '}
               </dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
@@ -370,27 +392,33 @@ ProductPage.propTypes = {
 export const ProductPageQuery = graphql`
   query productPage($productId: String!) {
     shopifyProduct(id: { eq: $productId }) {
-      id
-      title
-
       descriptionHtml
+      id
       options {
         name
         values
       }
+      title
       variants {
         availableForSale
+        compareAtPriceV2 {
+          amount
+          currencyCode
+        }
         id
-        price
+        image {
+          originalSrc
+        }
+        priceV2 {
+          amount
+          currencyCode
+        }
         shopifyId
         sku
         title
         selectedOptions {
           name
           value
-        }
-        image {
-          originalSrc
         }
       }
     }
