@@ -1,5 +1,10 @@
 [
   {
+    "id": "df8b6a6b-f2ea-46a7-80c2-5e7e0d6c291a",
+    "label": "Home",
+    "slug": "/"
+  },
+  {
     "id": "7ba94b3a-ea5d-4e49-b81f-d9b0b5a8a53c",
     "label": "Apparel",
     "submenu": {
