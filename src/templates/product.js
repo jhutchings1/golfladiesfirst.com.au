@@ -201,14 +201,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     imgLens.current.style.left = `${x}px`;
     imgLens.current.style.top = `${y}px`;
 
-    /* Display what the lens "sees": */
-    imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
-
     /* Set background properties for the imgResult DIV */
     imgResult.current.style.backgroundImage = `url('${imgRef.current.src}')`;
     imgResult.current.style.backgroundSize = `${imgRef.current.width * cx}px ${
       imgRef.current.height * cy
     }px`;
+    /* Display what the lens "sees": */
+    imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
+    console.log(imgResult.current);
   }
 
   return (
