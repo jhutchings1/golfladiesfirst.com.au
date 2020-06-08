@@ -221,12 +221,8 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
           <div
             className="relative grid gap-6 mt-2"
             onMouseMove={handleMouse}
-            onMouseEnter={() => {
-              setIsZooming(true);
-            }}
-            onMouseLeave={() => {
-              setIsZooming(false);
-            }}
+            onMouseEnter={() => setIsZooming(true)}
+            onMouseLeave={() => setIsZooming(false)}
           >
             <div
               ref={ref}
