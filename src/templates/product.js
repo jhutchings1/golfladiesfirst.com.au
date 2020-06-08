@@ -208,7 +208,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             setIsAlertShown={setIsAlertShown}
           />
           <div
-            className="grid gap-6 mt-2 relative"
+            className="relative grid gap-6 mt-2"
             onMouseMove={handleMouse}
             onMouseEnter={() => {
               setIsZooming(true);
@@ -235,14 +235,12 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             </div>
 
             {/* This div is the lens */}
-            <div
-              ref={imgLens}
-              className={
-                isZooming
-                  ? `absolute border-2 border-gray-500 w-24 h-24`
-                  : 'hidden'
-              }
-            />
+            {isZooming && (
+              <div
+                ref={imgLens}
+                className="absolute w-24 h-24 bg-white bg-opacity-25 shadow cursor-zoom-in"
+              />
+            )}
 
             {images.length > 1 && (
               <div className="grid grid-cols-3 gap-6">
@@ -258,13 +256,20 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               </div>
             )}
           </div>
-          {/* This is the magnified image */}
-          <div
-            ref={imgResult}
-            className={isZooming ? `border w-96 h-96` : 'hidden'}
-          />
-          <div className={isZooming ? 'hidden' : `mt-12`}>
-            <h1 className="font-normal h2">{product.title}</h1>
+          <div className="relative">
+            {/* This is the magnified image */}
+            {isZooming && (
+              <div
+                aria-hidden
+                className="absolute inset-x-0 top-0 z-10 h-0 aspect-ratio-square"
+              >
+                <div
+                  ref={imgResult}
+                  className="absolute inset-0 top-0 shadow"
+                />
+              </div>
+            )}
+            <h1 className="mt-12 font-normal h2">{product.title}</h1>
             <dl>
               <dt className="sr-only">Price:</dt>
               <dd className="mt-2 h2 text-primary">
