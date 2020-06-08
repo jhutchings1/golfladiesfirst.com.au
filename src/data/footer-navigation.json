@@ -53,6 +53,11 @@
       "slug": "/contact/"
     },
     {
+      "id": "6ba45104-676b-4d9a-89c7-667a8c0e5e99",
+      "label": "Refund Policy",
+      "slug": "/refund-policy/"
+    },
+    {
       "id": "f5f4363f-4993-4f68-91f2-e94e10029ee2",
       "label": "Privacy Policy",
       "slug": "/privacy-policy/"
