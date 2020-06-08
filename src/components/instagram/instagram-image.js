@@ -18,7 +18,7 @@ export function InstagramImage({ post }) {
         ref={imgRef}
         onLoad={handleImgLoaded}
         data-src={post.src}
-        srcSet={post.srcSet.map((el) => `${el.src} ${el.width}w`).toString()}
+        srcSet={post.srcSet}
         alt={post.caption}
         className="absolute inset-0 object-cover w-full h-full"
       />

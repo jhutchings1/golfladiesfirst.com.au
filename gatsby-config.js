@@ -64,11 +64,7 @@ module.exports = {
       // Shopify-related variables in the context setup script.
       resolve: 'gatsby-plugin-env-variables',
       options: {
-        whitelist: [
-          'SHOP_NAME',
-          'SHOPIFY_ACCESS_TOKEN',
-          'INSTAGRAM_ACCESS_TOKEN',
-        ],
+        whitelist: ['SHOP_NAME', 'SHOPIFY_ACCESS_TOKEN'],
       },
     },
     {
