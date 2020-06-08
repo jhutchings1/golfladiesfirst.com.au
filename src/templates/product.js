@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState, useRef } from 'react';
-import { useTransition, animated } from 'react-spring';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
@@ -56,6 +55,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   const [variant, setVariant] = useState(
     variants.find((v) => v.availableForSale === true) || variants[0]
   );
+
+  // Check if product is on sale
+  const onSale =
+    variant.priceV2.currencyCode === variant.compareAtPriceV2.currencyCode;
 
   // Format the data we get back from GraphQL for images to be a little easier to work with
   // See comment in `prepare-variants-images.js`
@@ -208,12 +211,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     }px`;
   }
 
-  const transitions = useTransition(isZooming, null, {
-    from: { opacity: 0, x: -10 },
-    enter: { opacity: 1, x: 0 },
-    leave: { opacity: 0, x: -10 },
-  });
-
   return (
     <Layout>
       <SEO title={product.title} />
@@ -272,32 +269,30 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
           </div>
           <div className="relative">
             {/* This is the magnified image */}
-            {transitions.map(
-              ({ item, key, props: { opacity, x } }) =>
-                item && (
-                  <animated.div
-                    key={key}
-                    aria-hidden
-                    style={{
-                      opacity,
-                      transform: x.interpolate(
-                        (value) => `translate3d(${value}rem, 0, 0)`
-                      ),
-                    }}
-                    className="absolute inset-x-0 top-0 z-10 h-0 aspect-ratio-square"
-                  >
-                    <div
-                      ref={imgResult}
-                      className="absolute inset-0 top-0 shadow"
-                    />
-                  </animated.div>
-                )
+            {isZooming && (
+              <div
+                aria-hidden
+                className="absolute inset-x-0 top-0 z-10 h-0 aspect-ratio-square"
+              >
+                <div
+                  ref={imgResult}
+                  className="absolute inset-0 top-0 shadow"
+                />
+              </div>
             )}
             <h1 className="mt-12 font-normal h2">{product.title}</h1>
             <dl>
               <dt className="sr-only">Price:</dt>
               <dd className="mt-2 h2 text-primary">
-                <small className="font-normal">AUD</small> ${variant.price}
+                {onSale && (
+                  <span className="line-through">
+                    ${Number(variant.compareAtPriceV2.amount).toFixed(2)}
+                  </span>
+                )}{' '}
+                ${Number(variant.priceV2.amount).toFixed(2)}
+                <small className="font-normal">
+                  {variant.priceV2.currencyCode}
+                </small>{' '}
               </dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
@@ -397,27 +392,33 @@ ProductPage.propTypes = {
 export const ProductPageQuery = graphql`
   query productPage($productId: String!) {
     shopifyProduct(id: { eq: $productId }) {
-      id
-      title
-
       descriptionHtml
+      id
       options {
         name
         values
       }
+      title
       variants {
         availableForSale
+        compareAtPriceV2 {
+          amount
+          currencyCode
+        }
         id
-        price
+        image {
+          originalSrc
+        }
+        priceV2 {
+          amount
+          currencyCode
+        }
         shopifyId
         sku
         title
         selectedOptions {
           name
           value
-        }
-        image {
-          originalSrc
         }
       }
     }
