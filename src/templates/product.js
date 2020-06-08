@@ -58,7 +58,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
   // Check if product is on sale
   const onSale =
-    variant.priceV2.currencyCode === variant.compareAtPriceV2.currencyCode;
+    variant.priceV2.currencyCode === variant.compareAtPriceV2?.currencyCode;
 
   // Format the data we get back from GraphQL for images to be a little easier to work with
   // See comment in `prepare-variants-images.js`
@@ -208,7 +208,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     }px`;
     /* Display what the lens "sees": */
     imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
-    console.log(imgResult.current);
   }
 
   return (
@@ -223,14 +222,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             setIsAlertShown={setIsAlertShown}
           />
           <div
-            className="relative grid gap-6 mt-2"
+            className="relative grid gap-6 mt-2 overflow-hidden"
             onMouseMove={handleMouse}
             onMouseEnter={() => setIsZooming(true)}
             onMouseLeave={() => setIsZooming(false)}
           >
             <div
               ref={ref}
-              className="relative h-0 overflow-hidden bg-white aspect-ratio-square"
+              className="relative h-0 bg-white aspect-ratio-square"
             >
               {/* This is the actual main image */}
               <img
@@ -244,6 +243,14 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
               />
               {!isImgLoaded && <Spinner />}
             </div>
+
+            {onSale && (
+              <div className="absolute top-0 left-0 -mt-1 transform translate-y-full -translate-x-9">
+                <div className="px-12 py-1 font-bold text-white uppercase transform -rotate-45 bg-primary">
+                  On Sale
+                </div>
+              </div>
+            )}
 
             {/* This div is the lens */}
             {isZooming && (
@@ -284,15 +291,15 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
             <dl>
               <dt className="sr-only">Price:</dt>
               <dd className="mt-2 h2 text-primary">
-                {onSale && (
+                {variant.compareAtPriceV2 && (
                   <span className="line-through">
                     ${Number(variant.compareAtPriceV2.amount).toFixed(2)}
                   </span>
                 )}{' '}
-                ${Number(variant.priceV2.amount).toFixed(2)}
+                ${Number(variant.priceV2.amount).toFixed(2)}{' '}
                 <small className="font-normal">
                   {variant.priceV2.currencyCode}
-                </small>{' '}
+                </small>
               </dd>
             </dl>
             <div className="grid items-end gap-4 mt-6 sm:grid-cols-2">
@@ -368,7 +375,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 onClick={handleAddToCart}
                 disabled={addToCartDisabled}
                 type="button"
-                className="inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-primary active:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center px-12 py-2 text-base font-medium leading-6 text-white uppercase transition duration-150 ease-in-out bg-black border border-transparent rounded-none hover:bg-gray-700 focus:outline-none focus:border-black focus:shadow-outline-primary active:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Add to Cart
               </button>
