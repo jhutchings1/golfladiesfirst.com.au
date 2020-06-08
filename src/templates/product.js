@@ -146,6 +146,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     const event = e || window.event;
     /* Get the x and y positions of the image: */
     const a = imgRef.current.getBoundingClientRect();
+
     /* Calculate the cursor's x and y coordinates, relative to the image: */
     x = event.pageX - a.left;
     y = event.pageY - a.top;
@@ -186,14 +187,15 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     /* Set the position of the imgLens.current: */
     imgLens.current.style.left = `${x}px`;
     imgLens.current.style.top = `${y}px`;
-    /* Display what the lens "sees": */
-    imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
 
     /* Set background properties for the imgResult DIV */
     imgResult.current.style.backgroundImage = `url('${imgRef.current.src}')`;
     imgResult.current.style.backgroundSize = `${imgRef.current.width * cx}px ${
       imgRef.current.height * cy
     }px`;
+    /* Display what the lens "sees": */
+    imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
+    console.log(imgResult.current);
   }
 
   return (

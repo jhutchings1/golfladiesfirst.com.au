@@ -22,14 +22,14 @@ export function SizePicker({
                 return (
                   v.size === option &&
                   v.colour === colour &&
-                  v.handness === handedness
+                  v.handedness === handedness
                 );
               }) === 'object'
                 ? !variants.find((v) => {
                     return (
                       v.size === option &&
                       v.colour === colour &&
-                      v.handness === handedness
+                      v.handedness === handedness
                     );
                   }).availableForSale
                 : true
