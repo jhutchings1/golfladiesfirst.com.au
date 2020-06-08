@@ -226,13 +226,6 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
                 ref={imgRef}
                 data-src={imgSrc}
                 onLoad={handleImgLoaded}
-                onMouseEnter={() => {
-                  setIsZooming(true);
-                }}
-                onMouseLeave={() => {
-                  setIsZooming(false);
-                }}
-                onMouseMove={handleMouse}
                 alt=""
                 width={592}
                 height={592}
