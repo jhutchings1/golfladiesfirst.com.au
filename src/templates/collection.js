@@ -15,6 +15,10 @@ export default function CollectionPageTemplate({
 
   const location = useLocation();
 
+  const queryString = parse(location.search);
+
+  const theme = queryString.filter ? queryString.filter.toLowerCase() : '';
+
   const [itemsToShow, setItemsToShow] = useState(8);
 
   const [finishedLoading, setFinishedLoading] = useState(false);
@@ -64,10 +68,6 @@ export default function CollectionPageTemplate({
   useEffect(() => {
     setProds(products.slice(0 * itemsToShow, 0 * itemsToShow + itemsToShow));
   }, [products, itemsToShow]);
-
-  const queryString = parse(location.search);
-
-  const theme = queryString.filter ? queryString.filter.toLowerCase() : '';
 
   return (
     <Layout theme={theme}>
@@ -132,6 +132,7 @@ export const query = graphql`
       descriptionHtml
       shopifyId
       products {
+        tags
         title
         handle
         availableForSale
