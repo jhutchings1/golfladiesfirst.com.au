@@ -11,7 +11,7 @@ export function CollectionCard({ children, image, imgStyle, to, width }) {
   };
 
   return (
-    <Link to={to} className={`${columns[width]} relative bg-gray-50`}>
+    <Link to={to} className={`${columns[width]} relative`}>
       <div className="absolute inset-0">
         <GatsbyImage
           fluid={image.childImageSharp.fluid}
@@ -20,7 +20,11 @@ export function CollectionCard({ children, image, imgStyle, to, width }) {
         />
       </div>
       <div className="relative flex w-full h-96">
-        <div className="flex items-end justify-center w-full py-6 text-center">
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient"
+        />
+        <div className="relative flex items-end justify-center w-full py-6 text-center">
           {children}
         </div>
       </div>
