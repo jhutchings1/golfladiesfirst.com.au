@@ -9,7 +9,7 @@ export function MensGregNorman() {
     <CollectionCard
       image={mensGregNormanImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/greg-norman/"
+      to="/collections/greg-norman/?filter=mens"
       width="large"
     >
       <div className="flex flex-col items-center w-2/5 mr-auto">

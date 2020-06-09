@@ -9,7 +9,7 @@ export function MensBermudaSands() {
     <CollectionCard
       image={mensBermudaSandsImage}
       imgStyle={{ objectPosition: 'right top' }}
-      to="/collections/bermuda-sands-brand/"
+      to="/collections/bermuda-sands-brand/?filter=mens"
       width="medium"
     >
       <span className="inline-flex shadow-sm">

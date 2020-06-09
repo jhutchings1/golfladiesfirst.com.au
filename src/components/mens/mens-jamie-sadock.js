@@ -9,7 +9,7 @@ export function MensCutterAndBuck() {
     <CollectionCard
       image={mensCutterAndBuckImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/cutter-and-buck/"
+      to="/collections/cutter-and-buck/?filter=mens"
       width="small"
     >
       <span className="inline-flex shadow-sm">

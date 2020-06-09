@@ -1,6 +1,8 @@
-import PropTypes from 'prop-types';
 import React, { useState, useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
+import { useLocation } from '@reach/router';
+import { parse } from 'query-string';
+import PropTypes from 'prop-types';
 
 import { Layout, SEO, Tile } from '../components';
 
@@ -11,7 +13,7 @@ export default function CollectionPageTemplate({
 
   const [prods, setProds] = useState(null);
 
-  const [index, setIndex] = useState(0);
+  const location = useLocation();
 
   const [itemsToShow, setItemsToShow] = useState(8);
 
@@ -60,13 +62,15 @@ export default function CollectionPageTemplate({
   }, [element]);
 
   useEffect(() => {
-    setProds(
-      products.slice(index * itemsToShow, index * itemsToShow + itemsToShow)
-    );
-  }, [products, index, itemsToShow]);
+    setProds(products.slice(0 * itemsToShow, 0 * itemsToShow + itemsToShow));
+  }, [products, itemsToShow]);
+
+  const queryString = parse(location.search);
+
+  const theme = queryString.filter ? queryString.filter.toLowerCase() : '';
 
   return (
-    <Layout>
+    <Layout theme={theme}>
       <SEO title={shopifyCollection.title} />
       <article className="px-4 bg-white sm:px-6 lg:px-8">
         <div className="py-24">
@@ -78,13 +82,6 @@ export default function CollectionPageTemplate({
             }}
           />
         </div>
-        {/* <ProductControls
-          index={index}
-          setIndex={setIndex}
-          products={products}
-          itemsToShow={itemsToShow}
-          setItemsToShow={setItemsToShow}
-        /> */}
         <div className="grid w-full max-w-6xl row-gap-6 col-gap-12 py-12 mx-auto md:grid-cols-2 lg:grid-cols-4 sm:py-16">
           {prods
             ? prods.map((product) => (
