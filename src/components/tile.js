@@ -39,7 +39,7 @@ export function Tile({
           className="object-contain w-full h-full duration-500 ease-in-out transform group-hover:scale-110 group-focus:scale-110"
         />
         {!isImgLoaded && <Spinner />}
-        {onSale && (
+        {onSale && available && (
           <div className="absolute top-0 left-0 -mt-1 transform translate-y-full -translate-x-9">
             <div className="px-12 py-1 font-bold text-white uppercase transform -rotate-45 bg-primary">
               On Sale
