@@ -28,13 +28,13 @@ export function NewsletterSignup() {
   }
 
   return (
-    <article className="bg-gray-100">
+    <article className="mx-auto bg-gray-100 max-w-7xl">
       <div className="flex flex-col items-center max-w-screen-xl px-4 py-12 mx-auto text-left sm:px-6 lg:py-16 lg:px-8">
         <h2 className="h2">Don't miss out, join the club</h2>
         <form
           method="POST"
           onSubmit={handleSubmit}
-          id="newsletter-signup-form"
+          id="newsletter"
           name="newsletter-signup-form"
           target="_blank"
           className="w-full mt-8 sm:flex"

@@ -19,7 +19,7 @@ export function Map() {
   }, [inView]);
 
   return (
-    <article ref={ref} className="relative overflow-hidden">
+    <article ref={ref} className="relative mx-auto overflow-hidden max-w-7xl">
       <iframe
         ref={mapRef}
         onLoad={() => setMapLoaded(true)}
