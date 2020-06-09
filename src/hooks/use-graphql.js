@@ -160,7 +160,7 @@ export function useGraphQL() {
           }
         }
         # Product page queries
-        placeholderImage: file(relativePath: { eq: "placeholder/shoe.png" }) {
+        placeholderImage: file(relativePath: { eq: "placeholder.jpg" }) {
           publicURL
           addToCartAlert: childImageSharp {
             fixed(width: 96) {
