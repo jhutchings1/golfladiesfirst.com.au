@@ -8,7 +8,7 @@ export function BrandsWeLove() {
     <article className="bg-white">
       <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 sm:py-16 lg:px-8">
         <h2 className="h2">Shop brands we love</h2>
-        <div className="grid grid-cols-2 mt-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 lg:mt-8">
+        <div className="grid grid-cols-2 mt-6 lg:grid-cols-5 lg:mt-8">
           {brands.map((brand) => (
             <Link
               key={brand.id}
