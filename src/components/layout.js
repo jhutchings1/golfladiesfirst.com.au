@@ -13,7 +13,7 @@ export function Layout({ children, hasHero, theme = '' }) {
     // Check if window object exists
     if (typeof window !== 'undefined') {
       const element = window.document.body;
-      // Append theme data-attribute to body element — defaults to ladies
+      // Append theme data-attribute to body element
       element.dataset.theme = theme.toLowerCase();
     }
   }, [theme]);
