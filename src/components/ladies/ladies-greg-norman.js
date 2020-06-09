@@ -11,9 +11,12 @@ export function LadiesGregNorman() {
       to="/collections/greg-norman/"
       width="large"
     >
-      <div className="flex items-end justify-center w-2/3 py-12 mr-auto text-center text-white h2">
-        Shop <br />
-        Greg Norman
+      <div className="flex flex-col items-center w-2/5 mr-auto">
+        <span className="inline-flex mt-6 shadow-sm">
+          <div className="inline-flex items-center px-6 py-3 text-base font-bold leading-6 text-black uppercase transition duration-150 ease-in-out bg-white border border-transparent hover:text-gray-700 focus:outline-none focus:border-primary focus:shadow-outline-primary active:text-gray-800 active:bg-gray-50">
+            Shop Greg Norman
+          </div>
+        </span>
       </div>
     </CollectionCard>
   );
