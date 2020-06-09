@@ -7,6 +7,7 @@ import fit39Gloves from '../images/brand-logos/fit39-gloves.svg';
 import jamieSadock from '../images/brand-logos/jamie-sadock.svg';
 import nivo from '../images/brand-logos/nivo.svg';
 import skechers from '../images/brand-logos/skechers.svg';
+import travisMatthews from '../images/brand-logos/travis-matthews.svg';
 
 export const brands = [
   {
@@ -62,5 +63,11 @@ export const brands = [
     label: 'Skechers',
     slug: '/collections/skechers-shoes/',
     icon: skechers,
+  },
+  {
+    id: '2da73517-38c7-4df2-9fbb-795f6a0041a8',
+    label: 'Travis Matthews',
+    slug: '/collections/travis-matthews/',
+    icon: travisMatthews,
   },
 ];
