@@ -66,7 +66,7 @@ export default function CollectionPageTemplate({
   }, [element]);
 
   useEffect(() => {
-    setProds(products.slice(0 * itemsToShow, 0 * itemsToShow + itemsToShow));
+    setProds(products.slice(0, itemsToShow));
   }, [products, itemsToShow]);
 
   return (
