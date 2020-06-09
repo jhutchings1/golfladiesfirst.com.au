@@ -99,6 +99,7 @@ export default function CollectionPageTemplate({
                     product.priceRange.maxVariantPrice.amount
                   }
                   available={product.availableForSale}
+                  onSale={shopifyCollection.title === 'Clearance Items'}
                 />
               ))
             : Array(itemsToShow)

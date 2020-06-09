@@ -5,7 +5,15 @@ import { Link } from 'gatsby';
 import { useGraphQL, useLazyLoad } from '../hooks';
 import { resizeShopifyImage } from '../utilities';
 
-export function Tile({ title, slug, price, image, constantPrice, available }) {
+export function Tile({
+  title,
+  slug,
+  price,
+  image,
+  constantPrice,
+  available,
+  onSale = false,
+}) {
   const { placeholderImage } = useGraphQL();
 
   const imageSrc = image
@@ -31,6 +39,13 @@ export function Tile({ title, slug, price, image, constantPrice, available }) {
           className="object-contain w-full h-full duration-500 ease-in-out transform group-hover:scale-110 group-focus:scale-110"
         />
         {!isImgLoaded && <Spinner />}
+        {onSale && (
+          <div className="absolute top-0 left-0 -mt-1 transform translate-y-full -translate-x-9">
+            <div className="px-12 py-1 font-bold text-white uppercase transform -rotate-45 bg-primary">
+              On Sale
+            </div>
+          </div>
+        )}
       </div>
       <div className="p-6">
         <h3 className="mt-2 line-clamp">{title}</h3>
@@ -58,4 +73,5 @@ Tile.propTypes = {
   title: PropTypes.string,
   constantPrice: PropTypes.bool,
   available: PropTypes.bool,
+  onSale: PropTypes.bool,
 };
