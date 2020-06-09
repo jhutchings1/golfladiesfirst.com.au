@@ -96,7 +96,11 @@ export default function CollectionPageTemplate({
                     product.priceRange.maxVariantPrice.amount
                   }
                   available={product.availableForSale}
-                  onSale={shopifyCollection.title === 'Clearance Items'}
+                  onSale={
+                    shopifyCollection.title === 'Clearance Items' ||
+                    product.variants[0].priceV2.currencyCode ===
+                      product.variants[0].compareAtPriceV2?.currencyCode
+                  }
                 />
               ))
             : Array(itemsToShow)
@@ -147,6 +151,16 @@ export const query = graphql`
         images {
           originalSrc
           id
+        }
+        variants {
+          compareAtPriceV2 {
+            amount
+            currencyCode
+          }
+          priceV2 {
+            amount
+            currencyCode
+          }
         }
       }
     }
