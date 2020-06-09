@@ -38,5 +38,5 @@ export function Layout({ children, hasHero, theme = '' }) {
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   hasHero: PropTypes.bool,
-  theme: PropTypes.oneOf(['ladies', 'mens']),
+  theme: PropTypes.oneOf(['ladies', 'mens', '']),
 };
