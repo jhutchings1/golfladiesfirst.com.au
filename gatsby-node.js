@@ -52,4 +52,31 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       },
     });
   });
+
+  // Create pages for blog posts
+  const tips = await graphql(`
+    {
+      allShopifyArticle {
+        nodes {
+          id
+          title
+          url
+        }
+      }
+    }
+  `);
+
+  tips.data.allShopifyArticle.nodes.forEach((node) => {
+    const searchTerm = '/blogs/';
+    const startOfSlug = node.url.indexOf(searchTerm);
+    const slug = node.url.slice(startOfSlug, node.url.length - 1);
+    createPage({
+      path: slug,
+      component: require.resolve('./src/templates/golf-tips.js'),
+      context: {
+        id: node.id,
+        handle: node.handle,
+      },
+    });
+  });
 };

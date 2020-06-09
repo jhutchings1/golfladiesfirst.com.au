@@ -72,4 +72,7 @@
   & h2 + p {
     @apply mt-2 !important;
   }
+  & * + * {
+    @apply mt-4 !important;
+  }
 }
