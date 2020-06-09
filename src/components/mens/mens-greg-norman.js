@@ -3,11 +3,12 @@ import React from 'react';
 import { useGraphQL } from '../../hooks';
 import { CollectionCard } from '../collections';
 
-export function LadiesGregNorman() {
-  const { ladiesGregNormanImage } = useGraphQL();
+export function MensGregNorman() {
+  const { mensGregNormanImage } = useGraphQL();
   return (
     <CollectionCard
-      image={ladiesGregNormanImage}
+      image={mensGregNormanImage}
+      imgStyle={{ objectPosition: 'top' }}
       to="/collections/greg-norman/"
       width="large"
     >

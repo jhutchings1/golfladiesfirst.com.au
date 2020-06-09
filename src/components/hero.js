@@ -10,7 +10,7 @@ const Hero = () => {
     site: {
       siteMetadata: { title },
     },
-    heroImage1,
+    heroImage,
   } = useGraphQL();
 
   return (
@@ -40,7 +40,7 @@ const Hero = () => {
         </div>
         <div className="flex flex-col flex-1 text-white">
           <GatsbyImage
-            fluid={heroImage1.childImageSharp.fluid}
+            fluid={heroImage.childImageSharp.fluid}
             className="flex-1 hidden h-full md:block"
           />
           <div className="mt-auto overflow-hidden md:flex">

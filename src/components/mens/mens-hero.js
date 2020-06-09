@@ -4,8 +4,8 @@ import GatsbyImage from 'gatsby-image';
 
 import { useGraphQL } from '../../hooks';
 
-export function LadiesHero() {
-  const { ladiesCollectionHeroImage } = useGraphQL();
+export function MensHero() {
+  const { mensCollectionHeroImage } = useGraphQL();
 
   return (
     <article className="bg-white">
@@ -13,7 +13,7 @@ export function LadiesHero() {
         <div className="relative">
           <div className="absolute inset-0 w-full h-full">
             <GatsbyImage
-              fluid={ladiesCollectionHeroImage.childImageSharp.fluid}
+              fluid={mensCollectionHeroImage.childImageSharp.fluid}
               className="w-full h-full"
             />
           </div>

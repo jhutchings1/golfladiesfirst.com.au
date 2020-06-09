@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useGraphQL } from '../../hooks';
-import { Tile } from '../tile';
+import { useGraphQL } from '../hooks';
+import { Tile } from './tile';
 
 export function ProductWrapper() {
   const { allShopifyProduct } = useGraphQL();

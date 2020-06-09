@@ -11,6 +11,7 @@ export function useGraphQL() {
   const data = useStaticQuery(
     graphql`
       {
+        # Site Metadata
         site {
           siteMetadata {
             title
@@ -28,6 +29,7 @@ export function useGraphQL() {
             instagram
           }
         }
+        # Home page queries
         heroImage: file(relativePath: { eq: "hero.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1920) {
@@ -35,29 +37,129 @@ export function useGraphQL() {
             }
           }
         }
-        heroImage1: file(relativePath: { eq: "hero-1.jpg" }) {
+        shopLadiesImage: file(relativePath: { eq: "shop-ladies.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1920, quality: 100) {
+            fluid(maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        ladiesHats: file(relativePath: { eq: "collections/ladies-hats.jpg" }) {
+        shopMensImage: file(relativePath: { eq: "shop-mens.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 506) {
+            fluid(maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        ladiesSkorts: file(
-          relativePath: { eq: "collections/ladies-skorts.jpg" }
+        # Ladies Collection page queries
+        ladiesCollectionHeroImage: file(
+          relativePath: { eq: "golf-course.jpg" }
         ) {
           childImageSharp {
-            fluid(maxWidth: 760) {
+            fluid(maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
+        ladiesGregNormanImage: file(
+          relativePath: { eq: "collections/ladies/greg-norman.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        ladiesBermudaSandsImage: file(
+          relativePath: { eq: "collections/ladies/bermuda-sands.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        ladiesNivoImage: file(
+          relativePath: { eq: "collections/ladies/nivo.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        ladiesDailySportsImage: file(
+          relativePath: { eq: "collections/ladies/daily-sports.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        ladiesJamieSadockImage: file(
+          relativePath: { eq: "collections/ladies/jamie-sadock.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        # Mens Collection page queries
+        mensCollectionHeroImage: file(relativePath: { eq: "golf-course.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        mensGregNormanImage: file(
+          relativePath: { eq: "collections/mens/greg-norman.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        mensTravisMatthewsImage: file(
+          relativePath: { eq: "collections/mens/travis-matthews.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        mensBermudaSandsImage: file(
+          relativePath: { eq: "collections/mens/bermuda-sands.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        mensFit39GlovesImage: file(
+          relativePath: { eq: "collections/mens/fit39-gloves.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        mensCutterAndBuckImage: file(
+          relativePath: { eq: "collections/mens/cutter-and-buck.jpg" }
+        ) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        # Product page queries
         placeholderImage: file(relativePath: { eq: "placeholder/shoe.png" }) {
           publicURL
           addToCartAlert: childImageSharp {
@@ -104,6 +206,7 @@ export function useGraphQL() {
             }
           }
         }
+        # Carousel queries
         latestShirtsCollection: allShopifyProduct(
           sort: { fields: updatedAt, order: DESC }
           limit: 8

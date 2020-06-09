@@ -5,7 +5,7 @@ import GatsbyImage from 'gatsby-image';
 import { useGraphQL } from '../../hooks';
 
 export function CollectionPromo() {
-  const { heroImage } = useGraphQL();
+  const { shopLadiesImage, shopMensImage } = useGraphQL();
   return (
     <article className="relative bg-white">
       <div className="grid w-full max-w-lg gap-4 py-12 mx-auto sm:py-16 sm:max-w-7xl md:grid-cols-2">
@@ -13,14 +13,15 @@ export function CollectionPromo() {
           <div className="h-0 aspect-ratio-square">
             <div className="absolute inset-0 w-full h-full">
               <GatsbyImage
-                fluid={heroImage.childImageSharp.fluid}
+                fluid={shopLadiesImage.childImageSharp.fluid}
+                imgStyle={{ objectPosition: 'top' }}
                 className="h-full"
               />
             </div>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-white bg-black bg-opacity-50">
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center text-white bg-black bg-opacity-50">
             <h2 className="h2">
-              <span className="text-4xl">Shop ladies &amp; </span>
+              <span className="text-4xl">Shop ladies and </span>
               <br />
               <span className="text-4xl">get 20% off </span>
               <br />
@@ -38,14 +39,14 @@ export function CollectionPromo() {
           <div className="h-0 aspect-ratio-square">
             <div className="absolute inset-0 w-full h-full">
               <GatsbyImage
-                fluid={heroImage.childImageSharp.fluid}
+                fluid={shopMensImage.childImageSharp.fluid}
                 className="h-full"
               />
             </div>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-white bg-black bg-opacity-50">
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center text-white bg-black bg-opacity-50">
             <h2 className="text-2xl font-bold leading-none text-center uppercase">
-              <span className="text-4xl">Shop mens &amp; </span>
+              <span className="text-4xl">Shop mens and </span>
               <br />
               <span className="text-4xl">get 20% off </span>
               <br />
