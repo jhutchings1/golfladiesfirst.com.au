@@ -9,7 +9,7 @@ export function MensFit39Gloves() {
     <CollectionCard
       image={mensFit39GlovesImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/fit39-gloves-brand/"
+      to="/collections/fit39-gloves-brand/?filter=mens"
       width="medium"
     >
       <span className="inline-flex shadow-sm">

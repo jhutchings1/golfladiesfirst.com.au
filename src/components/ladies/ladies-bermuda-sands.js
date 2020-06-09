@@ -9,7 +9,7 @@ export function LadiesBermudaSands() {
     <CollectionCard
       image={ladiesBermudaSandsImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/bermuda-sands-brand/"
+      to="/collections/bermuda-sands-brand/?filter=ladies"
       width="small"
     >
       <span className="inline-flex shadow-sm">

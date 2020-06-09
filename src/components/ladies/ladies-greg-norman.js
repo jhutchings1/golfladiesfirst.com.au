@@ -8,7 +8,7 @@ export function LadiesGregNorman() {
   return (
     <CollectionCard
       image={ladiesGregNormanImage}
-      to="/collections/greg-norman/"
+      to="/collections/greg-norman/?filter=ladies"
       width="large"
     >
       <div className="flex flex-col items-center w-2/5 mr-auto">

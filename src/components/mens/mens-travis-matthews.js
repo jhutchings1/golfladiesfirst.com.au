@@ -9,7 +9,7 @@ export function MensTravisMatthews() {
     <CollectionCard
       image={mensTravisMatthewsImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/travis-matthews/"
+      to="/collections/travis-matthews/?filter=mens"
       width="small"
     >
       <span className="inline-flex shadow-sm">

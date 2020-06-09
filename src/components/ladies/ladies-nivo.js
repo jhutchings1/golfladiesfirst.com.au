@@ -9,7 +9,7 @@ export function LadiesNivo() {
     <CollectionCard
       image={ladiesNivoImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/nivo/"
+      to="/collections/nivo/?filter=ladies"
       width="medium"
     >
       <span className="inline-flex shadow-sm">

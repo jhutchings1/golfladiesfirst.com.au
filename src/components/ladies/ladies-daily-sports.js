@@ -9,7 +9,7 @@ export function LadiesDailySports() {
     <CollectionCard
       image={ladiesDailySportsImage}
       imgStyle={{ objectPosition: 'top' }}
-      to="/collections/daily-sports/"
+      to="/collections/daily-sports/?filter=ladies"
       width="medium"
     >
       <span className="inline-flex shadow-sm">
