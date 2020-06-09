@@ -159,6 +159,25 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     x -= window.pageXOffset;
     y -= window.pageYOffset;
 
+    const ratio = imgRef.current.naturalWidth / imgRef.current.naturalHeight;
+    let width = imgRef.current.height * ratio;
+    let { height } = imgRef.current;
+    if (width > imgRef.current.width) {
+      width = imgRef.current.width;
+      height = imgRef.current.width / ratio;
+    }
+
+    const cw = imgRef.current.clientWidth;
+    const ch = imgRef.current.clientHeight;
+    const iw = width;
+    const ih = height;
+    const px = (x / cw) * iw;
+    const py = (y / ch) * ih;
+
+    console.log(
+      `pixel (${px},${py}) mouse pos (${x},${y}) relative to boundingClientRect at (${a.left},${a.top}) client image size: ${cw} x ${ch} real image size: ${iw} x ${ih}`
+    );
+
     return { x, y };
   }
 
@@ -175,9 +194,16 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     let y;
     const pos = getCursorPos(e);
 
-    const cx = imgResult.current.offsetWidth / imgLens.current.offsetWidth / 2;
-    const cy =
-      imgResult.current.offsetHeight / imgLens.current.offsetHeight / 2;
+    const ratio = imgRef.current.naturalWidth / imgRef.current.naturalHeight;
+    let width = imgRef.current.height * ratio;
+    let { height } = imgRef.current;
+    if (width > imgRef.current.width) {
+      width = imgRef.current.width;
+      height = imgRef.current.width / ratio;
+    }
+
+    // const cx = imgRef.current.width / imgLens.current.offsetWidth / 2;
+    // const cy = imgRef.current.height / imgLens.current.offsetHeight / 2;
 
     /* Calculate the position of the lens: */
     x = pos.x - imgLens.current.offsetWidth / 2;
@@ -203,11 +229,20 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
     /* Set background properties for the imgResult DIV */
     imgResult.current.style.backgroundImage = `url('${imgRef.current.src}')`;
-    imgResult.current.style.backgroundSize = `${imgRef.current.width * cx}px ${
-      imgRef.current.height * cy
+    // imgResult.current.style.backgroundColor = `white`;
+    imgResult.current.style.backgroundSize = `${imgRef.current.width * 2}px ${
+      imgRef.current.height * 2
     }px`;
     /* Display what the lens "sees": */
-    imgResult.current.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
+    // imgResult.current.width = imgRef.current.width * 50;
+    // imgResult.current.height = imgRef.current.height * 50;
+    imgResult.current.style.backgroundRepeat = 'no-repeat';
+    imgResult.current.style.objectFit = 'contain';
+    imgResult.current.style.width = '1184px';
+    imgResult.current.style.height = '1184px';
+    imgResult.current.style.backgroundPosition = `-${x * 2}px -${y * 2}px`;
+
+    // console.log('...', imgRef);
   }
 
   return (
@@ -277,13 +312,10 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
           <div className="relative">
             {/* This is the magnified image */}
             {isZooming && (
-              <div
-                aria-hidden
-                className="absolute inset-x-0 top-0 z-10 h-0 aspect-ratio-square"
-              >
+              <div className="relative h-0 bg-white aspect-ratio-square">
                 <div
                   ref={imgResult}
-                  className="absolute inset-0 top-0 shadow"
+                  className="absolute inset-0 h-full mx-auto"
                 />
               </div>
             )}
