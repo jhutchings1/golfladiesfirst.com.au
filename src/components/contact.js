@@ -25,7 +25,7 @@ export function Contact() {
   });
 
   return (
-    <article className="relative overflow-hidden bg-white">
+    <article className="relative mx-auto overflow-hidden bg-white max-w-7xl">
       <div
         aria-hidden
         className="absolute inset-0 flex w-1/3 w-full h-full overflow-hidden"
