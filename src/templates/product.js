@@ -173,11 +173,11 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
 
     let x;
     let y;
-
     const pos = getCursorPos(e);
 
-    const cx = imgResult.current.offsetWidth / imgLens.current.offsetWidth;
-    const cy = imgResult.current.offsetHeight / imgLens.current.offsetHeight;
+    const cx = imgResult.current.offsetWidth / imgLens.current.offsetWidth / 2;
+    const cy =
+      imgResult.current.offsetHeight / imgLens.current.offsetHeight / 2;
 
     /* Calculate the position of the lens: */
     x = pos.x - imgLens.current.offsetWidth / 2;
