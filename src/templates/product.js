@@ -25,6 +25,17 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
     allShopifyProduct: { nodes: products },
   } = useGraphQL();
 
+  // Get the theme gender
+  let themeGender = '';
+  if (product.tags.includes('Mens') && !product.tags.includes('Ladies')) {
+    themeGender = 'mens';
+  } else if (
+    product.tags.includes('Ladies') &&
+    !product.tags.includes('Mens')
+  ) {
+    themeGender = 'ladies';
+  }
+
   // Get all possible colours
   const colours =
     product.options.find((option) => option.name.toLowerCase() === 'colour')
@@ -246,7 +257,7 @@ export default function ProductPage({ data: { shopifyProduct: product } }) {
   }
 
   return (
-    <Layout>
+    <Layout theme={themeGender !== '' ? themeGender : ''}>
       <SEO title={product.title} />
       <article className="relative px-4 py-20 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
@@ -438,6 +449,7 @@ export const ProductPageQuery = graphql`
         values
       }
       title
+      tags
       variants {
         availableForSale
         compareAtPriceV2 {
