@@ -23,9 +23,13 @@ export default function CollectionPageTemplate({
   useEffect(() => {
     if (queryString.filter) {
       const filteredProducts = products.filter((product) => {
-        return product.tags.includes('Ladies');
+        return product.tags.includes(
+          `${queryString.filter[0].toUpperCase()}${queryString.filter.slice(
+            1,
+            queryString.filter.length
+          )}`
+        );
       });
-      console.log(filteredProducts);
       setFilteredProds(filteredProducts);
     }
   }, []);
