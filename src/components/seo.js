@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { useLocation } from '@reach/router';
+
 import { useGraphQL } from '../hooks';
 
-export function SEO({ description, lang, meta, title }) {
-  const { site } = useGraphQL();
+export function SEO({ description, image, type, lang, meta, title }) {
+  const {
+    site: { siteMetadata },
+    ogImage,
+  } = useGraphQL();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const { pathname } = useLocation();
+
+  const metaDescription = description || siteMetadata.description;
+  const metaType = type || 'website';
+  const metaUrl = `${siteMetadata.siteUrl}${pathname}`;
+  const metaImage = image || `${siteMetadata.siteUrl}${ogImage.publicURL}`;
 
   return (
     <Helmet
@@ -14,7 +24,7 @@ export function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: 'description',
@@ -30,7 +40,15 @@ export function SEO({ description, lang, meta, title }) {
         },
         {
           property: 'og:type',
-          content: 'website',
+          content: metaType,
+        },
+        {
+          property: 'og:url',
+          content: metaUrl,
+        },
+        {
+          property: 'og:image',
+          content: metaImage,
         },
         {
           name: 'twitter:card',
@@ -38,7 +56,7 @@ export function SEO({ description, lang, meta, title }) {
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: 'twitter:title',
@@ -61,6 +79,8 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
   description: PropTypes.string,
+  image: PropTypes.string,
+  type: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
