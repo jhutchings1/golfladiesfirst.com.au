@@ -14,19 +14,20 @@ export function useGraphQL() {
         # Site Metadata
         site {
           siteMetadata {
-            title
-            description
-            author
             address
-            hours
+            author
+            description
             email
+            facebook
+            hours
+            instagram
             phone {
               name
               numberDisplay
               numberFormatted
             }
-            facebook
-            instagram
+            siteUrl
+            title
           }
         }
         # Home page queries
@@ -50,6 +51,9 @@ export function useGraphQL() {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
+        }
+        ogImage: file(relativePath: { eq: "og-image.jpg" }) {
+          publicURL
         }
         # Ladies Collection page queries
         ladiesCollectionHeroImage: file(
