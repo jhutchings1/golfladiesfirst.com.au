@@ -12,12 +12,23 @@ export default function CollectionPageTemplate({
   const { products } = shopifyCollection;
 
   const [prods, setProds] = useState(null);
+  const [filteredProds, setFilteredProds] = useState(null);
 
   const location = useLocation();
 
   const queryString = parse(location.search);
 
   const theme = queryString.filter ? queryString.filter.toLowerCase() : '';
+
+  useEffect(() => {
+    if (queryString.filter) {
+      const filteredProducts = products.filter((product) => {
+        return product.tags.includes('Ladies');
+      });
+      console.log(filteredProducts);
+      setFilteredProds(filteredProducts);
+    }
+  }, []);
 
   const [itemsToShow, setItemsToShow] = useState(8);
 
@@ -66,8 +77,12 @@ export default function CollectionPageTemplate({
   }, [element]);
 
   useEffect(() => {
-    setProds(products.slice(0, itemsToShow));
-  }, [products, itemsToShow]);
+    if (filteredProds) {
+      setProds(filteredProds.slice(0, itemsToShow));
+    } else {
+      setProds(products.slice(0, itemsToShow));
+    }
+  }, [filteredProds, products, itemsToShow]);
 
   return (
     <Layout theme={theme}>
